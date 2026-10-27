@@ -31,9 +31,18 @@ window.addEventListener("hashchange", () => showTab(location.hash.slice(1) || "a
 
 /* ---------------------------------------------------------------- contracts and examples */
 
-async function loadContracts() {
-  const r = await fetch("/api/contracts");
-  const data = await r.json();
+async function loadContracts(attempt = 0) {
+  let data;
+  try {
+    const r = await fetch("/api/contracts");
+    if (!r.ok) throw new Error(r.status);
+    data = await r.json();
+  } catch {
+    // The server scales to zero and may still be starting: retry a few times before giving up.
+    if (attempt < 5) return setTimeout(() => loadContracts(attempt + 1), 2000 * (attempt + 1));
+    $("#contracts").innerHTML = `<p class="error">Les contrats ne se chargent pas. Rechargez la page dans un instant.</p>`;
+    return;
+  }
   state.contracts = data.contracts;
   state.perils = data.perils;
   const box = $("#contracts");
