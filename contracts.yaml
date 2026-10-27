@@ -1,0 +1,32 @@
+# The contracts the app knows about. One entry = one row of the `contracts` table.
+# PDFs are public documents downloaded from each insurer's website; they are not committed.
+# `pages` limits ingestion to the home-insurance chapters of multi-line contracts (1-based PDF pages).
+contracts:
+  - id: baloise-home-2024
+    insurer: Baloise Luxembourg
+    product: HOME
+    version: CG-HOME(2)-LUFR-09-24
+    effective: "2024-09"
+    url: https://www.baloise.lu/dam/baloise-lu/1890/particulier/documents/CG-CS/CG-HOME-2--LUFR-09-24.pdf
+    sha256: 2c365b0ea59a47ddf86295b0e1ad65a0c23847bcc30db22ec47861b18ba4a5a6
+    pages: null
+
+  - id: axa-optihome-2022
+    insurer: AXA Assurances Luxembourg
+    product: OptiHome
+    version: Mars 2022
+    effective: "2022-03"
+    url: https://axa.lu/sites/axa/files/cgv/YmJY-hMAAE31yo7o.pdf
+    sha256: 4d288bf883c07eb5c5de15574801edce3f1f12bed7366e94a984485591d10ef6
+    pages: null
+
+  - id: lalux-easyprotect-2022
+    insurer: La Luxembourgeoise (Lalux)
+    product: easyPROTECT, volet Habitation
+    version: 15.04.2022
+    effective: "2022-04"
+    url: https://www.lalux.lu/fileadmin/mediatheque/terms_and_conditions/X9D/FRA_DG_EASYPROTECT_2022_FR.pdf
+    sha256: 7ad5ed2c0ab49379b4c625a4beaa2f563f51f08f2463e0208b4a95c1e422fecd
+    # Habitation chapters, common home exclusions, administrative conditions and definitions.
+    # Motor, travel services and personal-accident chapters are left out.
+    pages: [[30, 65], [85, 87], [105, 127]]

@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+data/pdfs/
+data/sinistres.db
+eval/results/*.json
+!eval/results/.gitkeep
+data/segments/*.structure.json
+drafts/
+data/*.log
+data/*.tmp
+data/*.db
+.claude/

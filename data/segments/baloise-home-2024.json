@@ -1,0 +1,7821 @@
+{
+ "contract_id": "baloise-home-2024",
+ "fingerprint": "3f83f7f869d982d0",
+ "model": "ministral-14b-latest",
+ "headings": [
+  {
+   "line": 43,
+   "end": 43,
+   "level": 1
+  },
+  {
+   "line": 131,
+   "end": 131,
+   "level": 2
+  },
+  {
+   "line": 166,
+   "end": 166,
+   "level": 2
+  },
+  {
+   "line": 176,
+   "end": 176,
+   "level": 3
+  },
+  {
+   "line": 188,
+   "end": 188,
+   "level": 2
+  },
+  {
+   "line": 194,
+   "end": 194,
+   "level": 2
+  },
+  {
+   "line": 232,
+   "end": 232,
+   "level": 2
+  },
+  {
+   "line": 236,
+   "end": 236,
+   "level": 2
+  },
+  {
+   "line": 245,
+   "end": 245,
+   "level": 3
+  },
+  {
+   "line": 252,
+   "end": 252,
+   "level": 2
+  },
+  {
+   "line": 256,
+   "end": 256,
+   "level": 2
+  },
+  {
+   "line": 262,
+   "end": 262,
+   "level": 2
+  },
+  {
+   "line": 266,
+   "end": 266,
+   "level": 2
+  },
+  {
+   "line": 271,
+   "end": 271,
+   "level": 2
+  },
+  {
+   "line": 283,
+   "end": 283,
+   "level": 2
+  },
+  {
+   "line": 287,
+   "end": 287,
+   "level": 3
+  },
+  {
+   "line": 291,
+   "end": 291,
+   "level": 2
+  },
+  {
+   "line": 293,
+   "end": 293,
+   "level": 2
+  },
+  {
+   "line": 303,
+   "end": 303,
+   "level": 2
+  },
+  {
+   "line": 307,
+   "end": 307,
+   "level": 2
+  },
+  {
+   "line": 310,
+   "end": 310,
+   "level": 3
+  },
+  {
+   "line": 316,
+   "end": 316,
+   "level": 3
+  },
+  {
+   "line": 318,
+   "end": 318,
+   "level": 3
+  },
+  {
+   "line": 321,
+   "end": 321,
+   "level": 3
+  },
+  {
+   "line": 325,
+   "end": 325,
+   "level": 3
+  },
+  {
+   "line": 329,
+   "end": 329,
+   "level": 3
+  },
+  {
+   "line": 331,
+   "end": 331,
+   "level": 3
+  },
+  {
+   "line": 333,
+   "end": 333,
+   "level": 3
+  },
+  {
+   "line": 341,
+   "end": 341,
+   "level": 3
+  },
+  {
+   "line": 343,
+   "end": 343,
+   "level": 3
+  },
+  {
+   "line": 352,
+   "end": 352,
+   "level": 3
+  },
+  {
+   "line": 356,
+   "end": 356,
+   "level": 3
+  },
+  {
+   "line": 360,
+   "end": 360,
+   "level": 4
+  },
+  {
+   "line": 363,
+   "end": 363,
+   "level": 3
+  },
+  {
+   "line": 367,
+   "end": 367,
+   "level": 3
+  },
+  {
+   "line": 371,
+   "end": 371,
+   "level": 3
+  },
+  {
+   "line": 376,
+   "end": 376,
+   "level": 3
+  },
+  {
+   "line": 380,
+   "end": 380,
+   "level": 4
+  },
+  {
+   "line": 382,
+   "end": 382,
+   "level": 3
+  },
+  {
+   "line": 385,
+   "end": 385,
+   "level": 3
+  },
+  {
+   "line": 390,
+   "end": 390,
+   "level": 2
+  },
+  {
+   "line": 394,
+   "end": 394,
+   "level": 3
+  },
+  {
+   "line": 405,
+   "end": 405,
+   "level": 3
+  },
+  {
+   "line": 411,
+   "end": 411,
+   "level": 3
+  },
+  {
+   "line": 418,
+   "end": 418,
+   "level": 3
+  },
+  {
+   "line": 433,
+   "end": 433,
+   "level": 3
+  },
+  {
+   "line": 436,
+   "end": 436,
+   "level": 3
+  },
+  {
+   "line": 462,
+   "end": 462,
+   "level": 3
+  },
+  {
+   "line": 477,
+   "end": 477,
+   "level": 3
+  },
+  {
+   "line": 488,
+   "end": 488,
+   "level": 2
+  },
+  {
+   "line": 494,
+   "end": 494,
+   "level": 2
+  },
+  {
+   "line": 509,
+   "end": 509,
+   "level": 2
+  },
+  {
+   "line": 512,
+   "end": 512,
+   "level": 2
+  },
+  {
+   "line": 514,
+   "end": 514,
+   "level": 2
+  },
+  {
+   "line": 520,
+   "end": 520,
+   "level": 2
+  },
+  {
+   "line": 528,
+   "end": 528,
+   "level": 2
+  },
+  {
+   "line": 539,
+   "end": 539,
+   "level": 2
+  },
+  {
+   "line": 542,
+   "end": 542,
+   "level": 2
+  },
+  {
+   "line": 545,
+   "end": 545,
+   "level": 2
+  },
+  {
+   "line": 556,
+   "end": 556,
+   "level": 2
+  },
+  {
+   "line": 564,
+   "end": 564,
+   "level": 2
+  },
+  {
+   "line": 566,
+   "end": 566,
+   "level": 2
+  },
+  {
+   "line": 567,
+   "end": 567,
+   "level": 3
+  },
+  {
+   "line": 572,
+   "end": 572,
+   "level": 4
+  },
+  {
+   "line": 588,
+   "end": 588,
+   "level": 3
+  },
+  {
+   "line": 591,
+   "end": 591,
+   "level": 3
+  },
+  {
+   "line": 601,
+   "end": 601,
+   "level": 3
+  },
+  {
+   "line": 608,
+   "end": 608,
+   "level": 3
+  },
+  {
+   "line": 616,
+   "end": 616,
+   "level": 4
+  },
+  {
+   "line": 633,
+   "end": 633,
+   "level": 3
+  },
+  {
+   "line": 640,
+   "end": 640,
+   "level": 3
+  },
+  {
+   "line": 644,
+   "end": 644,
+   "level": 4
+  },
+  {
+   "line": 650,
+   "end": 650,
+   "level": 3
+  },
+  {
+   "line": 654,
+   "end": 654,
+   "level": 3
+  },
+  {
+   "line": 658,
+   "end": 658,
+   "level": 3
+  },
+  {
+   "line": 661,
+   "end": 661,
+   "level": 4
+  },
+  {
+   "line": 666,
+   "end": 666,
+   "level": 2
+  },
+  {
+   "line": 669,
+   "end": 669,
+   "level": 2
+  },
+  {
+   "line": 672,
+   "end": 672,
+   "level": 2
+  },
+  {
+   "line": 675,
+   "end": 675,
+   "level": 2
+  },
+  {
+   "line": 678,
+   "end": 678,
+   "level": 2
+  },
+  {
+   "line": 682,
+   "end": 682,
+   "level": 2
+  },
+  {
+   "line": 692,
+   "end": 692,
+   "level": 1
+  },
+  {
+   "line": 722,
+   "end": 722,
+   "level": 1
+  },
+  {
+   "line": 771,
+   "end": 771,
+   "level": 2
+  },
+  {
+   "line": 791,
+   "end": 792,
+   "level": 3
+  },
+  {
+   "line": 797,
+   "end": 797,
+   "level": 3
+  },
+  {
+   "line": 811,
+   "end": 811,
+   "level": 3
+  },
+  {
+   "line": 829,
+   "end": 829,
+   "level": 3
+  },
+  {
+   "line": 859,
+   "end": 859,
+   "level": 2
+  },
+  {
+   "line": 862,
+   "end": 862,
+   "level": 3
+  },
+  {
+   "line": 884,
+   "end": 884,
+   "level": 4
+  },
+  {
+   "line": 885,
+   "end": 885,
+   "level": 5
+  },
+  {
+   "line": 901,
+   "end": 901,
+   "level": 5
+  },
+  {
+   "line": 913,
+   "end": 913,
+   "level": 3
+  },
+  {
+   "line": 931,
+   "end": 931,
+   "level": 4
+  },
+  {
+   "line": 937,
+   "end": 937,
+   "level": 5
+  },
+  {
+   "line": 940,
+   "end": 940,
+   "level": 1
+  },
+  {
+   "line": 956,
+   "end": 956,
+   "level": 1
+  },
+  {
+   "line": 960,
+   "end": 960,
+   "level": 5
+  },
+  {
+   "line": 972,
+   "end": 972,
+   "level": 1
+  },
+  {
+   "line": 1000,
+   "end": 1000,
+   "level": 5
+  },
+  {
+   "line": 1005,
+   "end": 1005,
+   "level": 1
+  },
+  {
+   "line": 1032,
+   "end": 1032,
+   "level": 5
+  },
+  {
+   "line": 1038,
+   "end": 1038,
+   "level": 5
+  },
+  {
+   "line": 1064,
+   "end": 1064,
+   "level": 2
+  },
+  {
+   "line": 1071,
+   "end": 1071,
+   "level": 2
+  },
+  {
+   "line": 1078,
+   "end": 1078,
+   "level": 5
+  },
+  {
+   "line": 1089,
+   "end": 1089,
+   "level": 2
+  },
+  {
+   "line": 1135,
+   "end": 1135,
+   "level": 5
+  },
+  {
+   "line": 1149,
+   "end": 1149,
+   "level": 2
+  },
+  {
+   "line": 1152,
+   "end": 1152,
+   "level": 3
+  },
+  {
+   "line": 1165,
+   "end": 1165,
+   "level": 4
+  },
+  {
+   "line": 1172,
+   "end": 1172,
+   "level": 3
+  },
+  {
+   "line": 1185,
+   "end": 1185,
+   "level": 4
+  },
+  {
+   "line": 1195,
+   "end": 1195,
+   "level": 3
+  },
+  {
+   "line": 1235,
+   "end": 1235,
+   "level": 2
+  },
+  {
+   "line": 1244,
+   "end": 1244,
+   "level": 2
+  },
+  {
+   "line": 1260,
+   "end": 1260,
+   "level": 5
+  },
+  {
+   "line": 1273,
+   "end": 1273,
+   "level": 2
+  },
+  {
+   "line": 1287,
+   "end": 1287,
+   "level": 5
+  },
+  {
+   "line": 1290,
+   "end": 1290,
+   "level": 3
+  },
+  {
+   "line": 1296,
+   "end": 1296,
+   "level": 4
+  },
+  {
+   "line": 1297,
+   "end": 1297,
+   "level": 5
+  },
+  {
+   "line": 1410,
+   "end": 1410,
+   "level": 3
+  },
+  {
+   "line": 1417,
+   "end": 1417,
+   "level": 4
+  },
+  {
+   "line": 1419,
+   "end": 1419,
+   "level": 5
+  },
+  {
+   "line": 1422,
+   "end": 1422,
+   "level": 4
+  },
+  {
+   "line": 1501,
+   "end": 1501,
+   "level": 3
+  },
+  {
+   "line": 1516,
+   "end": 1516,
+   "level": 4
+  },
+  {
+   "line": 1532,
+   "end": 1532,
+   "level": 2
+  },
+  {
+   "line": 1536,
+   "end": 1536,
+   "level": 3
+  },
+  {
+   "line": 1545,
+   "end": 1545,
+   "level": 3
+  },
+  {
+   "line": 1596,
+   "end": 1596,
+   "level": 2
+  },
+  {
+   "line": 1600,
+   "end": 1600,
+   "level": 3
+  },
+  {
+   "line": 1608,
+   "end": 1608,
+   "level": 3
+  },
+  {
+   "line": 1613,
+   "end": 1613,
+   "level": 3
+  },
+  {
+   "line": 1648,
+   "end": 1648,
+   "level": 2
+  },
+  {
+   "line": 1668,
+   "end": 1668,
+   "level": 3
+  },
+  {
+   "line": 1686,
+   "end": 1686,
+   "level": 3
+  },
+  {
+   "line": 1698,
+   "end": 1698,
+   "level": 3
+  },
+  {
+   "line": 1709,
+   "end": 1709,
+   "level": 2
+  },
+  {
+   "line": 1711,
+   "end": 1711,
+   "level": 3
+  },
+  {
+   "line": 1724,
+   "end": 1724,
+   "level": 3
+  },
+  {
+   "line": 1727,
+   "end": 1727,
+   "level": 3
+  },
+  {
+   "line": 1747,
+   "end": 1747,
+   "level": 3
+  },
+  {
+   "line": 1755,
+   "end": 1755,
+   "level": 2
+  },
+  {
+   "line": 1763,
+   "end": 1763,
+   "level": 3
+  },
+  {
+   "line": 1777,
+   "end": 1777,
+   "level": 3
+  },
+  {
+   "line": 1805,
+   "end": 1805,
+   "level": 2
+  },
+  {
+   "line": 1814,
+   "end": 1814,
+   "level": 3
+  },
+  {
+   "line": 1817,
+   "end": 1817,
+   "level": 3
+  },
+  {
+   "line": 1827,
+   "end": 1827,
+   "level": 1
+  },
+  {
+   "line": 1828,
+   "end": 1828,
+   "level": 2
+  },
+  {
+   "line": 1831,
+   "end": 1831,
+   "level": 3
+  },
+  {
+   "line": 1857,
+   "end": 1857,
+   "level": 3
+  },
+  {
+   "line": 1865,
+   "end": 1865,
+   "level": 3
+  },
+  {
+   "line": 1931,
+   "end": 1931,
+   "level": 1
+  },
+  {
+   "line": 1934,
+   "end": 1934,
+   "level": 3
+  },
+  {
+   "line": 1944,
+   "end": 1944,
+   "level": 3
+  },
+  {
+   "line": 1949,
+   "end": 1949,
+   "level": 3
+  },
+  {
+   "line": 1959,
+   "end": 1959,
+   "level": 3
+  },
+  {
+   "line": 1984,
+   "end": 1984,
+   "level": 1
+  },
+  {
+   "line": 2010,
+   "end": 2010,
+   "level": 3
+  },
+  {
+   "line": 2018,
+   "end": 2019,
+   "level": 1
+  },
+  {
+   "line": 2020,
+   "end": 2020,
+   "level": 3
+  },
+  {
+   "line": 2026,
+   "end": 2026,
+   "level": 2
+  },
+  {
+   "line": 2034,
+   "end": 2034,
+   "level": 2
+  },
+  {
+   "line": 2049,
+   "end": 2049,
+   "level": 2
+  },
+  {
+   "line": 2075,
+   "end": 2075,
+   "level": 1
+  },
+  {
+   "line": 2078,
+   "end": 2078,
+   "level": 2
+  },
+  {
+   "line": 2079,
+   "end": 2079,
+   "level": 3
+  },
+  {
+   "line": 2088,
+   "end": 2088,
+   "level": 3
+  },
+  {
+   "line": 2099,
+   "end": 2099,
+   "level": 3
+  },
+  {
+   "line": 2109,
+   "end": 2109,
+   "level": 3
+  },
+  {
+   "line": 2126,
+   "end": 2126,
+   "level": 2
+  },
+  {
+   "line": 2142,
+   "end": 2142,
+   "level": 2
+  },
+  {
+   "line": 2150,
+   "end": 2150,
+   "level": 2
+  },
+  {
+   "line": 2160,
+   "end": 2161,
+   "level": 2
+  },
+  {
+   "line": 2165,
+   "end": 2165,
+   "level": 3
+  },
+  {
+   "line": 2178,
+   "end": 2178,
+   "level": 3
+  },
+  {
+   "line": 2192,
+   "end": 2193,
+   "level": 3
+  },
+  {
+   "line": 2205,
+   "end": 2205,
+   "level": 1
+  },
+  {
+   "line": 2206,
+   "end": 2206,
+   "level": 2
+  },
+  {
+   "line": 2212,
+   "end": 2212,
+   "level": 3
+  },
+  {
+   "line": 2215,
+   "end": 2215,
+   "level": 4
+  },
+  {
+   "line": 2221,
+   "end": 2221,
+   "level": 4
+  },
+  {
+   "line": 2228,
+   "end": 2228,
+   "level": 4
+  },
+  {
+   "line": 2245,
+   "end": 2245,
+   "level": 3
+  },
+  {
+   "line": 2265,
+   "end": 2265,
+   "level": 3
+  },
+  {
+   "line": 2280,
+   "end": 2280,
+   "level": 3
+  },
+  {
+   "line": 2286,
+   "end": 2287,
+   "level": 2
+  },
+  {
+   "line": 2291,
+   "end": 2291,
+   "level": 3
+  },
+  {
+   "line": 2324,
+   "end": 2324,
+   "level": 2
+  },
+  {
+   "line": 2351,
+   "end": 2351,
+   "level": 3
+  },
+  {
+   "line": 2397,
+   "end": 2397,
+   "level": 2
+  },
+  {
+   "line": 2409,
+   "end": 2409,
+   "level": 1
+  },
+  {
+   "line": 2413,
+   "end": 2413,
+   "level": 2
+  },
+  {
+   "line": 2454,
+   "end": 2454,
+   "level": 2
+  },
+  {
+   "line": 2456,
+   "end": 2456,
+   "level": 3
+  },
+  {
+   "line": 2476,
+   "end": 2476,
+   "level": 2
+  },
+  {
+   "line": 2480,
+   "end": 2480,
+   "level": 3
+  },
+  {
+   "line": 2481,
+   "end": 2483,
+   "level": 4
+  },
+  {
+   "line": 2484,
+   "end": 2484,
+   "level": 2
+  },
+  {
+   "line": 2500,
+   "end": 2500,
+   "level": 2
+  },
+  {
+   "line": 2512,
+   "end": 2512,
+   "level": 2
+  },
+  {
+   "line": 2525,
+   "end": 2525,
+   "level": 3
+  },
+  {
+   "line": 2547,
+   "end": 2547,
+   "level": 3
+  },
+  {
+   "line": 2548,
+   "end": 2548,
+   "level": 4
+  },
+  {
+   "line": 2553,
+   "end": 2553,
+   "level": 2
+  },
+  {
+   "line": 2566,
+   "end": 2566,
+   "level": 3
+  },
+  {
+   "line": 2567,
+   "end": 2567,
+   "level": 4
+  },
+  {
+   "line": 2569,
+   "end": 2569,
+   "level": 3
+  },
+  {
+   "line": 2576,
+   "end": 2576,
+   "level": 2
+  },
+  {
+   "line": 2584,
+   "end": 2584,
+   "level": 3
+  },
+  {
+   "line": 2594,
+   "end": 2594,
+   "level": 2
+  },
+  {
+   "line": 2603,
+   "end": 2603,
+   "level": 3
+  },
+  {
+   "line": 2610,
+   "end": 2610,
+   "level": 2
+  },
+  {
+   "line": 2619,
+   "end": 2619,
+   "level": 3
+  },
+  {
+   "line": 2631,
+   "end": 2631,
+   "level": 2
+  },
+  {
+   "line": 2642,
+   "end": 2642,
+   "level": 3
+  },
+  {
+   "line": 2654,
+   "end": 2654,
+   "level": 3
+  },
+  {
+   "line": 2662,
+   "end": 2662,
+   "level": 1
+  },
+  {
+   "line": 2663,
+   "end": 2663,
+   "level": 3
+  },
+  {
+   "line": 2665,
+   "end": 2665,
+   "level": 2
+  },
+  {
+   "line": 2724,
+   "end": 2724,
+   "level": 2
+  },
+  {
+   "line": 2725,
+   "end": 2725,
+   "level": 3
+  },
+  {
+   "line": 2822,
+   "end": 2822,
+   "level": 2
+  },
+  {
+   "line": 2834,
+   "end": 2834,
+   "level": 2
+  },
+  {
+   "line": 2843,
+   "end": 2843,
+   "level": 2
+  },
+  {
+   "line": 2855,
+   "end": 2855,
+   "level": 2
+  },
+  {
+   "line": 2863,
+   "end": 2863,
+   "level": 1
+  },
+  {
+   "line": 2864,
+   "end": 2864,
+   "level": 3
+  },
+  {
+   "line": 2866,
+   "end": 2866,
+   "level": 2
+  },
+  {
+   "line": 2874,
+   "end": 2874,
+   "level": 2
+  },
+  {
+   "line": 2898,
+   "end": 2898,
+   "level": 3
+  },
+  {
+   "line": 2908,
+   "end": 2908,
+   "level": 3
+  },
+  {
+   "line": 2913,
+   "end": 2913,
+   "level": 4
+  },
+  {
+   "line": 2914,
+   "end": 2914,
+   "level": 4
+  },
+  {
+   "line": 2915,
+   "end": 2915,
+   "level": 3
+  },
+  {
+   "line": 2931,
+   "end": 2932,
+   "level": 1
+  },
+  {
+   "line": 2933,
+   "end": 2933,
+   "level": 2
+  },
+  {
+   "line": 3010,
+   "end": 3010,
+   "level": 1
+  },
+  {
+   "line": 3011,
+   "end": 3011,
+   "level": 2
+  },
+  {
+   "line": 3020,
+   "end": 3020,
+   "level": 3
+  },
+  {
+   "line": 3045,
+   "end": 3046,
+   "level": 3
+  },
+  {
+   "line": 3071,
+   "end": 3071,
+   "level": 3
+  },
+  {
+   "line": 3096,
+   "end": 3096,
+   "level": 1
+  },
+  {
+   "line": 3125,
+   "end": 3125,
+   "level": 2
+  },
+  {
+   "line": 3126,
+   "end": 3126,
+   "level": 3
+  },
+  {
+   "line": 3136,
+   "end": 3136,
+   "level": 3
+  },
+  {
+   "line": 3149,
+   "end": 3149,
+   "level": 2
+  },
+  {
+   "line": 3161,
+   "end": 3161,
+   "level": 2
+  },
+  {
+   "line": 3168,
+   "end": 3168,
+   "level": 3
+  },
+  {
+   "line": 3171,
+   "end": 3173,
+   "level": 3
+  },
+  {
+   "line": 3174,
+   "end": 3174,
+   "level": 2
+  },
+  {
+   "line": 3208,
+   "end": 3208,
+   "level": 2
+  },
+  {
+   "line": 3246,
+   "end": 3246,
+   "level": 2
+  },
+  {
+   "line": 3252,
+   "end": 3252,
+   "level": 2
+  },
+  {
+   "line": 3288,
+   "end": 3288,
+   "level": 1
+  },
+  {
+   "line": 3297,
+   "end": 3297,
+   "level": 2
+  },
+  {
+   "line": 3306,
+   "end": 3306,
+   "level": 2
+  },
+  {
+   "line": 3310,
+   "end": 3310,
+   "level": 3
+  },
+  {
+   "line": 3319,
+   "end": 3319,
+   "level": 3
+  },
+  {
+   "line": 3333,
+   "end": 3333,
+   "level": 2
+  },
+  {
+   "line": 3334,
+   "end": 3334,
+   "level": 3
+  },
+  {
+   "line": 3341,
+   "end": 3341,
+   "level": 3
+  },
+  {
+   "line": 3356,
+   "end": 3356,
+   "level": 3
+  },
+  {
+   "line": 3360,
+   "end": 3360,
+   "level": 3
+  },
+  {
+   "line": 3365,
+   "end": 3365,
+   "level": 3
+  },
+  {
+   "line": 3370,
+   "end": 3370,
+   "level": 1
+  },
+  {
+   "line": 3371,
+   "end": 3371,
+   "level": 2
+  },
+  {
+   "line": 3378,
+   "end": 3378,
+   "level": 2
+  },
+  {
+   "line": 3383,
+   "end": 3383,
+   "level": 2
+  },
+  {
+   "line": 3389,
+   "end": 3389,
+   "level": 3
+  },
+  {
+   "line": 3392,
+   "end": 3392,
+   "level": 2
+  },
+  {
+   "line": 3401,
+   "end": 3401,
+   "level": 2
+  },
+  {
+   "line": 3406,
+   "end": 3406,
+   "level": 2
+  },
+  {
+   "line": 3419,
+   "end": 3419,
+   "level": 1
+  },
+  {
+   "line": 3420,
+   "end": 3420,
+   "level": 2
+  },
+  {
+   "line": 3439,
+   "end": 3440,
+   "level": 2
+  },
+  {
+   "line": 3449,
+   "end": 3449,
+   "level": 2
+  },
+  {
+   "line": 3457,
+   "end": 3457,
+   "level": 1
+  },
+  {
+   "line": 3470,
+   "end": 3470,
+   "level": 1
+  },
+  {
+   "line": 3479,
+   "end": 3479,
+   "level": 1
+  },
+  {
+   "line": 3489,
+   "end": 3489,
+   "level": 1
+  },
+  {
+   "line": 3504,
+   "end": 3504,
+   "level": 1
+  },
+  {
+   "line": 3517,
+   "end": 3517,
+   "level": 1
+  },
+  {
+   "line": 3522,
+   "end": 3522,
+   "level": 1
+  },
+  {
+   "line": 3529,
+   "end": 3529,
+   "level": 1
+  },
+  {
+   "line": 3570,
+   "end": 3570,
+   "level": 1
+  },
+  {
+   "line": 3576,
+   "end": 3576,
+   "level": 2
+  },
+  {
+   "line": 3577,
+   "end": 3577,
+   "level": 3
+  },
+  {
+   "line": 3581,
+   "end": 3581,
+   "level": 3
+  },
+  {
+   "line": 3583,
+   "end": 3583,
+   "level": 4
+  },
+  {
+   "line": 3596,
+   "end": 3596,
+   "level": 4
+  },
+  {
+   "line": 3618,
+   "end": 3618,
+   "level": 4
+  },
+  {
+   "line": 3628,
+   "end": 3628,
+   "level": 4
+  },
+  {
+   "line": 3639,
+   "end": 3640,
+   "level": 2
+  },
+  {
+   "line": 3650,
+   "end": 3651,
+   "level": 3
+  },
+  {
+   "line": 3662,
+   "end": 3663,
+   "level": 3
+  },
+  {
+   "line": 3672,
+   "end": 3672,
+   "level": 3
+  },
+  {
+   "line": 3684,
+   "end": 3685,
+   "level": 3
+  },
+  {
+   "line": 3691,
+   "end": 3692,
+   "level": 3
+  },
+  {
+   "line": 3701,
+   "end": 3702,
+   "level": 3
+  },
+  {
+   "line": 3707,
+   "end": 3708,
+   "level": 3
+  },
+  {
+   "line": 3717,
+   "end": 3718,
+   "level": 3
+  },
+  {
+   "line": 3724,
+   "end": 3725,
+   "level": 3
+  },
+  {
+   "line": 3731,
+   "end": 3731,
+   "level": 2
+  },
+  {
+   "line": 3735,
+   "end": 3735,
+   "level": 2
+  },
+  {
+   "line": 3742,
+   "end": 3742,
+   "level": 2
+  },
+  {
+   "line": 3764,
+   "end": 3764,
+   "level": 2
+  },
+  {
+   "line": 3770,
+   "end": 3770,
+   "level": 2
+  },
+  {
+   "line": 3802,
+   "end": 3802,
+   "level": 2
+  },
+  {
+   "line": 3818,
+   "end": 3818,
+   "level": 3
+  },
+  {
+   "line": 3834,
+   "end": 3834,
+   "level": 1
+  },
+  {
+   "line": 3838,
+   "end": 3838,
+   "level": 1
+  },
+  {
+   "line": 3840,
+   "end": 3840,
+   "level": 1
+  },
+  {
+   "line": 3855,
+   "end": 3856,
+   "level": 1
+  },
+  {
+   "line": 3868,
+   "end": 3869,
+   "level": 2
+  },
+  {
+   "line": 3907,
+   "end": 3907,
+   "level": 2
+  },
+  {
+   "line": 3924,
+   "end": 3924,
+   "level": 2
+  },
+  {
+   "line": 3931,
+   "end": 3931,
+   "level": 2
+  },
+  {
+   "line": 3959,
+   "end": 3959,
+   "level": 3
+  },
+  {
+   "line": 3967,
+   "end": 3967,
+   "level": 2
+  },
+  {
+   "line": 3978,
+   "end": 3978,
+   "level": 2
+  }
+ ],
+ "clauses": [
+  {
+   "id": 0,
+   "start": 0,
+   "end": 3,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Introduction aux conditions générales"
+  },
+  {
+   "id": 1,
+   "start": 4,
+   "end": 42,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Table des matières du contrat"
+  },
+  {
+   "id": 2,
+   "start": 44,
+   "end": 46,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Définitions (rôle général)",
+   "title": "Rôle des définitions dans le contrat"
+  },
+  {
+   "id": 3,
+   "start": 47,
+   "end": 52,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Accessible (porte, fenêtre ou ouverture)",
+   "title": "Définition d'un point d'entrée accessible"
+  },
+  {
+   "id": 4,
+   "start": 53,
+   "end": 56,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Accident",
+   "title": "Définition d'un accident (événement soudain)"
+  },
+  {
+   "id": 5,
+   "start": 57,
+   "end": 62,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Animal domestique",
+   "title": "Définition d'un animal domestique"
+  },
+  {
+   "id": 6,
+   "start": 63,
+   "end": 68,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Année d’assurance",
+   "title": "Définition de l'année d'assurance"
+  },
+  {
+   "id": 7,
+   "start": 69,
+   "end": 70,
+   "kind": "definition",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": "Antivol approuvé",
+   "title": "Définition d'un antivol homologué"
+  },
+  {
+   "id": 8,
+   "start": 71,
+   "end": 73,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Appareils ménagers",
+   "title": "Définition des appareils ménagers"
+  },
+  {
+   "id": 9,
+   "start": 74,
+   "end": 77,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Appartement",
+   "title": "Définition d'un appartement en copropriété"
+  },
+  {
+   "id": 10,
+   "start": 78,
+   "end": 86,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Assurance au premier risque (plafond libre)"
+  },
+  {
+   "id": 11,
+   "start": 87,
+   "end": 99,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Attentat",
+   "title": "Définition d'un attentat (émeute, terrorisme)"
+  },
+  {
+   "id": 12,
+   "start": 100,
+   "end": 130,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Assuré / Vous",
+   "title": "Définition des personnes assurées"
+  },
+  {
+   "id": 13,
+   "start": 132,
+   "end": 153,
+   "kind": "definition",
+   "perils": [
+    "catastrophes_naturelles",
+    "degats_des_eaux",
+    "general",
+    "incendie",
+    "jardin_exterieurs",
+    "tempete_grele_neige",
+    "vol_vandalisme"
+   ],
+   "defined_term": "Bâtiment",
+   "title": "Définition d'un bâtiment (éléments inclus)"
+  },
+  {
+   "id": 14,
+   "start": 154,
+   "end": 158,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Garantie pour copropriétaires (biens propres)"
+  },
+  {
+   "id": 15,
+   "start": 159,
+   "end": 165,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Garantie pour locataires (biens couverts)"
+  },
+  {
+   "id": 16,
+   "start": 167,
+   "end": 175,
+   "kind": "definition",
+   "perils": [
+    "general",
+    "vol_vandalisme"
+   ],
+   "defined_term": "Biens confiés à l’assuré",
+   "title": "Définition des biens confiés (location/dépôt)"
+  },
+  {
+   "id": 17,
+   "start": 177,
+   "end": 187,
+   "kind": "definition",
+   "perils": [
+    "catastrophes_naturelles",
+    "degats_des_eaux",
+    "general",
+    "incendie",
+    "tempete_grele_neige"
+   ],
+   "defined_term": "Biens immeubles par destination",
+   "title": "Définition des biens immeubles par destination"
+  },
+  {
+   "id": 18,
+   "start": 189,
+   "end": 193,
+   "kind": "definition",
+   "perils": [
+    "general",
+    "vol_vandalisme"
+   ],
+   "defined_term": "Dépôt",
+   "title": "Définition d'un dépôt (garde de biens)"
+  },
+  {
+   "id": 19,
+   "start": 195,
+   "end": 203,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Option RC pour chiens dangereux (inclus)"
+  },
+  {
+   "id": 20,
+   "start": 204,
+   "end": 218,
+   "kind": "exclusion",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Exclusion RC pour chiens assimilés (pit-bull)"
+  },
+  {
+   "id": 21,
+   "start": 219,
+   "end": 231,
+   "kind": "exclusion",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Exclusion RC pour chiens dangereux non déclarés"
+  },
+  {
+   "id": 22,
+   "start": 233,
+   "end": 235,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion en cas de conflit de travail"
+  },
+  {
+   "id": 23,
+   "start": 237,
+   "end": 244,
+   "kind": "definition",
+   "perils": [
+    "degats_des_eaux",
+    "general",
+    "incendie",
+    "jardin_exterieurs",
+    "objets_valeur_tous_risques",
+    "vol_vandalisme"
+   ],
+   "defined_term": "Contenu (bâtiment)",
+   "title": "Définition du contenu assuré (mobilier, etc.)"
+  },
+  {
+   "id": 24,
+   "start": 246,
+   "end": 251,
+   "kind": "exclusion",
+   "perils": [
+    "general",
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusions du contenu (véhicules, données)"
+  },
+  {
+   "id": 25,
+   "start": 253,
+   "end": 255,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Contenu situé dans les parties communes",
+   "title": "Définition du mobilier usuel dans parties communes"
+  },
+  {
+   "id": 26,
+   "start": 257,
+   "end": 261,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Cyber attaque",
+   "title": "Définition d'une cyber attaque et ses modalités"
+  },
+  {
+   "id": 27,
+   "start": 263,
+   "end": 265,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Déchéance",
+   "title": "Définition de la déchéance de garantie ou service"
+  },
+  {
+   "id": 28,
+   "start": 267,
+   "end": 270,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Déménagement",
+   "title": "Définition du déménagement des biens mobiliers"
+  },
+  {
+   "id": 29,
+   "start": 272,
+   "end": 282,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Dépendances",
+   "title": "Définition des dépendances non habitées (hangars, garages)"
+  },
+  {
+   "id": 30,
+   "start": 284,
+   "end": 286,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Définition des garanties : loyers impayés, détériorations immobilières"
+  },
+  {
+   "id": 31,
+   "start": 288,
+   "end": 290,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Détériorations immobilières imputables au locataire sortant"
+  },
+  {
+   "id": 32,
+   "start": 292,
+   "end": 292,
+   "kind": "definition",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": "Dommages corporels",
+   "title": "Définition des dommages corporels (atteinte physique)"
+  },
+  {
+   "id": 33,
+   "start": 294,
+   "end": 302,
+   "kind": "definition",
+   "perils": [
+    "pertes_indirectes"
+   ],
+   "defined_term": "Dommage immatériel consécutif",
+   "title": "Définition dommage immatériel consécutif à un dommage garanti"
+  },
+  {
+   "id": 34,
+   "start": 304,
+   "end": 306,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Dommage immatériel non consécutif",
+   "title": "Définition dommage immatériel non lié à un dommage garanti"
+  },
+  {
+   "id": 35,
+   "start": 308,
+   "end": 309,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Dommages matériels",
+   "title": "Définition des dommages matériels (détérioration, destruction)"
+  },
+  {
+   "id": 36,
+   "start": 311,
+   "end": 315,
+   "kind": "garantie",
+   "perils": [
+    "degats_des_eaux",
+    "incendie"
+   ],
+   "defined_term": null,
+   "title": "Dommages ménagers (brûlures, excès de chaleur sans incendie)"
+  },
+  {
+   "id": 37,
+   "start": 317,
+   "end": 317,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Dysfonctionnement",
+   "title": "Définition d'un dysfonctionnement d'un système"
+  },
+  {
+   "id": 38,
+   "start": 319,
+   "end": 320,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Échéance principale",
+   "title": "Définition de l'échéance principale du contrat"
+  },
+  {
+   "id": 39,
+   "start": 322,
+   "end": 324,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Embellissements",
+   "title": "Définition des embellissements (papiers peints, moquettes)"
+  },
+  {
+   "id": 40,
+   "start": 326,
+   "end": 328,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Fait dommageable",
+   "title": "Définition d'un fait dommageable (cause du dommage)"
+  },
+  {
+   "id": 41,
+   "start": 330,
+   "end": 330,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Franchise : montant restant à votre charge"
+  },
+  {
+   "id": 42,
+   "start": 332,
+   "end": 332,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Grève",
+   "title": "Définition d'une grève (arrêt concerté du travail)"
+  },
+  {
+   "id": 43,
+   "start": 334,
+   "end": 340,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Indice Baloise",
+   "title": "Définition de l'indice Baloise (coût de la vie, construction)"
+  },
+  {
+   "id": 44,
+   "start": 342,
+   "end": 342,
+   "kind": "definition",
+   "perils": [
+    "incendie"
+   ],
+   "defined_term": "Incendie",
+   "title": "Définition d'un incendie (combustion avec flamme)"
+  },
+  {
+   "id": 45,
+   "start": 344,
+   "end": 351,
+   "kind": "definition",
+   "perils": [
+    "catastrophes_naturelles"
+   ],
+   "defined_term": "Inondation",
+   "title": "Définition d'une inondation (précipitations, débordements)"
+  },
+  {
+   "id": 46,
+   "start": 353,
+   "end": 355,
+   "kind": "definition",
+   "perils": [
+    "jardin_exterieurs"
+   ],
+   "defined_term": "Installations extérieures",
+   "title": "Définition des installations extérieures fixes (hors dépendances)"
+  },
+  {
+   "id": 47,
+   "start": 357,
+   "end": 362,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Locataire",
+   "title": "Définition du locataire pour garanties loyers impayés"
+  },
+  {
+   "id": 48,
+   "start": 364,
+   "end": 366,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Location saisonnière",
+   "title": "Définition d'une location saisonnière meublée"
+  },
+  {
+   "id": 49,
+   "start": 368,
+   "end": 370,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "Lock-out",
+   "title": "Définition d'un lock-out (fermeture patronale en conflit)"
+  },
+  {
+   "id": 50,
+   "start": 372,
+   "end": 375,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Montant garanti loyers + charges locatives"
+  },
+  {
+   "id": 51,
+   "start": 377,
+   "end": 381,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "locataire défaillant",
+   "title": "Définition d'un locataire défaillant"
+  },
+  {
+   "id": 52,
+   "start": 383,
+   "end": 389,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "lieu d’assurance (chiens dangereux)",
+   "title": "Adresse et type de bâtiment assuré"
+  },
+  {
+   "id": 53,
+   "start": 391,
+   "end": 393,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "matériel professionnel",
+   "title": "Définition du matériel professionnel"
+  },
+  {
+   "id": 54,
+   "start": 395,
+   "end": 404,
+   "kind": "definition",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": "matériels nomades",
+   "title": "Liste des objets multimédias mobiles"
+  },
+  {
+   "id": 55,
+   "start": 406,
+   "end": 410,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "matériels techniques",
+   "title": "Matériels fixes liés au bâtiment"
+  },
+  {
+   "id": 56,
+   "start": 412,
+   "end": 417,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "marchandises destinées à la vente",
+   "title": "Marchandises entreposées pour activité pro"
+  },
+  {
+   "id": 57,
+   "start": 419,
+   "end": 423,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "matériaux durs",
+   "title": "Liste des matériaux de construction durs"
+  },
+  {
+   "id": 58,
+   "start": 424,
+   "end": 432,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "constructions en bois",
+   "title": "Cas particuliers des constructions bois"
+  },
+  {
+   "id": 59,
+   "start": 434,
+   "end": 435,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "mise en conformité",
+   "title": "Obligation de mise aux normes"
+  },
+  {
+   "id": 60,
+   "start": 437,
+   "end": 458,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "mobilier",
+   "title": "Liste exhaustive du mobilier usuel"
+  },
+  {
+   "id": 61,
+   "start": 459,
+   "end": 459,
+   "kind": "definition",
+   "perils": [
+    "jardin_exterieurs"
+   ],
+   "defined_term": "murs de clôture",
+   "title": "Définition des murs de clôture"
+  },
+  {
+   "id": 62,
+   "start": 460,
+   "end": 461,
+   "kind": "definition",
+   "perils": [
+    "jardin_exterieurs"
+   ],
+   "defined_term": "ouvrage de maçonnerie",
+   "title": "Définition des ouvrages de délimitation"
+  },
+  {
+   "id": 63,
+   "start": 463,
+   "end": 476,
+   "kind": "definition",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": "objets de mobilité durable",
+   "title": "Définition vélos et engins légers"
+  },
+  {
+   "id": 64,
+   "start": 478,
+   "end": 483,
+   "kind": "definition",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": "objets de valeur / art",
+   "title": "Liste des objets d'art > 2500€"
+  },
+  {
+   "id": 65,
+   "start": 484,
+   "end": 487,
+   "kind": "definition",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": "objets de valeur / art",
+   "title": "Autres biens > 10 000€ ou collections > 2500€"
+  },
+  {
+   "id": 66,
+   "start": 489,
+   "end": 493,
+   "kind": "definition",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": "objets précieux / bijoux",
+   "title": "Définition bijoux et pierres précieuses"
+  },
+  {
+   "id": 67,
+   "start": 495,
+   "end": 497,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "période d’inhabitation",
+   "title": "Calcul période d'inoccupation > 3 jours"
+  },
+  {
+   "id": 68,
+   "start": 498,
+   "end": 498,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Plafond de garantie période inhabitée"
+  },
+  {
+   "id": 69,
+   "start": 499,
+   "end": 508,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Plafond global indemnisation et frais"
+  },
+  {
+   "id": 70,
+   "start": 510,
+   "end": 511,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "pollution accidentelle",
+   "title": "Pollution concomitante à un événement soudain"
+  },
+  {
+   "id": 71,
+   "start": 513,
+   "end": 513,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "pollution graduelle",
+   "title": "Pollution progressive et lente"
+  },
+  {
+   "id": 72,
+   "start": 515,
+   "end": 519,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "preneur d’assurance",
+   "title": "Définition du preneur d’assurance"
+  },
+  {
+   "id": 73,
+   "start": 521,
+   "end": 527,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Règle proportionnelle en cas de fausse déclaration"
+  },
+  {
+   "id": 74,
+   "start": 529,
+   "end": 538,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "revenu net",
+   "title": "Calcul revenu net locataire (incl. conjoint)"
+  },
+  {
+   "id": 75,
+   "start": 540,
+   "end": 541,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Garage, cave et grenier privatifs inclus dans l'assurance"
+  },
+  {
+   "id": 76,
+   "start": 543,
+   "end": 544,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Bâtiment principal couvert par l'assurance (hors dépendances)"
+  },
+  {
+   "id": 77,
+   "start": 546,
+   "end": 555,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Serre : couverture limitée aux vitres et structure portante"
+  },
+  {
+   "id": 78,
+   "start": 557,
+   "end": 563,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "smart home",
+   "title": "Définition d'une habitation connectée (smart home)"
+  },
+  {
+   "id": 79,
+   "start": 565,
+   "end": 565,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "somme assurée",
+   "title": "Référence au plafond de garantie pour la somme assurée"
+  },
+  {
+   "id": 80,
+   "start": 568,
+   "end": 571,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "surface habitable",
+   "title": "Composition de la surface habitable (pièces à vivre, dégagements)"
+  },
+  {
+   "id": 81,
+   "start": 573,
+   "end": 587,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusions de la surface habitable (parties communes, combles, etc.)"
+  },
+  {
+   "id": 82,
+   "start": 589,
+   "end": 590,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Surface des dépendances : emprise au sol"
+  },
+  {
+   "id": 83,
+   "start": 592,
+   "end": 600,
+   "kind": "definition",
+   "perils": [
+    "tempete_grele_neige"
+   ],
+   "defined_term": "tempête",
+   "title": "Définition d'une tempête pour les dommages assurés"
+  },
+  {
+   "id": 84,
+   "start": 602,
+   "end": 607,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "terrains non bâtis",
+   "title": "Définition des terrains non bâtis (≤ 3 hectares)"
+  },
+  {
+   "id": 85,
+   "start": 609,
+   "end": 632,
+   "kind": "definition",
+   "perils": [
+    "general",
+    "responsabilite_civile"
+   ],
+   "defined_term": "tiers",
+   "title": "Définition des tiers dans le cadre des assurances"
+  },
+  {
+   "id": 86,
+   "start": 634,
+   "end": 638,
+   "kind": "definition",
+   "perils": [
+    "catastrophes_naturelles"
+   ],
+   "defined_term": "tremblement de terre",
+   "title": "Définition d'un séisme couvert (≥ magnitude 4)"
+  },
+  {
+   "id": 87,
+   "start": 639,
+   "end": 639,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Usage exclusif de bureau"
+  },
+  {
+   "id": 88,
+   "start": 641,
+   "end": 643,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Activités autorisées pour un usage de bureau"
+  },
+  {
+   "id": 89,
+   "start": 645,
+   "end": 648,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusions pour un usage de bureau (commerces, fabrication)"
+  },
+  {
+   "id": 90,
+   "start": 649,
+   "end": 649,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "vacance locative",
+   "title": "Définition de la vacance locative"
+  },
+  {
+   "id": 91,
+   "start": 651,
+   "end": 653,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "vacance locative",
+   "title": "Vacance locative pour garanties loyers impayés et détériorations"
+  },
+  {
+   "id": 92,
+   "start": 655,
+   "end": 657,
+   "kind": "definition",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": "valeurs / espèces",
+   "title": "Définition des valeurs et espèces couvertes"
+  },
+  {
+   "id": 93,
+   "start": 659,
+   "end": 662,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "valeur à neuf",
+   "title": "Définition valeur à neuf pour les bâtiments"
+  },
+  {
+   "id": 94,
+   "start": 663,
+   "end": 665,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "valeur à neuf",
+   "title": "Valeur à neuf pour le contenu (bien neuf équivalent)"
+  },
+  {
+   "id": 95,
+   "start": 667,
+   "end": 667,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "valeur de reconstitution matérielle",
+   "title": "Début définition : frais de duplication couverts"
+  },
+  {
+   "id": 96,
+   "start": 668,
+   "end": 668,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion des frais de recherche pour reconstitution"
+  },
+  {
+   "id": 97,
+   "start": 670,
+   "end": 671,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "valeur réelle",
+   "title": "Définition valeur réelle (valeur à neuf moins vétusté)"
+  },
+  {
+   "id": 98,
+   "start": 673,
+   "end": 674,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "valeur vénale",
+   "title": "Définition valeur vénale (prix du marché)"
+  },
+  {
+   "id": 99,
+   "start": 676,
+   "end": 676,
+   "kind": "definition",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": "vandalisme",
+   "title": "Définition du vandalisme (destruction/dégâts volontaires)"
+  },
+  {
+   "id": 100,
+   "start": 677,
+   "end": 677,
+   "kind": "exclusion",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Dégâts causés par un chien dangereux"
+  },
+  {
+   "id": 101,
+   "start": 679,
+   "end": 681,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "vétusté",
+   "title": "Définition de la vétusté des biens"
+  },
+  {
+   "id": 102,
+   "start": 683,
+   "end": 691,
+   "kind": "definition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": "virus informatique",
+   "title": "Définition d'un virus informatique malveillant"
+  },
+  {
+   "id": 103,
+   "start": 693,
+   "end": 698,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Objet du contrat : description générale"
+  },
+  {
+   "id": 104,
+   "start": 699,
+   "end": 709,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Sommes assurées et plafonds par garantie"
+  },
+  {
+   "id": 105,
+   "start": 710,
+   "end": 718,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Plafonds spécifiques mentionnés en particulier"
+  },
+  {
+   "id": 106,
+   "start": 719,
+   "end": 721,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusions complémentaires par garantie"
+  },
+  {
+   "id": 107,
+   "start": 723,
+   "end": 739,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Territoire d'application des garanties"
+  },
+  {
+   "id": 108,
+   "start": 740,
+   "end": 745,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Cas particulier du logement étudiant"
+  },
+  {
+   "id": 109,
+   "start": 746,
+   "end": 754,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion des territoires spécifiques"
+  },
+  {
+   "id": 110,
+   "start": 755,
+   "end": 769,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Définition des territoires exclus (Russie, etc.)"
+  },
+  {
+   "id": 111,
+   "start": 770,
+   "end": 770,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Territoires exclus : Biélorussie, Ukraine"
+  },
+  {
+   "id": 112,
+   "start": 772,
+   "end": 783,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Biens immobiliers garantis sous conditions"
+  },
+  {
+   "id": 113,
+   "start": 784,
+   "end": 790,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Murs de clôture et quote-part copropriété"
+  },
+  {
+   "id": 114,
+   "start": 793,
+   "end": 796,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Embellissements et biens immeubles par destination"
+  },
+  {
+   "id": 115,
+   "start": 798,
+   "end": 809,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Énergie renouvelable : équipements garantis"
+  },
+  {
+   "id": 116,
+   "start": 810,
+   "end": 810,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Énergie renouvelable : équipements extérieurs"
+  },
+  {
+   "id": 117,
+   "start": 812,
+   "end": 828,
+   "kind": "garantie",
+   "perils": [
+    "general",
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Biens mobiliers garantis à l’intérieur"
+  },
+  {
+   "id": 118,
+   "start": 830,
+   "end": 844,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusions : biens non garantis (liste 1)"
+  },
+  {
+   "id": 119,
+   "start": 845,
+   "end": 858,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusions : biens non garantis (liste 2)"
+  },
+  {
+   "id": 120,
+   "start": 860,
+   "end": 861,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Conditions pour l'acquisition des garanties"
+  },
+  {
+   "id": 121,
+   "start": 863,
+   "end": 883,
+   "kind": "garantie",
+   "perils": [
+    "catastrophes_naturelles",
+    "degats_des_eaux",
+    "incendie",
+    "tempete_grele_neige"
+   ],
+   "defined_term": null,
+   "title": "Dommages couverts par l'incendie et assimilés"
+  },
+  {
+   "id": 122,
+   "start": 886,
+   "end": 889,
+   "kind": "exclusion",
+   "perils": [
+    "incendie"
+   ],
+   "defined_term": null,
+   "title": "Exclusion : chauffage non conforme sans ramonage"
+  },
+  {
+   "id": 123,
+   "start": 890,
+   "end": 900,
+   "kind": "exclusion",
+   "perils": [
+    "dommages_electriques"
+   ],
+   "defined_term": null,
+   "title": "Exclusions : dommages électriques spécifiques"
+  },
+  {
+   "id": 124,
+   "start": 902,
+   "end": 912,
+   "kind": "exclusion",
+   "perils": [
+    "dommages_electriques"
+   ],
+   "defined_term": null,
+   "title": "Exclusions : surtensions et usure électrique"
+  },
+  {
+   "id": 125,
+   "start": 914,
+   "end": 930,
+   "kind": "garantie",
+   "perils": [
+    "catastrophes_naturelles",
+    "tempete_grele_neige"
+   ],
+   "defined_term": null,
+   "title": "Conditions de couverture pour tempêtes, grêle, neige et tremblement de terre"
+  },
+  {
+   "id": 126,
+   "start": 932,
+   "end": 936,
+   "kind": "condition",
+   "perils": [
+    "tempete_grele_neige"
+   ],
+   "defined_term": null,
+   "title": "Obligations de prévention pour tempêtes, grêle et neige"
+  },
+  {
+   "id": 127,
+   "start": 938,
+   "end": 939,
+   "kind": "exclusion",
+   "perils": [
+    "tempete_grele_neige"
+   ],
+   "defined_term": null,
+   "title": "Exclusions pour défaut d’entretien ou bâtiments non clos"
+  },
+  {
+   "id": 128,
+   "start": 941,
+   "end": 955,
+   "kind": "garantie",
+   "perils": [
+    "catastrophes_naturelles",
+    "degats_des_eaux"
+   ],
+   "defined_term": null,
+   "title": "Couverture des dommages liés aux inondations"
+  },
+  {
+   "id": 129,
+   "start": 957,
+   "end": 959,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Obligation générale d’entretien des biens assurés"
+  },
+  {
+   "id": 130,
+   "start": 961,
+   "end": 971,
+   "kind": "exclusion",
+   "perils": [
+    "jardin_exterieurs"
+   ],
+   "defined_term": null,
+   "title": "Exclusions pour jardins, piscines et dépendances légères"
+  },
+  {
+   "id": 131,
+   "start": 973,
+   "end": 990,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Couverture des attentats, actes terroristes et conflits de travail"
+  },
+  {
+   "id": 132,
+   "start": 991,
+   "end": 995,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Limites de garantie pour attentats et conflits de travail"
+  },
+  {
+   "id": 133,
+   "start": 996,
+   "end": 1000,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Suspension possible de garantie pour attentats et terrorisme"
+  },
+  {
+   "id": 134,
+   "start": 1001,
+   "end": 1004,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusions pour dommages causés par locataires et dégradations"
+  },
+  {
+   "id": 135,
+   "start": 1006,
+   "end": 1031,
+   "kind": "garantie",
+   "perils": [
+    "degats_des_eaux"
+   ],
+   "defined_term": null,
+   "title": "Couverture des dégâts des eaux (fuites, infiltrations, etc.)"
+  },
+  {
+   "id": 136,
+   "start": 1033,
+   "end": 1038,
+   "kind": "exclusion",
+   "perils": [
+    "degats_des_eaux"
+   ],
+   "defined_term": null,
+   "title": "Exclusions pour défaut d’entretien des installations à eau"
+  },
+  {
+   "id": 137,
+   "start": 1039,
+   "end": 1063,
+   "kind": "exclusion",
+   "perils": [
+    "degats_des_eaux"
+   ],
+   "defined_term": null,
+   "title": "Exclusions détaillées pour dégâts des eaux (humidité, infiltrations, etc.)"
+  },
+  {
+   "id": 138,
+   "start": 1065,
+   "end": 1070,
+   "kind": "garantie",
+   "perils": [
+    "degats_des_eaux"
+   ],
+   "defined_term": null,
+   "title": "Couverture des dommages causés par le gel des installations intérieures"
+  },
+  {
+   "id": 139,
+   "start": 1072,
+   "end": 1077,
+   "kind": "condition",
+   "perils": [
+    "degats_des_eaux"
+   ],
+   "defined_term": null,
+   "title": "Obligation de chauffage en cas d’inoccupation hivernale"
+  },
+  {
+   "id": 140,
+   "start": 1079,
+   "end": 1088,
+   "kind": "exclusion",
+   "perils": [
+    "degats_des_eaux"
+   ],
+   "defined_term": null,
+   "title": "Exclusions pour gel en cas d’inoccupation ou absence de chauffage"
+  },
+  {
+   "id": 141,
+   "start": 1090,
+   "end": 1095,
+   "kind": "garantie",
+   "perils": [
+    "bris_de_glace"
+   ],
+   "defined_term": null,
+   "title": "Couverture des bris de glace et opacification des vitrages"
+  },
+  {
+   "id": 142,
+   "start": 1096,
+   "end": 1103,
+   "kind": "definition",
+   "perils": [
+    "bris_de_glace"
+   ],
+   "defined_term": "vitrages assurés dans le bâtiment",
+   "title": "Définition des vitrages couverts par la garantie bris de glace"
+  },
+  {
+   "id": 143,
+   "start": 1104,
+   "end": 1104,
+   "kind": "garantie",
+   "perils": [
+    "bris_de_glace"
+   ],
+   "defined_term": null,
+   "title": "Couverture des vitres d’insert en cas de bris"
+  },
+  {
+   "id": 144,
+   "start": 1105,
+   "end": 1105,
+   "kind": "garantie",
+   "perils": [
+    "bris_de_glace"
+   ],
+   "defined_term": null,
+   "title": "Couverture des miroirs fixés en cas de bris"
+  },
+  {
+   "id": 145,
+   "start": 1106,
+   "end": 1106,
+   "kind": "garantie",
+   "perils": [
+    "bris_de_glace"
+   ],
+   "defined_term": null,
+   "title": "Couverture des vitraux en cas de bris"
+  },
+  {
+   "id": 146,
+   "start": 1107,
+   "end": 1108,
+   "kind": "garantie",
+   "perils": [
+    "bris_de_glace"
+   ],
+   "defined_term": null,
+   "title": "Couverture des parties vitrées des appareils sanitaires"
+  },
+  {
+   "id": 147,
+   "start": 1109,
+   "end": 1111,
+   "kind": "garantie",
+   "perils": [
+    "bris_de_glace"
+   ],
+   "defined_term": null,
+   "title": "Couverture des vitrages extérieurs fixés (hors panneaux solaires)"
+  },
+  {
+   "id": 148,
+   "start": 1112,
+   "end": 1112,
+   "kind": "garantie",
+   "perils": [
+    "bris_de_glace"
+   ],
+   "defined_term": null,
+   "title": "Couverture des vitrages de vérandas en cas de bris"
+  },
+  {
+   "id": 149,
+   "start": 1113,
+   "end": 1114,
+   "kind": "garantie",
+   "perils": [
+    "bris_de_glace",
+    "jardin_exterieurs"
+   ],
+   "defined_term": null,
+   "title": "Couverture des vitrages de pergolas/serres si pack jardin souscrit"
+  },
+  {
+   "id": 150,
+   "start": 1115,
+   "end": 1117,
+   "kind": "garantie",
+   "perils": [
+    "bris_de_glace",
+    "degats_des_eaux"
+   ],
+   "defined_term": null,
+   "title": "Couverture des vitres électroménagers (fours, plaques, etc.)"
+  },
+  {
+   "id": 151,
+   "start": 1118,
+   "end": 1119,
+   "kind": "garantie",
+   "perils": [
+    "bris_de_glace",
+    "degats_des_eaux"
+   ],
+   "defined_term": null,
+   "title": "Couverture miroirs et vitres meubles/agencements"
+  },
+  {
+   "id": 152,
+   "start": 1120,
+   "end": 1125,
+   "kind": "garantie",
+   "perils": [
+    "bris_de_glace",
+    "degats_des_eaux",
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Panneaux solaires/photovoltaïque (pack énergie renouvelable)"
+  },
+  {
+   "id": 153,
+   "start": 1126,
+   "end": 1134,
+   "kind": "garantie",
+   "perils": [
+    "bris_de_glace",
+    "degats_des_eaux"
+   ],
+   "defined_term": null,
+   "title": "Frais et dommages consécutifs à bris de vitres"
+  },
+  {
+   "id": 154,
+   "start": 1136,
+   "end": 1148,
+   "kind": "exclusion",
+   "perils": [
+    "bris_de_glace",
+    "degats_des_eaux",
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusions bris de glace (vétusté, entretien, objets non posés)"
+  },
+  {
+   "id": 155,
+   "start": 1150,
+   "end": 1151,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Garanties optionnelles souscrites uniquement"
+  },
+  {
+   "id": 156,
+   "start": 1153,
+   "end": 1164,
+   "kind": "definition",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": "vol (effraction, larcins, vol à la tire, etc.)",
+   "title": "Définition des risques couverts par vol/vandalisme"
+  },
+  {
+   "id": 157,
+   "start": 1166,
+   "end": 1171,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Couverture biens mobiliers et énergie renouvelable (packs)"
+  },
+  {
+   "id": 158,
+   "start": 1173,
+   "end": 1184,
+   "kind": "garantie",
+   "perils": [
+    "assistance",
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Agression sur personne (effets, clés, identités)"
+  },
+  {
+   "id": 159,
+   "start": 1186,
+   "end": 1194,
+   "kind": "limite",
+   "perils": [
+    "objets_valeur_tous_risques",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Plafonds garantie larcins, valeurs hors coffre, etc."
+  },
+  {
+   "id": 160,
+   "start": 1196,
+   "end": 1232,
+   "kind": "condition",
+   "perils": [
+    "general",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Obligations serrures, volets, alarmes pour couverture"
+  },
+  {
+   "id": 161,
+   "start": 1233,
+   "end": 1234,
+   "kind": "condition",
+   "perils": [
+    "general",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Contrat d’entretien alarme obligatoire"
+  },
+  {
+   "id": 162,
+   "start": 1236,
+   "end": 1243,
+   "kind": "condition",
+   "perils": [
+    "general",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Fermeture obligatoire en absence (réduction indemnité)"
+  },
+  {
+   "id": 163,
+   "start": 1245,
+   "end": 1259,
+   "kind": "exclusion",
+   "perils": [
+    "general",
+    "objets_valeur_tous_risques",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Déchéance garantie (clés, inoccupation, absence protections)"
+  },
+  {
+   "id": 164,
+   "start": 1261,
+   "end": 1272,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Exclusions vol (perte, animaux, locaux non clos)"
+  },
+  {
+   "id": 165,
+   "start": 1274,
+   "end": 1286,
+   "kind": "garantie",
+   "perils": [
+    "jardin_exterieurs",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Couverture vandalisme (bâtiments, mobilier, sépultures)"
+  },
+  {
+   "id": 166,
+   "start": 1288,
+   "end": 1289,
+   "kind": "exclusion",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Exclusion dommages causés par locataires/occupants"
+  },
+  {
+   "id": 167,
+   "start": 1291,
+   "end": 1295,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Pack objets de valeur/art (accidents, limites CP)"
+  },
+  {
+   "id": 168,
+   "start": 1298,
+   "end": 1302,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusions objets de valeur (usage pro, roussissement fourrures)"
+  },
+  {
+   "id": 169,
+   "start": 1303,
+   "end": 1311,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusions timbres, livres (manipulations, albums mal protégés)"
+  },
+  {
+   "id": 170,
+   "start": 1312,
+   "end": 1324,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusions tapis, instruments (suspension, usure, défauts internes)"
+  },
+  {
+   "id": 171,
+   "start": 1325,
+   "end": 1330,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusions pendules/horloges (remontage, éclats, rayures)"
+  },
+  {
+   "id": 172,
+   "start": 1331,
+   "end": 1409,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusions objets de valeur (usure, défauts, négligence, faute lourde)"
+  },
+  {
+   "id": 173,
+   "start": 1411,
+   "end": 1413,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Pack objets précieux/bijoux (accidents, limites CP)"
+  },
+  {
+   "id": 174,
+   "start": 1414,
+   "end": 1416,
+   "kind": "limite",
+   "perils": [
+    "general",
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Extension garantie mondiale (conditions géographiques)"
+  },
+  {
+   "id": 175,
+   "start": 1418,
+   "end": 1418,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Assurance objets précieux/bijoux inclus"
+  },
+  {
+   "id": 176,
+   "start": 1420,
+   "end": 1421,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusion bijoux à usage professionnel"
+  },
+  {
+   "id": 177,
+   "start": 1423,
+   "end": 1425,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusion montres : remontage forcé et défauts internes"
+  },
+  {
+   "id": 178,
+   "start": 1426,
+   "end": 1429,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusion défauts esthétiques montres (émail, rayures)"
+  },
+  {
+   "id": 179,
+   "start": 1430,
+   "end": 1431,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusion usure/détérioration progressive montres"
+  },
+  {
+   "id": 180,
+   "start": 1432,
+   "end": 1500,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusions montres : usure, négligence, défauts préexistants"
+  },
+  {
+   "id": 181,
+   "start": 1502,
+   "end": 1504,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Garantie destruction/détérioration multimédia (accident)"
+  },
+  {
+   "id": 182,
+   "start": 1505,
+   "end": 1515,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Assurance appareils multimédia fixes et nomades"
+  },
+  {
+   "id": 183,
+   "start": 1517,
+   "end": 1531,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusions pack multimédia : usure, défauts préexistants"
+  },
+  {
+   "id": 184,
+   "start": 1533,
+   "end": 1535,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Garantie destruction/détérioration objets de loisirs (accident)"
+  },
+  {
+   "id": 185,
+   "start": 1537,
+   "end": 1540,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Assurance équipements sportifs et loisirs culturels"
+  },
+  {
+   "id": 186,
+   "start": 1541,
+   "end": 1544,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Assurance équipements chasse/pêche/camping (monde entier)"
+  },
+  {
+   "id": 187,
+   "start": 1546,
+   "end": 1548,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusion objets non conçus pour être emportés"
+  },
+  {
+   "id": 188,
+   "start": 1549,
+   "end": 1551,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusion composants électroniques (pack multimédia)"
+  },
+  {
+   "id": 189,
+   "start": 1552,
+   "end": 1554,
+   "kind": "exclusion",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Exclusion vols par négligence (clés oubliées)"
+  },
+  {
+   "id": 190,
+   "start": 1555,
+   "end": 1556,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusion décisions gouvernementales/dommages indirects"
+  },
+  {
+   "id": 191,
+   "start": 1557,
+   "end": 1559,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusion dommages par pluie (hors tempête/inondation)"
+  },
+  {
+   "id": 192,
+   "start": 1560,
+   "end": 1562,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusion remorques/caravanes/engins motorisés"
+  },
+  {
+   "id": 193,
+   "start": 1563,
+   "end": 1567,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusion dommages sous responsabilité tiers non indemnisée"
+  },
+  {
+   "id": 194,
+   "start": 1568,
+   "end": 1570,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusion dommages armes à feu pendant utilisation"
+  },
+  {
+   "id": 195,
+   "start": 1571,
+   "end": 1572,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusion instruments musique/sonorisation (catégorie)"
+  },
+  {
+   "id": 196,
+   "start": 1573,
+   "end": 1578,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusion vices sonorité/cordes/boyaux instruments"
+  },
+  {
+   "id": 197,
+   "start": 1579,
+   "end": 1580,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusion écrins/cordiers/accessoires instruments"
+  },
+  {
+   "id": 198,
+   "start": 1581,
+   "end": 1583,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusion utilisation non conforme ou négligence"
+  },
+  {
+   "id": 199,
+   "start": 1584,
+   "end": 1595,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusion usure/détérioration progressive objets loisirs"
+  },
+  {
+   "id": 200,
+   "start": 1597,
+   "end": 1599,
+   "kind": "limite",
+   "perils": [
+    "objets_valeur_tous_risques",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Limite de garantie pour accidents sur équipements de mobilité"
+  },
+  {
+   "id": 201,
+   "start": 1601,
+   "end": 1604,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Assurance vélos et mobilité durable couverts"
+  },
+  {
+   "id": 202,
+   "start": 1605,
+   "end": 1607,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Extension garantie mondiale pour mobilité durable"
+  },
+  {
+   "id": 203,
+   "start": 1609,
+   "end": 1612,
+   "kind": "condition",
+   "perils": [
+    "objets_valeur_tous_risques",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Obligation antivol pour mobilité durable en espace public"
+  },
+  {
+   "id": 204,
+   "start": 1614,
+   "end": 1616,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Exclusion composants électroniques sur mobilité durable"
+  },
+  {
+   "id": 205,
+   "start": 1617,
+   "end": 1619,
+   "kind": "exclusion",
+   "perils": [
+    "general",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Exclusion négligence manifeste (clés, véhicule non fermé)"
+  },
+  {
+   "id": 206,
+   "start": 1620,
+   "end": 1621,
+   "kind": "exclusion",
+   "perils": [
+    "general",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Exclusion décisions gouvernementales ou autorités publiques"
+  },
+  {
+   "id": 207,
+   "start": 1622,
+   "end": 1624,
+   "kind": "exclusion",
+   "perils": [
+    "general",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Exclusion dommages dus à la pluie ou phénomènes atmosphériques"
+  },
+  {
+   "id": 208,
+   "start": 1625,
+   "end": 1627,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Exclusion remorques, caravanes et engins motorisés"
+  },
+  {
+   "id": 209,
+   "start": 1628,
+   "end": 1630,
+   "kind": "exclusion",
+   "perils": [
+    "general",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Exclusion responsabilité tiers (transport) sauf preuve de démarches"
+  },
+  {
+   "id": 210,
+   "start": 1631,
+   "end": 1647,
+   "kind": "exclusion",
+   "perils": [
+    "general",
+    "objets_valeur_tous_risques",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Exclusion usure, négligence, détérioration progressive ou non-conformité"
+  },
+  {
+   "id": 211,
+   "start": 1649,
+   "end": 1653,
+   "kind": "garantie",
+   "perils": [
+    "jardin_exterieurs"
+   ],
+   "defined_term": null,
+   "title": "Garantie dommages directs sur biens énumérés du jardin"
+  },
+  {
+   "id": 212,
+   "start": 1654,
+   "end": 1654,
+   "kind": "garantie",
+   "perils": [
+    "jardin_exterieurs"
+   ],
+   "defined_term": null,
+   "title": "Inclusion jardin dans garantie"
+  },
+  {
+   "id": 213,
+   "start": 1655,
+   "end": 1657,
+   "kind": "garantie",
+   "perils": [
+    "jardin_exterieurs"
+   ],
+   "defined_term": null,
+   "title": "Inclusion mobilier et outillage de jardin"
+  },
+  {
+   "id": 214,
+   "start": 1658,
+   "end": 1662,
+   "kind": "garantie",
+   "perils": [
+    "jardin_exterieurs"
+   ],
+   "defined_term": null,
+   "title": "Inclusion serres, abris, installations extérieures non fixes"
+  },
+  {
+   "id": 215,
+   "start": 1663,
+   "end": 1664,
+   "kind": "garantie",
+   "perils": [
+    "jardin_exterieurs"
+   ],
+   "defined_term": null,
+   "title": "Inclusion barbecues et dispositifs de cuisson extérieur"
+  },
+  {
+   "id": 216,
+   "start": 1665,
+   "end": 1667,
+   "kind": "garantie",
+   "perils": [
+    "jardin_exterieurs"
+   ],
+   "defined_term": null,
+   "title": "Inclusion installations d'arrosage, éclairage et clôtures"
+  },
+  {
+   "id": 217,
+   "start": 1669,
+   "end": 1671,
+   "kind": "garantie",
+   "perils": [
+    "jardin_exterieurs"
+   ],
+   "defined_term": null,
+   "title": "Inclusion piscines, spa, douches scellées et canalisations"
+  },
+  {
+   "id": 218,
+   "start": 1672,
+   "end": 1675,
+   "kind": "garantie",
+   "perils": [
+    "jardin_exterieurs"
+   ],
+   "defined_term": null,
+   "title": "Inclusion pourtour, terrasse et dôme de piscine"
+  },
+  {
+   "id": 219,
+   "start": 1676,
+   "end": 1678,
+   "kind": "garantie",
+   "perils": [
+    "jardin_exterieurs"
+   ],
+   "defined_term": null,
+   "title": "Inclusion couvertures piscine (enrouleurs, isothermes, bâches)"
+  },
+  {
+   "id": 220,
+   "start": 1679,
+   "end": 1683,
+   "kind": "garantie",
+   "perils": [
+    "jardin_exterieurs"
+   ],
+   "defined_term": null,
+   "title": "Inclusion éléments de sécurité et appareils électriques piscine"
+  },
+  {
+   "id": 221,
+   "start": 1684,
+   "end": 1685,
+   "kind": "garantie",
+   "perils": [
+    "jardin_exterieurs"
+   ],
+   "defined_term": null,
+   "title": "Inclusion équipements et jeux pour piscine"
+  },
+  {
+   "id": 222,
+   "start": 1687,
+   "end": 1691,
+   "kind": "condition",
+   "perils": [
+    "jardin_exterieurs",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Condition vol : outillage de jardin sécurisé en local fermé"
+  },
+  {
+   "id": 223,
+   "start": 1692,
+   "end": 1695,
+   "kind": "condition",
+   "perils": [
+    "jardin_exterieurs",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Condition vol : appareils électriques piscine sécurisés"
+  },
+  {
+   "id": 224,
+   "start": 1696,
+   "end": 1697,
+   "kind": "condition",
+   "perils": [
+    "jardin_exterieurs",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Condition vol : équipements piscine sécurisés en usage"
+  },
+  {
+   "id": 225,
+   "start": 1699,
+   "end": 1701,
+   "kind": "exclusion",
+   "perils": [
+    "degats_des_eaux",
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion pour mauvais entretien des biens garantis"
+  },
+  {
+   "id": 226,
+   "start": 1702,
+   "end": 1703,
+   "kind": "exclusion",
+   "perils": [
+    "degats_des_eaux",
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion des appareils à moteur obligatoirement assurés"
+  },
+  {
+   "id": 227,
+   "start": 1704,
+   "end": 1708,
+   "kind": "exclusion",
+   "perils": [
+    "degats_des_eaux",
+    "jardin_exterieurs"
+   ],
+   "defined_term": null,
+   "title": "Exclusion piscines non privatives et gel sans hivernage"
+  },
+  {
+   "id": 228,
+   "start": 1710,
+   "end": 1710,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Garantie cave à vin (pack spécifique)"
+  },
+  {
+   "id": 229,
+   "start": 1712,
+   "end": 1715,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Garantie variations température pour liquides en cave"
+  },
+  {
+   "id": 230,
+   "start": 1716,
+   "end": 1719,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Garantie perte liquides en tonneaux/fûts (éclatement)"
+  },
+  {
+   "id": 231,
+   "start": 1720,
+   "end": 1723,
+   "kind": "garantie",
+   "perils": [
+    "catastrophes_naturelles",
+    "degats_des_eaux",
+    "objets_valeur_tous_risques",
+    "tempete_grele_neige"
+   ],
+   "defined_term": null,
+   "title": "Garantie décollement étiquettes bouteilles (événements climatiques)"
+  },
+  {
+   "id": 232,
+   "start": 1725,
+   "end": 1726,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Garantie vins, alcools et spiritueux (bouteilles, tonneaux, fûts)"
+  },
+  {
+   "id": 233,
+   "start": 1728,
+   "end": 1734,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusions cave à vin : usure, vétusté, chute bouteilles"
+  },
+  {
+   "id": 234,
+   "start": 1735,
+   "end": 1743,
+   "kind": "garantie",
+   "perils": [
+    "dommages_electriques",
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Garantie détérioration denrées (arrêt congélateur/réfrigérateur)"
+  },
+  {
+   "id": 235,
+   "start": 1744,
+   "end": 1746,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Garantie denrées alimentaires en congélateur/réfrigérateur"
+  },
+  {
+   "id": 236,
+   "start": 1748,
+   "end": 1754,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Exclusions détérioration denrées (mauvaise utilisation, panne)"
+  },
+  {
+   "id": 237,
+   "start": 1756,
+   "end": 1763,
+   "kind": "garantie",
+   "perils": [
+    "general",
+    "pertes_indirectes"
+   ],
+   "defined_term": null,
+   "title": "Garantie dommages matériels énergie renouvelable (liste limitée)"
+  },
+  {
+   "id": 238,
+   "start": 1764,
+   "end": 1772,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Garantie équipements énergie renouvelable (panneaux solaires, éoliennes)"
+  },
+  {
+   "id": 239,
+   "start": 1773,
+   "end": 1776,
+   "kind": "garantie",
+   "perils": [
+    "general",
+    "pertes_indirectes"
+   ],
+   "defined_term": null,
+   "title": "Garantie perte financière production énergie (dommage direct)"
+  },
+  {
+   "id": 240,
+   "start": 1778,
+   "end": 1804,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusions énergie renouvelable (usure, négligence, dommages divers)"
+  },
+  {
+   "id": 241,
+   "start": 1806,
+   "end": 1813,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Garantie perte liquide/cuves (dommage accidentel, manipulation)"
+  },
+  {
+   "id": 242,
+   "start": 1815,
+   "end": 1816,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Garantie cuves à mazout, citernes à gaz et frais associés"
+  },
+  {
+   "id": 243,
+   "start": 1818,
+   "end": 1823,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusions cuves (oxydation, usure, non-conformité installation)"
+  },
+  {
+   "id": 244,
+   "start": 1824,
+   "end": 1826,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion arrêt énergie par grève fournisseur"
+  },
+  {
+   "id": 245,
+   "start": 1829,
+   "end": 1830,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Conditions d'acquisition garanties complémentaires (mention CP)"
+  },
+  {
+   "id": 246,
+   "start": 1832,
+   "end": 1865,
+   "kind": "garantie",
+   "perils": [
+    "protection_juridique",
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Défense-recours : frais avocats/experts (poursuites pénales/civiles)"
+  },
+  {
+   "id": 247,
+   "start": 1866,
+   "end": 1916,
+   "kind": "garantie",
+   "perils": [
+    "catastrophes_naturelles",
+    "degats_des_eaux",
+    "general",
+    "jardin_exterieurs",
+    "pertes_indirectes",
+    "tempete_grele_neige"
+   ],
+   "defined_term": null,
+   "title": "Frais/pertes consécutifs : déblaiement, relogement, dépollution, etc."
+  },
+  {
+   "id": 248,
+   "start": 1917,
+   "end": 1919,
+   "kind": "garantie",
+   "perils": [
+    "pertes_indirectes"
+   ],
+   "defined_term": null,
+   "title": "Perte de loyer (propriétaire non-occupant, reconstruction)"
+  },
+  {
+   "id": 249,
+   "start": 1920,
+   "end": 1921,
+   "kind": "garantie",
+   "perils": [
+    "pertes_indirectes"
+   ],
+   "defined_term": null,
+   "title": "Perte de loyer pendant reconstruction/remise en état"
+  },
+  {
+   "id": 250,
+   "start": 1922,
+   "end": 1925,
+   "kind": "garantie",
+   "perils": [
+    "pertes_indirectes"
+   ],
+   "defined_term": null,
+   "title": "Indemnisation pour perte d’usage du logement"
+  },
+  {
+   "id": 251,
+   "start": 1926,
+   "end": 1930,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Calcul indemnité perte d’usage et accord préalable"
+  },
+  {
+   "id": 252,
+   "start": 1932,
+   "end": 1932,
+   "kind": "autre",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Acquisition des garanties complémentaires sous conditions"
+  },
+  {
+   "id": 253,
+   "start": 1933,
+   "end": 1933,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Limite des garanties complémentaires selon tableau"
+  },
+  {
+   "id": 254,
+   "start": 1935,
+   "end": 1943,
+   "kind": "garantie",
+   "perils": [
+    "degats_des_eaux",
+    "general",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Dégâts par services de secours (pompiers/police)"
+  },
+  {
+   "id": 255,
+   "start": 1945,
+   "end": 1948,
+   "kind": "garantie",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Frais de remplacement de clés et serrures (perte)"
+  },
+  {
+   "id": 256,
+   "start": 1950,
+   "end": 1958,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Couverture assurance déménagement (ancienne adresse, 3 mois)"
+  },
+  {
+   "id": 257,
+   "start": 1960,
+   "end": 1973,
+   "kind": "garantie",
+   "perils": [
+    "bris_de_glace",
+    "catastrophes_naturelles",
+    "degats_des_eaux",
+    "incendie",
+    "tempete_grele_neige",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Mobilier transporté : garanties déménagement (franchise 150€)"
+  },
+  {
+   "id": 258,
+   "start": 1974,
+   "end": 1983,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Relogement post-sinistre (2 ans max, expertise requise)"
+  },
+  {
+   "id": 259,
+   "start": 1985,
+   "end": 1998,
+   "kind": "garantie",
+   "perils": [
+    "catastrophes_naturelles",
+    "incendie",
+    "protection_juridique",
+    "responsabilite_civile",
+    "tempete_grele_neige",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Logement en construction : garanties avant fermeture"
+  },
+  {
+   "id": 260,
+   "start": 1999,
+   "end": 2009,
+   "kind": "garantie",
+   "perils": [
+    "bris_de_glace",
+    "degats_des_eaux",
+    "tempete_grele_neige",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Logement en construction : garanties après fermeture"
+  },
+  {
+   "id": 261,
+   "start": 2011,
+   "end": 2013,
+   "kind": "exclusion",
+   "perils": [
+    "objets_valeur_tous_risques",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Exclusion vol dans dépendances et objets de valeur"
+  },
+  {
+   "id": 262,
+   "start": 2014,
+   "end": 2017,
+   "kind": "autre",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Application garanties standards après emménagement"
+  },
+  {
+   "id": 263,
+   "start": 2021,
+   "end": 2025,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Propriétaire non occupant : garanties pécuniaires"
+  },
+  {
+   "id": 264,
+   "start": 2027,
+   "end": 2033,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Loyers impayés : remboursement sous conditions"
+  },
+  {
+   "id": 265,
+   "start": 2035,
+   "end": 2048,
+   "kind": "garantie",
+   "perils": [
+    "general",
+    "pertes_indirectes"
+   ],
+   "defined_term": null,
+   "title": "Détériorations immobilières et perte de loyer garantie"
+  },
+  {
+   "id": 266,
+   "start": 2050,
+   "end": 2101,
+   "kind": "garantie",
+   "perils": [
+    "protection_juridique"
+   ],
+   "defined_term": null,
+   "title": "Défense-recours propriétaire non occupant (avocats/experts)"
+  },
+  {
+   "id": 267,
+   "start": 2102,
+   "end": 2112,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Contrainte solvabilité locataire : exceptions (CDI, pension)"
+  },
+  {
+   "id": 268,
+   "start": 2113,
+   "end": 2115,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Caution solidaire requise si contrainte solvabilité non satisfaite"
+  },
+  {
+   "id": 269,
+   "start": 2116,
+   "end": 2121,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Conditions caution solidaire (domicile fiscal, revenu minimum)"
+  },
+  {
+   "id": 270,
+   "start": 2122,
+   "end": 2125,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Justificatifs caution solidaire exigés en cas de sinistre"
+  },
+  {
+   "id": 271,
+   "start": 2127,
+   "end": 2127,
+   "kind": "autre",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Locataires déjà en place : conditions d’assurance"
+  },
+  {
+   "id": 272,
+   "start": 2128,
+   "end": 2134,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Locataire en place depuis 3 mois : conditions de paiement"
+  },
+  {
+   "id": 273,
+   "start": 2135,
+   "end": 2139,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Locataire en place depuis <3 mois : agrément + paiement"
+  },
+  {
+   "id": 274,
+   "start": 2140,
+   "end": 2141,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Preuves exigées pour locataires déjà en place"
+  },
+  {
+   "id": 275,
+   "start": 2143,
+   "end": 2145,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Conformité légale bail et caution à souscription"
+  },
+  {
+   "id": 276,
+   "start": 2146,
+   "end": 2149,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Non-respect légal annule garantie locataire"
+  },
+  {
+   "id": 277,
+   "start": 2151,
+   "end": 2153,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Obligation état des lieux entrée/sortie locataire"
+  },
+  {
+   "id": 278,
+   "start": 2154,
+   "end": 2156,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "État des lieux existant valable pour locataire en place"
+  },
+  {
+   "id": 279,
+   "start": 2157,
+   "end": 2159,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Production état des lieux à demande en cas sinistre"
+  },
+  {
+   "id": 280,
+   "start": 2162,
+   "end": 2163,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion amendes et frais pénaux"
+  },
+  {
+   "id": 281,
+   "start": 2164,
+   "end": 2164,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Seuil minimum 500€ pour recouvrement garanti"
+  },
+  {
+   "id": 282,
+   "start": 2166,
+   "end": 2167,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusions garanties loyers impayés/détériorations immobilières"
+  },
+  {
+   "id": 283,
+   "start": 2168,
+   "end": 2171,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Sous-locations, saisonnières et liens familiaux exclus"
+  },
+  {
+   "id": 284,
+   "start": 2172,
+   "end": 2177,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Locations précaires, pro, hors Luxembourg ou bail non conforme exclus"
+  },
+  {
+   "id": 285,
+   "start": 2179,
+   "end": 2179,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusions spécifiques garanties loyers impayés/défense recours"
+  },
+  {
+   "id": 286,
+   "start": 2180,
+   "end": 2191,
+   "kind": "exclusion",
+   "perils": [
+    "degats_des_eaux",
+    "general",
+    "incendie"
+   ],
+   "defined_term": null,
+   "title": "Non-respect bail, dommages directs/indirects aux locaux exclus"
+  },
+  {
+   "id": 287,
+   "start": 2194,
+   "end": 2204,
+   "kind": "exclusion",
+   "perils": [
+    "general",
+    "jardin_exterieurs"
+   ],
+   "defined_term": null,
+   "title": "Exclusions garantie détériorations immobilières (entretien, espaces verts, etc.)"
+  },
+  {
+   "id": 288,
+   "start": 2207,
+   "end": 2207,
+   "kind": "definition",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": "garanties responsabilité civile de base",
+   "title": "Définition garanties responsabilité civile de base"
+  },
+  {
+   "id": 289,
+   "start": 2208,
+   "end": 2211,
+   "kind": "condition",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Garanties RC mention obligatoires en conditions particulières"
+  },
+  {
+   "id": 290,
+   "start": 2213,
+   "end": 2214,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Portée garantie RC dépend qualité d’occupation"
+  },
+  {
+   "id": 291,
+   "start": 2216,
+   "end": 2220,
+   "kind": "garantie",
+   "perils": [
+    "degats_des_eaux",
+    "incendie",
+    "responsabilite_civile",
+    "tempete_grele_neige"
+   ],
+   "defined_term": null,
+   "title": "RC locatif : dommages au propriétaire (incendie, eaux, gel)"
+  },
+  {
+   "id": 292,
+   "start": 2222,
+   "end": 2227,
+   "kind": "garantie",
+   "perils": [
+    "degats_des_eaux",
+    "incendie",
+    "responsabilite_civile",
+    "tempete_grele_neige"
+   ],
+   "defined_term": null,
+   "title": "RC voisins/tiers : dommages depuis les bâtiments assurés"
+  },
+  {
+   "id": 293,
+   "start": 2229,
+   "end": 2244,
+   "kind": "garantie",
+   "perils": [
+    "degats_des_eaux",
+    "incendie",
+    "responsabilite_civile",
+    "tempete_grele_neige"
+   ],
+   "defined_term": null,
+   "title": "RC locataires/sous-locataires (autorisés) : dommages divers"
+  },
+  {
+   "id": 294,
+   "start": 2246,
+   "end": 2264,
+   "kind": "garantie",
+   "perils": [
+    "dommages_electriques",
+    "jardin_exterieurs",
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "RC propriétaire immeuble : dommages tiers (bâtiments, piscines, etc.)"
+  },
+  {
+   "id": 295,
+   "start": 2266,
+   "end": 2279,
+   "kind": "exclusion",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Exclusions garantie RC propriétaire immeuble (contractuel, usage non conforme, etc.)"
+  },
+  {
+   "id": 296,
+   "start": 2281,
+   "end": 2283,
+   "kind": "exclusion",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Location saisonnière : non-respect réglementation exclu"
+  },
+  {
+   "id": 297,
+   "start": 2284,
+   "end": 2285,
+   "kind": "exclusion",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Exclusion RC saisonnière pour non-conformité réglementaire"
+  },
+  {
+   "id": 298,
+   "start": 2288,
+   "end": 2290,
+   "kind": "garantie",
+   "perils": [
+    "degats_des_eaux",
+    "incendie",
+    "responsabilite_civile",
+    "tempete_grele_neige"
+   ],
+   "defined_term": null,
+   "title": "RC propriétaire : incendie, explosion, dégâts des eaux, gel"
+  },
+  {
+   "id": 299,
+   "start": 2292,
+   "end": 2319,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "RC maître d’ouvrage : dommages liés aux travaux"
+  },
+  {
+   "id": 300,
+   "start": 2320,
+   "end": 2323,
+   "kind": "exclusion",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Exclusion des dégâts connus aux états des lieux"
+  },
+  {
+   "id": 301,
+   "start": 2325,
+   "end": 2342,
+   "kind": "condition",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Obligation de contrôle technique pour travaux spécifiques"
+  },
+  {
+   "id": 302,
+   "start": 2343,
+   "end": 2350,
+   "kind": "condition",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Obligation de repérage des câbles et canalisations"
+  },
+  {
+   "id": 303,
+   "start": 2352,
+   "end": 2381,
+   "kind": "exclusion",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Exclusions générales pour responsabilité civile maître d’ouvrage"
+  },
+  {
+   "id": 304,
+   "start": 2382,
+   "end": 2396,
+   "kind": "exclusion",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Exclusions spécifiques : dommages aux intervenants et gênes"
+  },
+  {
+   "id": 305,
+   "start": 2398,
+   "end": 2408,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Responsabilité civile pour installations énergies renouvelables"
+  },
+  {
+   "id": 306,
+   "start": 2410,
+   "end": 2412,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Validité des garanties optionnelles souscrites uniquement"
+  },
+  {
+   "id": 307,
+   "start": 2414,
+   "end": 2435,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Responsabilité civile vie privée (dommages à tiers)"
+  },
+  {
+   "id": 308,
+   "start": 2436,
+   "end": 2453,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Champ d’application de la garantie responsabilité civile vie privée"
+  },
+  {
+   "id": 309,
+   "start": 2455,
+   "end": 2455,
+   "kind": "autre",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Titre des garanties complémentaires (non détaillé)"
+  },
+  {
+   "id": 310,
+   "start": 2457,
+   "end": 2475,
+   "kind": "garantie",
+   "perils": [
+    "bris_de_glace",
+    "degats_des_eaux",
+    "incendie",
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Responsabilité Séjour-Voyages (dommages locatifs et voisins)"
+  },
+  {
+   "id": 311,
+   "start": 2477,
+   "end": 2479,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Extension garantie stages d’études à l’étranger"
+  },
+  {
+   "id": 312,
+   "start": 2485,
+   "end": 2495,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Responsabilité fête familiale (dommages aux locaux et tiers)"
+  },
+  {
+   "id": 313,
+   "start": 2496,
+   "end": 2499,
+   "kind": "condition",
+   "perils": [
+    "bris_de_glace",
+    "degats_des_eaux",
+    "incendie",
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Condition : dommages couverts pour fête familiale"
+  },
+  {
+   "id": 314,
+   "start": 2501,
+   "end": 2503,
+   "kind": "condition",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Prestation de garde d’enfants hors cadre assistant parental"
+  },
+  {
+   "id": 315,
+   "start": 2504,
+   "end": 2511,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Responsabilité civile garde d’enfants (dommages variés)"
+  },
+  {
+   "id": 316,
+   "start": 2513,
+   "end": 2524,
+   "kind": "garantie",
+   "perils": [
+    "protection_juridique",
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Défense recours responsabilité civile vie privée"
+  },
+  {
+   "id": 317,
+   "start": 2526,
+   "end": 2534,
+   "kind": "garantie",
+   "perils": [
+    "protection_juridique",
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Recours pour victimes de véhicules ou agressions"
+  },
+  {
+   "id": 318,
+   "start": 2535,
+   "end": 2538,
+   "kind": "garantie",
+   "perils": [
+    "protection_juridique"
+   ],
+   "defined_term": null,
+   "title": "Subrogation pour insolvabilité des tiers responsables"
+  },
+  {
+   "id": 319,
+   "start": 2539,
+   "end": 2546,
+   "kind": "limite",
+   "perils": [
+    "protection_juridique"
+   ],
+   "defined_term": null,
+   "title": "Seuil et partage des frais pour défense recours"
+  },
+  {
+   "id": 320,
+   "start": 2549,
+   "end": 2552,
+   "kind": "exclusion",
+   "perils": [
+    "protection_juridique"
+   ],
+   "defined_term": null,
+   "title": "Exclusions des recours entre assurés ou juridictions administratives"
+  },
+  {
+   "id": 321,
+   "start": 2554,
+   "end": 2565,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Responsabilité civile assistant parental agréé"
+  },
+  {
+   "id": 322,
+   "start": 2568,
+   "end": 2568,
+   "kind": "autre",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Titre des conséquences pécuniaires (non détaillé)"
+  },
+  {
+   "id": 323,
+   "start": 2570,
+   "end": 2575,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Dommages subis par assurés ou causés par activité"
+  },
+  {
+   "id": 324,
+   "start": 2577,
+   "end": 2583,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Responsabilité civile pour chiens dangereux"
+  },
+  {
+   "id": 325,
+   "start": 2585,
+   "end": 2593,
+   "kind": "exclusion",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Exclusions pour chiens dangereux non couverts ou non conformes"
+  },
+  {
+   "id": 326,
+   "start": 2595,
+   "end": 2602,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Couvert jouets/engins motorisés non immatriculés et drones loisirs <4kg"
+  },
+  {
+   "id": 327,
+   "start": 2604,
+   "end": 2609,
+   "kind": "exclusion",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Exclusions jouets/engins immatriculés et drones non conformes"
+  },
+  {
+   "id": 328,
+   "start": 2611,
+   "end": 2618,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Responsabilité civile pour 3 équidés (propriété ou dépôt)"
+  },
+  {
+   "id": 329,
+   "start": 2620,
+   "end": 2630,
+   "kind": "exclusion",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Exclusions pour équidés en transport, élevage ou activité professionnelle"
+  },
+  {
+   "id": 330,
+   "start": 2632,
+   "end": 2641,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Responsabilité civile gîtes/chambres d’hôtes et restauration"
+  },
+  {
+   "id": 331,
+   "start": 2643,
+   "end": 2653,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques",
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Dépôt objets clients (vol/détérioration) avec reçu"
+  },
+  {
+   "id": 332,
+   "start": 2655,
+   "end": 2661,
+   "kind": "exclusion",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Exclusions non-conformité réglementaire et vol d’animaux clients"
+  },
+  {
+   "id": 333,
+   "start": 2664,
+   "end": 2664,
+   "kind": "autre",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Introduction exclusions générales par garantie"
+  },
+  {
+   "id": 334,
+   "start": 2666,
+   "end": 2666,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion responsabilité civile (générale)"
+  },
+  {
+   "id": 335,
+   "start": 2667,
+   "end": 2672,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion activités non privées (lucratives, publiques, etc.)"
+  },
+  {
+   "id": 336,
+   "start": 2673,
+   "end": 2676,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion biens/animaux confiés, loués ou empruntés (hors équidés)"
+  },
+  {
+   "id": 337,
+   "start": 2677,
+   "end": 2680,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion véhicules/engins motorisés non conformes ou non assurés"
+  },
+  {
+   "id": 338,
+   "start": 2681,
+   "end": 2683,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion dommages immatériels purs"
+  },
+  {
+   "id": 339,
+   "start": 2684,
+   "end": 2688,
+   "kind": "exclusion",
+   "perils": [
+    "degats_des_eaux",
+    "general",
+    "incendie"
+   ],
+   "defined_term": null,
+   "title": "Exclusion dommages liés à incendie/dégâts dans locaux assurés"
+  },
+  {
+   "id": 340,
+   "start": 2689,
+   "end": 2691,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion activités associatives déjà assurées"
+  },
+  {
+   "id": 341,
+   "start": 2692,
+   "end": 2696,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion dommages par équidés (hors garantie spécifique)"
+  },
+  {
+   "id": 342,
+   "start": 2697,
+   "end": 2701,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion chiens dangereux non conformes à la loi"
+  },
+  {
+   "id": 343,
+   "start": 2702,
+   "end": 2704,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion pollution graduelle et chasse/gibier"
+  },
+  {
+   "id": 344,
+   "start": 2705,
+   "end": 2709,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion voiliers >6m et bateaux >5CV"
+  },
+  {
+   "id": 345,
+   "start": 2710,
+   "end": 2712,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion appareils de navigation aérienne (hors modèles réduits)"
+  },
+  {
+   "id": 346,
+   "start": 2713,
+   "end": 2717,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion épreuves sportives nécessitant autorisation"
+  },
+  {
+   "id": 347,
+   "start": 2718,
+   "end": 2720,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion activités sportives non conformes à la réglementation"
+  },
+  {
+   "id": 348,
+   "start": 2721,
+   "end": 2723,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion dommages liés à l’amiante"
+  },
+  {
+   "id": 349,
+   "start": 2726,
+   "end": 2729,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion dommages intentionnels ou locaux en ruine"
+  },
+  {
+   "id": 350,
+   "start": 2730,
+   "end": 2732,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion : amendes, sanctions pénales et frais judiciaires"
+  },
+  {
+   "id": 351,
+   "start": 2733,
+   "end": 2738,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion : défaut d’entretien ou de réparation caractérisé"
+  },
+  {
+   "id": 352,
+   "start": 2739,
+   "end": 2743,
+   "kind": "exclusion",
+   "perils": [
+    "degats_des_eaux",
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion : débordements, humidité et infiltrations non couvertes"
+  },
+  {
+   "id": 353,
+   "start": 2744,
+   "end": 2747,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion : bâtiments inoccupés (hors incendie, explosion, implosion)"
+  },
+  {
+   "id": 354,
+   "start": 2748,
+   "end": 2749,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion : dommages liés à rayonnements ionisants ou nucléaire"
+  },
+  {
+   "id": 355,
+   "start": 2750,
+   "end": 2753,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion : dommages causés par armes de guerre ou détention illégale"
+  },
+  {
+   "id": 356,
+   "start": 2754,
+   "end": 2758,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion : véhicules terrestres/maritimes assurés séparément"
+  },
+  {
+   "id": 357,
+   "start": 2759,
+   "end": 2760,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion : dommages liés à contamination par maladies"
+  },
+  {
+   "id": 358,
+   "start": 2761,
+   "end": 2762,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion : participation active à crimes, émeutes ou attroupements"
+  },
+  {
+   "id": 359,
+   "start": 2763,
+   "end": 2821,
+   "kind": "exclusion",
+   "perils": [
+    "dommages_electriques",
+    "general",
+    "objets_valeur_tous_risques",
+    "pertes_indirectes",
+    "responsabilite_civile",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Exclusion : actes illicites, terrorisme, pollution, cybersécurité et autres"
+  },
+  {
+   "id": 360,
+   "start": 2823,
+   "end": 2833,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion : sanctions légales ou réglementaires internationales"
+  },
+  {
+   "id": 361,
+   "start": 2835,
+   "end": 2835,
+   "kind": "exclusion",
+   "perils": [
+    "pertes_indirectes"
+   ],
+   "defined_term": null,
+   "title": "Exclusion : perte d’exploitation par retrait dispositif de guerre"
+  },
+  {
+   "id": 362,
+   "start": 2836,
+   "end": 2842,
+   "kind": "exclusion",
+   "perils": [
+    "pertes_indirectes"
+   ],
+   "defined_term": null,
+   "title": "Exclusion : perte d’exploitation liée à enlèvement dispositif de guerre"
+  },
+  {
+   "id": 363,
+   "start": 2844,
+   "end": 2854,
+   "kind": "exclusion",
+   "perils": [
+    "general",
+    "pertes_indirectes"
+   ],
+   "defined_term": null,
+   "title": "Exclusion : pandémies et mesures gouvernementales restrictives"
+  },
+  {
+   "id": 364,
+   "start": 2856,
+   "end": 2862,
+   "kind": "exclusion",
+   "perils": [
+    "dommages_electriques",
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Exclusion : risques cybernétiques intentionnels"
+  },
+  {
+   "id": 365,
+   "start": 2865,
+   "end": 2865,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Limite de garantie par événement sinistre (tableau général)"
+  },
+  {
+   "id": 366,
+   "start": 2867,
+   "end": 2873,
+   "kind": "limite",
+   "perils": [
+    "catastrophes_naturelles",
+    "degats_des_eaux",
+    "general",
+    "incendie",
+    "objets_valeur_tous_risques",
+    "tempete_grele_neige",
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Limites de garantie : bâtiment, mobilier, objets de valeur"
+  },
+  {
+   "id": 367,
+   "start": 2875,
+   "end": 2875,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Limites spécifiques par garantie (tableau récapitulatif)"
+  },
+  {
+   "id": 368,
+   "start": 2876,
+   "end": 2897,
+   "kind": "limite",
+   "perils": [
+    "catastrophes_naturelles",
+    "degats_des_eaux",
+    "incendie",
+    "jardin_exterieurs",
+    "responsabilite_civile",
+    "tempete_grele_neige"
+   ],
+   "defined_term": null,
+   "title": "Limites détaillées : frais sinistres, relogement, expertises, etc."
+  },
+  {
+   "id": 369,
+   "start": 2899,
+   "end": 2901,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Limite RC locative : biens assurés et perte d’usage/loyer"
+  },
+  {
+   "id": 370,
+   "start": 2902,
+   "end": 2904,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Limite RC locative : recours voisins et tiers (2,5M€)"
+  },
+  {
+   "id": 371,
+   "start": 2905,
+   "end": 2907,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Limite RC locative : recours locataires (2,5M€)"
+  },
+  {
+   "id": 372,
+   "start": 2909,
+   "end": 2910,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Limite RC propriétaire : dommages corporels et matériels"
+  },
+  {
+   "id": 373,
+   "start": 2911,
+   "end": 2912,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Limite RC propriétaire : atteinte environnementale accidentelle"
+  },
+  {
+   "id": 374,
+   "start": 2916,
+   "end": 2918,
+   "kind": "limite",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Limite assistance : prise en charge hôtelière et frais de retour"
+  },
+  {
+   "id": 375,
+   "start": 2919,
+   "end": 2921,
+   "kind": "limite",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Limite assistance enfants mineurs frais voyage/jour"
+  },
+  {
+   "id": 376,
+   "start": 2922,
+   "end": 2922,
+   "kind": "limite",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Limite aide familiale 800 euros"
+  },
+  {
+   "id": 377,
+   "start": 2923,
+   "end": 2923,
+   "kind": "limite",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Limite véhicule de remplacement 500 euros"
+  },
+  {
+   "id": 378,
+   "start": 2924,
+   "end": 2924,
+   "kind": "limite",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Limite frais animaux de compagnie 250 euros"
+  },
+  {
+   "id": 379,
+   "start": 2925,
+   "end": 2925,
+   "kind": "limite",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Limite gardiennage frais réels"
+  },
+  {
+   "id": 380,
+   "start": 2926,
+   "end": 2926,
+   "kind": "limite",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Limite obturation provisoire frais réels"
+  },
+  {
+   "id": 381,
+   "start": 2927,
+   "end": 2928,
+   "kind": "limite",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Limite déménagement/garde-meubles frais réels"
+  },
+  {
+   "id": 382,
+   "start": 2929,
+   "end": 2930,
+   "kind": "limite",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Limite nettoyage/dépannage serrurerie frais réels"
+  },
+  {
+   "id": 383,
+   "start": 2934,
+   "end": 2934,
+   "kind": "limite",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Limite vol/vandalisme bâtiment à neuf"
+  },
+  {
+   "id": 384,
+   "start": 2935,
+   "end": 2935,
+   "kind": "limite",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Limite embellissements vol/vandalisme"
+  },
+  {
+   "id": 385,
+   "start": 2936,
+   "end": 2937,
+   "kind": "limite",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Limite mobilier optionnelle (conditions particulières)"
+  },
+  {
+   "id": 386,
+   "start": 2938,
+   "end": 2939,
+   "kind": "limite",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Limite matériel pro/marchandises 15 000 euros"
+  },
+  {
+   "id": 387,
+   "start": 2940,
+   "end": 2940,
+   "kind": "limite",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Limite objets valeur/art/bijoux 50% mobilier"
+  },
+  {
+   "id": 388,
+   "start": 2941,
+   "end": 2942,
+   "kind": "limite",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Limite vandalisme murs/clôtures 5 000 euros"
+  },
+  {
+   "id": 389,
+   "start": 2943,
+   "end": 2943,
+   "kind": "limite",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Limite profanation sépultures 2 500 euros"
+  },
+  {
+   "id": 390,
+   "start": 2944,
+   "end": 2944,
+   "kind": "limite",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Limite larcins 2 500 euros"
+  },
+  {
+   "id": 391,
+   "start": 2945,
+   "end": 2945,
+   "kind": "limite",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Limite espèces hors coffre 1 500 euros"
+  },
+  {
+   "id": 392,
+   "start": 2946,
+   "end": 2950,
+   "kind": "limite",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Limite espèces dans coffre fort (normes EN)"
+  },
+  {
+   "id": 393,
+   "start": 2951,
+   "end": 2951,
+   "kind": "limite",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Limite vol par agression 2 500 euros"
+  },
+  {
+   "id": 394,
+   "start": 2952,
+   "end": 2952,
+   "kind": "limite",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Limite vol biens hôtes 2 500 euros"
+  },
+  {
+   "id": 395,
+   "start": 2953,
+   "end": 2955,
+   "kind": "limite",
+   "perils": [
+    "jardin_exterieurs"
+   ],
+   "defined_term": null,
+   "title": "Limite pack jardin/piscine (bâtiment/mobilier)"
+  },
+  {
+   "id": 396,
+   "start": 2956,
+   "end": 2956,
+   "kind": "limite",
+   "perils": [
+    "catastrophes_naturelles"
+   ],
+   "defined_term": null,
+   "title": "Limite déblaiement arbres frais réels"
+  },
+  {
+   "id": 397,
+   "start": 2957,
+   "end": 2957,
+   "kind": "limite",
+   "perils": [
+    "degats_des_eaux"
+   ],
+   "defined_term": null,
+   "title": "Limite inondation (garantie spécifique)"
+  },
+  {
+   "id": 398,
+   "start": 2958,
+   "end": 2966,
+   "kind": "limite",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Limites packs objets valeur/art/multimédia/loisirs"
+  },
+  {
+   "id": 399,
+   "start": 2967,
+   "end": 2972,
+   "kind": "limite",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Limites pack énergie renouvelable (matériel/perte financière)"
+  },
+  {
+   "id": 400,
+   "start": 2973,
+   "end": 2974,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Loyers impayés limite non-occupant"
+  },
+  {
+   "id": 401,
+   "start": 2975,
+   "end": 2975,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Détériorations immobilières limite 15 000 €"
+  },
+  {
+   "id": 402,
+   "start": 2976,
+   "end": 2976,
+   "kind": "limite",
+   "perils": [
+    "protection_juridique"
+   ],
+   "defined_term": null,
+   "title": "Défense recours limite 15 000 €"
+  },
+  {
+   "id": 403,
+   "start": 2977,
+   "end": 2977,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "RC vie privée corps 12,5M €"
+  },
+  {
+   "id": 404,
+   "start": 2978,
+   "end": 2978,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Dommages consécutifs 1,25M €"
+  },
+  {
+   "id": 405,
+   "start": 2979,
+   "end": 2979,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Dommages immatériels consécutifs 350k €"
+  },
+  {
+   "id": 406,
+   "start": 2980,
+   "end": 2980,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Atteintes environnement 50k €"
+  },
+  {
+   "id": 407,
+   "start": 2981,
+   "end": 2981,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "RC corps/matériel/immatériel 1,75M €"
+  },
+  {
+   "id": 408,
+   "start": 2982,
+   "end": 2982,
+   "kind": "garantie",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Assistance voyages"
+  },
+  {
+   "id": 409,
+   "start": 2983,
+   "end": 2984,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "RC stages étude 350k €"
+  },
+  {
+   "id": 410,
+   "start": 2985,
+   "end": 2987,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "RC mineur véhicule 1M €"
+  },
+  {
+   "id": 411,
+   "start": 2988,
+   "end": 2988,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "RC corps/matériel/immatériel 1,75M €"
+  },
+  {
+   "id": 412,
+   "start": 2989,
+   "end": 2989,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Fête familiale"
+  },
+  {
+   "id": 413,
+   "start": 2990,
+   "end": 2990,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "RC garde d’enfants 1M €"
+  },
+  {
+   "id": 414,
+   "start": 2991,
+   "end": 2991,
+   "kind": "limite",
+   "perils": [
+    "protection_juridique"
+   ],
+   "defined_term": null,
+   "title": "Défense recours RC vie privée 15k €"
+  },
+  {
+   "id": 415,
+   "start": 2992,
+   "end": 2992,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "RC assistant corps 12,5M €"
+  },
+  {
+   "id": 416,
+   "start": 2993,
+   "end": 2993,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Responsabilité civile parentale"
+  },
+  {
+   "id": 417,
+   "start": 2994,
+   "end": 2994,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Dommages consécutifs 1,25M €"
+  },
+  {
+   "id": 418,
+   "start": 2995,
+   "end": 2995,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Dommages immatériels consécutifs 350k €"
+  },
+  {
+   "id": 419,
+   "start": 2996,
+   "end": 2996,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "RC chiens dangereux 12,5M €"
+  },
+  {
+   "id": 420,
+   "start": 2997,
+   "end": 2997,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Chiens dangereux"
+  },
+  {
+   "id": 421,
+   "start": 2998,
+   "end": 2998,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Dommages consécutifs 1,25M €"
+  },
+  {
+   "id": 422,
+   "start": 2999,
+   "end": 2999,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Dommages immatériels consécutifs 350k €"
+  },
+  {
+   "id": 423,
+   "start": 3000,
+   "end": 3000,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "RC jouets à moteur 12,5M €"
+  },
+  {
+   "id": 424,
+   "start": 3001,
+   "end": 3001,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Dommages consécutifs 1,25M €"
+  },
+  {
+   "id": 425,
+   "start": 3002,
+   "end": 3002,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Plafond dommages immatériels consécutifs (350k€)"
+  },
+  {
+   "id": 426,
+   "start": 3003,
+   "end": 3003,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Plafond RC équidés (12,5M€)"
+  },
+  {
+   "id": 427,
+   "start": 3004,
+   "end": 3004,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Plafond dommages matériels/immateriels consécutifs (1,25M€)"
+  },
+  {
+   "id": 428,
+   "start": 3005,
+   "end": 3005,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Plafond dommages immatériels consécutifs (350k€)"
+  },
+  {
+   "id": 429,
+   "start": 3006,
+   "end": 3006,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Plafond RC professionnelle (12,5M€)"
+  },
+  {
+   "id": 430,
+   "start": 3007,
+   "end": 3007,
+   "kind": "garantie",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Garantie gîtes et chambres d’hôtes"
+  },
+  {
+   "id": 431,
+   "start": 3008,
+   "end": 3009,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Plafond global 1,25M€ (dont 350k€ immatériels)"
+  },
+  {
+   "id": 432,
+   "start": 3012,
+   "end": 3019,
+   "kind": "limite",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Indemnisation vol : preuve + plainte obligatoire"
+  },
+  {
+   "id": 433,
+   "start": 3021,
+   "end": 3044,
+   "kind": "limite",
+   "perils": [
+    "catastrophes_naturelles",
+    "degats_des_eaux",
+    "incendie",
+    "tempete_grele_neige"
+   ],
+   "defined_term": null,
+   "title": "Indemnisation bâtiments : coût reconstruction - vétusté"
+  },
+  {
+   "id": 434,
+   "start": 3047,
+   "end": 3070,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Indemnisation embellissements : valeur neuf - vétusté"
+  },
+  {
+   "id": 435,
+   "start": 3072,
+   "end": 3095,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Indemnisation mobiliers : valeur neuf - vétusté"
+  },
+  {
+   "id": 436,
+   "start": 3097,
+   "end": 3097,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Tableau vétusté mobiliers : âge vs formule"
+  },
+  {
+   "id": 437,
+   "start": 3098,
+   "end": 3104,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Vétusté électroménager : grille par âge (0-6 ans)"
+  },
+  {
+   "id": 438,
+   "start": 3105,
+   "end": 3112,
+   "kind": "limite",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Vétusté multimédia nomades : grille par mois (0-20 ans)"
+  },
+  {
+   "id": 439,
+   "start": 3113,
+   "end": 3114,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Vétusté matériel professionnel / objets précieux"
+  },
+  {
+   "id": 440,
+   "start": 3115,
+   "end": 3117,
+   "kind": "limite",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Valeur vénale objets précieux / mobiliers"
+  },
+  {
+   "id": 441,
+   "start": 3118,
+   "end": 3124,
+   "kind": "limite",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Vétusté énergie renouvelable : grille par âge (0-5 ans)"
+  },
+  {
+   "id": 442,
+   "start": 3127,
+   "end": 3135,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Grille vétusté électroménager (0-8 ans)"
+  },
+  {
+   "id": 443,
+   "start": 3137,
+   "end": 3138,
+   "kind": "limite",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Grille vétusté nomades (en % par mois)"
+  },
+  {
+   "id": 444,
+   "start": 3139,
+   "end": 3148,
+   "kind": "limite",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Grille vétusté nomades détaillée (16-25 mois)"
+  },
+  {
+   "id": 445,
+   "start": 3150,
+   "end": 3160,
+   "kind": "condition",
+   "perils": [
+    "vol_vandalisme"
+   ],
+   "defined_term": null,
+   "title": "Vol : plainte obligatoire + poursuites pour auteurs"
+  },
+  {
+   "id": 446,
+   "start": 3162,
+   "end": 3167,
+   "kind": "autre",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Avantage Baloise : réseau de professionnels pour réparations"
+  },
+  {
+   "id": 447,
+   "start": 3169,
+   "end": 3170,
+   "kind": "autre",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Règlement direct prestataires (énergie renouvelable)"
+  },
+  {
+   "id": 448,
+   "start": 3175,
+   "end": 3185,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Vétusté RC : grille par âge (0-8 ans)"
+  },
+  {
+   "id": 449,
+   "start": 3186,
+   "end": 3192,
+   "kind": "limite",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Vétusté RC : grille par âge (8-11 ans)"
+  },
+  {
+   "id": 450,
+   "start": 3193,
+   "end": 3198,
+   "kind": "procedure",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Recours pénal et frais à votre charge"
+  },
+  {
+   "id": 451,
+   "start": 3199,
+   "end": 3207,
+   "kind": "garantie",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Prise en charge des frais et indemnités RC"
+  },
+  {
+   "id": 452,
+   "start": 3209,
+   "end": 3233,
+   "kind": "procedure",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Obligations déclaratives et procédurales en cas de sinistre"
+  },
+  {
+   "id": 453,
+   "start": 3234,
+   "end": 3245,
+   "kind": "exclusion",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Réduction ou refus de garantie pour manquement"
+  },
+  {
+   "id": 454,
+   "start": 3247,
+   "end": 3251,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Non-cumul des indemnités en cas de garanties concurrentes"
+  },
+  {
+   "id": 455,
+   "start": 3253,
+   "end": 3281,
+   "kind": "procedure",
+   "perils": [
+    "responsabilite_civile"
+   ],
+   "defined_term": null,
+   "title": "Droits de subrogation et exceptions"
+  },
+  {
+   "id": 456,
+   "start": 3282,
+   "end": 3287,
+   "kind": "procedure",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Recours contre l’assuré pour récupération des indemnités"
+  },
+  {
+   "id": 457,
+   "start": 3289,
+   "end": 3296,
+   "kind": "garantie",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Conditions d’activation de l’assistance habitation"
+  },
+  {
+   "id": 458,
+   "start": 3298,
+   "end": 3305,
+   "kind": "administratif",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Contact et organisation de l’assistance par IMA Benelux"
+  },
+  {
+   "id": 459,
+   "start": 3307,
+   "end": 3310,
+   "kind": "garantie",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Prestations en cas d’impossibilité de séjourner à domicile"
+  },
+  {
+   "id": 460,
+   "start": 3311,
+   "end": 3318,
+   "kind": "garantie",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Prise en charge hôtelière et transport (10 jours max)"
+  },
+  {
+   "id": 461,
+   "start": 3320,
+   "end": 3332,
+   "kind": "garantie",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Recherche et transfert vers logement provisoire"
+  },
+  {
+   "id": 462,
+   "start": 3335,
+   "end": 3340,
+   "kind": "garantie",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Retour anticipé en cas de sinistre à l’étranger"
+  },
+  {
+   "id": 463,
+   "start": 3342,
+   "end": 3355,
+   "kind": "garantie",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Prise en charge des enfants mineurs après sinistre"
+  },
+  {
+   "id": 464,
+   "start": 3357,
+   "end": 3359,
+   "kind": "garantie",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Aide familiale en cas d’hospitalisation"
+  },
+  {
+   "id": 465,
+   "start": 3361,
+   "end": 3364,
+   "kind": "garantie",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Véhicule de remplacement (10 jours max)"
+  },
+  {
+   "id": 466,
+   "start": 3366,
+   "end": 3367,
+   "kind": "garantie",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Prise en charge des animaux de compagnie (garde)"
+  },
+  {
+   "id": 467,
+   "start": 3368,
+   "end": 3369,
+   "kind": "limite",
+   "perils": [
+    "assistance"
+   ],
+   "defined_term": null,
+   "title": "Durée maximale de garde animale (15 jours)"
+  },
+  {
+   "id": 468,
+   "start": 3372,
+   "end": 3377,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Mise à disposition d’un vigile pour sécurisation"
+  },
+  {
+   "id": 469,
+   "start": 3379,
+   "end": 3382,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Obturation provisoire du logement après sinistre"
+  },
+  {
+   "id": 470,
+   "start": 3384,
+   "end": 3400,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Transfert et garde-meuble du mobilier (12 mois max)"
+  },
+  {
+   "id": 471,
+   "start": 3402,
+   "end": 3405,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Service de nettoyage professionnel après sinistre"
+  },
+  {
+   "id": 472,
+   "start": 3407,
+   "end": 3418,
+   "kind": "garantie",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Dépannage serrurerie (1 fois/an)"
+  },
+  {
+   "id": 473,
+   "start": 3421,
+   "end": 3438,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Obligation de déclaration exacte du risque"
+  },
+  {
+   "id": 474,
+   "start": 3441,
+   "end": 3448,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Déclaration obligatoire des circonstances du risque"
+  },
+  {
+   "id": 475,
+   "start": 3450,
+   "end": 3456,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Nullité du contrat pour omission/inexactitude intentionnelle"
+  },
+  {
+   "id": 476,
+   "start": 3458,
+   "end": 3465,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Modification possible pour omission/inexactitude non intentionnelle"
+  },
+  {
+   "id": 477,
+   "start": 3466,
+   "end": 3469,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation possible si risque non assuré sans omission"
+  },
+  {
+   "id": 478,
+   "start": 3471,
+   "end": 3478,
+   "kind": "condition",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Obligation de déclaration des changements de risque"
+  },
+  {
+   "id": 479,
+   "start": 3480,
+   "end": 3485,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Droit à réduction de prime en cas de diminution de risque"
+  },
+  {
+   "id": 480,
+   "start": 3486,
+   "end": 3488,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation possible en cas de désaccord sur prime réduite"
+  },
+  {
+   "id": 481,
+   "start": 3490,
+   "end": 3499,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Modification ou résiliation pour aggravation de risque"
+  },
+  {
+   "id": 482,
+   "start": 3500,
+   "end": 3503,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation possible si risque aggravé non assuré"
+  },
+  {
+   "id": 483,
+   "start": 3505,
+   "end": 3516,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Sanctions pour omissions ou inexactitudes dans la déclaration"
+  },
+  {
+   "id": 484,
+   "start": 3518,
+   "end": 3519,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Prise d’effet de la garantie à la date indiquée"
+  },
+  {
+   "id": 485,
+   "start": 3520,
+   "end": 3521,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Garantie conditionnée au paiement de la première prime"
+  },
+  {
+   "id": 486,
+   "start": 3523,
+   "end": 3528,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Durée et reconduction tacite du contrat"
+  },
+  {
+   "id": 487,
+   "start": 3530,
+   "end": 3534,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Paiement de la prime confirme l’acceptation du contrat"
+  },
+  {
+   "id": 488,
+   "start": 3535,
+   "end": 3546,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Suspension de garantie pour défaut de paiement de prime"
+  },
+  {
+   "id": 489,
+   "start": 3547,
+   "end": 3552,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Délai de 30 jours pour régulariser le paiement de prime"
+  },
+  {
+   "id": 490,
+   "start": 3553,
+   "end": 3554,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Aucune garantie pour sinistre pendant suspension"
+  },
+  {
+   "id": 491,
+   "start": 3555,
+   "end": 3564,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Reprise de garantie après paiement des primes impayées"
+  },
+  {
+   "id": 492,
+   "start": 3565,
+   "end": 3569,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Droit de réclamer les primes impayées sur 2 années"
+  },
+  {
+   "id": 493,
+   "start": 3571,
+   "end": 3575,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Modification tarifaire effective à la prochaine échéance"
+  },
+  {
+   "id": 494,
+   "start": 3578,
+   "end": 3580,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation d’office après suspension de plus de 2 ans"
+  },
+  {
+   "id": 495,
+   "start": 3582,
+   "end": 3582,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Cas de résiliation facultative du contrat"
+  },
+  {
+   "id": 496,
+   "start": 3584,
+   "end": 3595,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Délais de préavis pour résiliation annuelle ou tacite"
+  },
+  {
+   "id": 497,
+   "start": 3597,
+   "end": 3605,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation possible sans pénalité après avis d’échéance"
+  },
+  {
+   "id": 498,
+   "start": 3606,
+   "end": 3617,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Calcul prorata temporis de la prime après résiliation"
+  },
+  {
+   "id": 499,
+   "start": 3619,
+   "end": 3627,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation obligatoire après résiliation de garantie par l’assureur"
+  },
+  {
+   "id": 500,
+   "start": 3629,
+   "end": 3638,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Délai de préavis et résiliation pour modification tarifaire"
+  },
+  {
+   "id": 501,
+   "start": 3641,
+   "end": 3649,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Effet et calcul de prime après résiliation"
+  },
+  {
+   "id": 502,
+   "start": 3652,
+   "end": 3661,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation en cas de désaccord sur baisse de prime"
+  },
+  {
+   "id": 503,
+   "start": 3664,
+   "end": 3664,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation pour non-paiement de prime (modalités)"
+  },
+  {
+   "id": 504,
+   "start": 3665,
+   "end": 3671,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation immédiate en cas de fraude avérée"
+  },
+  {
+   "id": 505,
+   "start": 3673,
+   "end": 3675,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation pour omission/inexactitude non frauduleuse (début)"
+  },
+  {
+   "id": 506,
+   "start": 3676,
+   "end": 3683,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation après refus de modification contractuelle"
+  },
+  {
+   "id": 507,
+   "start": 3686,
+   "end": 3690,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation pour risque non assuré initialement"
+  },
+  {
+   "id": 508,
+   "start": 3693,
+   "end": 3700,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation pour faillite ou sinistres répétés"
+  },
+  {
+   "id": 509,
+   "start": 3703,
+   "end": 3706,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation après décès du preneur (notre notification)"
+  },
+  {
+   "id": 510,
+   "start": 3709,
+   "end": 3716,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation par ayants droit après décès"
+  },
+  {
+   "id": 511,
+   "start": 3719,
+   "end": 3723,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation par curateur en cas de déconfiture"
+  },
+  {
+   "id": 512,
+   "start": 3726,
+   "end": 3727,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation par commissaire en gestion contrôlée (début)"
+  },
+  {
+   "id": 513,
+   "start": 3728,
+   "end": 3729,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation par commissaire (effet de la décision)"
+  },
+  {
+   "id": 514,
+   "start": 3730,
+   "end": 3730,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Résiliation par commissaire (effet de la notification)"
+  },
+  {
+   "id": 515,
+   "start": 3732,
+   "end": 3734,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Formes légales de résiliation du contrat"
+  },
+  {
+   "id": 516,
+   "start": 3736,
+   "end": 3741,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Remboursement de prime après résiliation"
+  },
+  {
+   "id": 517,
+   "start": 3743,
+   "end": 3744,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Cessation d’assurance de plein droit (début)"
+  },
+  {
+   "id": 518,
+   "start": 3745,
+   "end": 3751,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Cessation après cession d’un bien immobilier"
+  },
+  {
+   "id": 519,
+   "start": 3752,
+   "end": 3754,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Cessation immédiate après perte de possession meuble"
+  },
+  {
+   "id": 520,
+   "start": 3755,
+   "end": 3760,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Cessation après déménagement (échéance annuelle)"
+  },
+  {
+   "id": 521,
+   "start": 3761,
+   "end": 3762,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Cessation après perte totale non couverte"
+  },
+  {
+   "id": 522,
+   "start": 3763,
+   "end": 3763,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Cessation en cas de disparition du risque"
+  },
+  {
+   "id": 523,
+   "start": 3765,
+   "end": 3767,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Adresse valable pour notifications de l’assureur"
+  },
+  {
+   "id": 524,
+   "start": 3768,
+   "end": 3769,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Adresse pour notifications de l’assuré"
+  },
+  {
+   "id": 525,
+   "start": 3771,
+   "end": 3779,
+   "kind": "procedure",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Adresse et modalités de réclamation par courrier/email"
+  },
+  {
+   "id": 526,
+   "start": 3780,
+   "end": 3786,
+   "kind": "procedure",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Délai de réponse à une réclamation (30 jours)"
+  },
+  {
+   "id": 527,
+   "start": 3787,
+   "end": 3799,
+   "kind": "procedure",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Recours au médiateur ou au Commissariat aux Assurances"
+  },
+  {
+   "id": 528,
+   "start": 3800,
+   "end": 3801,
+   "kind": "procedure",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Action en justice possible devant les tribunaux"
+  },
+  {
+   "id": 529,
+   "start": 3803,
+   "end": 3803,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Début de l’indexation pour un contrat concerné"
+  },
+  {
+   "id": 530,
+   "start": 3804,
+   "end": 3817,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Règles d’indexation des garanties, primes et franchises"
+  },
+  {
+   "id": 531,
+   "start": 3819,
+   "end": 3824,
+   "kind": "limite",
+   "perils": [
+    "objets_valeur_tous_risques"
+   ],
+   "defined_term": null,
+   "title": "Garanties optionnelles non indexées (objets de valeur, multimédia, loisirs)"
+  },
+  {
+   "id": 532,
+   "start": 3825,
+   "end": 3830,
+   "kind": "limite",
+   "perils": [
+    "jardin_exterieurs",
+    "objets_valeur_tous_risques",
+    "pertes_indirectes"
+   ],
+   "defined_term": null,
+   "title": "Autres garanties optionnelles non indexées (mobilité, cave à vin, etc.)"
+  },
+  {
+   "id": 533,
+   "start": 3831,
+   "end": 3833,
+   "kind": "limite",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Indexation selon l’indice Baloise (sauf packs optionnels)"
+  },
+  {
+   "id": 534,
+   "start": 3835,
+   "end": 3837,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Compétence exclusive des tribunaux luxembourgeois"
+  },
+  {
+   "id": 535,
+   "start": 3839,
+   "end": 3839,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Loi luxembourgeoise applicable au contrat"
+  },
+  {
+   "id": 536,
+   "start": 3841,
+   "end": 3854,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Délai de prescription légale (3 ans, max 5 ans)"
+  },
+  {
+   "id": 537,
+   "start": 3857,
+   "end": 3867,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Collecte et traitement des données personnelles (consentement)"
+  },
+  {
+   "id": 538,
+   "start": 3870,
+   "end": 3888,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Utilisation des données pour évaluation de risque et gestion"
+  },
+  {
+   "id": 539,
+   "start": 3889,
+   "end": 3906,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Communication des données et consentement marketing"
+  },
+  {
+   "id": 540,
+   "start": 3908,
+   "end": 3914,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Droits sur vos données (consultation, correction, suppression)"
+  },
+  {
+   "id": 541,
+   "start": 3915,
+   "end": 3923,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Révocation du consentement et conséquences possibles"
+  },
+  {
+   "id": 542,
+   "start": 3925,
+   "end": 3930,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Conditions de stockage et durée de conservation des données"
+  },
+  {
+   "id": 543,
+   "start": 3932,
+   "end": 3958,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Sous-traitance à des prestataires externes (délai d’opposition)"
+  },
+  {
+   "id": 544,
+   "start": 3960,
+   "end": 3960,
+   "kind": "autre",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Lien vers plus d’informations (résumé politique vie privée)"
+  },
+  {
+   "id": 545,
+   "start": 3961,
+   "end": 3966,
+   "kind": "autre",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Accès à la politique complète de protection des données"
+  },
+  {
+   "id": 546,
+   "start": 3968,
+   "end": 3977,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Contact Data Protection Officer et CNPD pour réclamations"
+  },
+  {
+   "id": 547,
+   "start": 3979,
+   "end": 3985,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Acceptation des conditions générales par signature ou paiement"
+  },
+  {
+   "id": 548,
+   "start": 3986,
+   "end": 3987,
+   "kind": "administratif",
+   "perils": [
+    "general"
+   ],
+   "defined_term": null,
+   "title": "Informations légales sur la société Baloise Assurances Luxembourg"
+  }
+ ],
+ "outline_normalized": true
+}

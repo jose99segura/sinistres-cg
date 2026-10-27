@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Couvert ou pas ?</title>
+  <meta name="description" content="Un sinistre, des conditions générales d'assurance habitation, et les clauses qui décident — avec leurs sources.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231f4e79'/><path d='M9 16.5l4.5 4.5L23 11.5' stroke='white' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-inner">
+      <div>
+        <h1>Couvert ou pas&nbsp;?</h1>
+        <p class="tagline">Décrivez un sinistre. Le système lit les conditions générales, répond <em>couvert</em>, <em>non couvert</em> ou <em>indéterminé</em>, et montre les clauses sur lesquelles il s'appuie.</p>
+      </div>
+      <nav class="tabs" aria-label="Sections">
+        <a href="#analyse" class="tab active" data-tab="analyse">Analyse</a>
+        <a href="#methode" class="tab" data-tab="methode">Méthode</a>
+        <a href="#evaluation" class="tab" data-tab="evaluation">Évaluation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p class="notice">Démonstration réalisée pour un exercice de recrutement. Contrats publics téléchargés sur les sites des assureurs&nbsp;; projet personnel, sans lien avec les assureurs cités. Ce n'est pas un avis juridique&nbsp;: seules vos Conditions Particulières et votre assureur font foi.</p>
+
+    <section id="tab-analyse" class="panel">
+      <div class="grid">
+        <form id="form" class="card form" autocomplete="off">
+          <h2 class="step"><span>1</span> Le contrat</h2>
+          <div id="contracts" class="contracts" role="radiogroup" aria-label="Contrat"></div>
+
+          <h2 class="step"><span>2</span> Le sinistre</h2>
+          <label for="claim" class="sr">Description du sinistre</label>
+          <textarea id="claim" rows="5" maxlength="1500" placeholder="Ex. : Mon vélo a été volé dans le local commun de l'immeuble, qui n'était pas fermé à clé."></textarea>
+          <div class="examples">
+            <span class="muted small">Exemples&nbsp;:</span>
+            <div id="examples" class="chips"></div>
+          </div>
+          <button id="submit" type="submit" class="primary">Analyser le sinistre</button>
+          <p id="form-error" class="error" hidden></p>
+        </form>
+
+        <div id="result" class="result" aria-live="polite">
+          <div class="placeholder card">
+            <p class="ph-title">La réponse apparaîtra ici</p>
+            <ul class="ph-list">
+              <li><b>Un verdict</b>&nbsp;: couvert, non couvert, ou indéterminé quand le contrat ne permet pas de trancher.</li>
+              <li><b>Les clauses citées</b>, recopiées du contrat, avec la page et la section, surlignées dans le PDF.</li>
+              <li><b>Ce qui déciderait</b>&nbsp;: les faits manquants et les garanties à vérifier dans vos Conditions Particulières.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-methode" class="panel" hidden>
+      <article class="card prose">
+        <h2>Comment ça marche</h2>
+        <p>Mettre le PDF entier dans un chatbot marche sur un contrat et s'écroule ensuite&nbsp;: pas de citation fiable, pas de comparaison, un coût qui grandit avec chaque question. Ici, chaque contrat est <b>préparé une fois</b>, puis interrogé comme une base de données.</p>
+        <ol class="pipeline">
+          <li><b>Lecture du PDF.</b> Chaque ligne est extraite avec sa page et sa position (gestion des deux colonnes, en-têtes et pieds de page retirés).</li>
+          <li><b>Découpage en clauses.</b> Un modèle indique <em>quelles lignes</em> forment un titre ou une clause&nbsp;; il ne réécrit jamais le texte. Le texte d'une clause est donc toujours celui du contrat, et chaque clause garde sa page et son chemin de section (« 6. Garanties optionnelles › a. Vol › Sont exclus »).</li>
+          <li><b>Étiquetage.</b> Chaque clause reçoit un type (garantie, exclusion, condition, définition, limite…) et des périls dans un vocabulaire commun à tous les assureurs. C'est ce vocabulaire qui permet de tenir des centaines de contrats.</li>
+          <li><b>Recherche.</b> Pour un sinistre, une requête SQL réunit les garanties, exclusions et conditions des périls concernés, une recherche plein texte (BM25) sur les termes du sinistre, les définitions des mots utilisés et les exclusions générales.</li>
+          <li><b>Constats.</b> Le modèle ne donne pas le verdict. Il qualifie les faits, cite les clauses, puis répond à trois questions (oui / non / incertain)&nbsp;: une garantie s'applique-t-elle&nbsp;? une exclusion&nbsp;? une condition non remplie&nbsp;?</li>
+          <li><b>Contrôle et verdict, dans le code.</b> Chaque citation est vérifiée mot pour mot dans le contrat. Une exclusion ou une condition non remplie doit s'appuyer sur des mots du récit, vérifiés eux aussi&nbsp;; sinon l'assuré est présumé avoir respecté ses obligations. Le verdict découle d'une règle explicite, et un verdict sans clause vérifiée devient « indéterminé », avec la raison affichée.</li>
+        </ol>
+        <h3>Des centaines de contrats</h3>
+        <p>Le coût par contrat est payé une fois, à l'ingestion (quelques minutes, quelques centimes)&nbsp;; le coût par question ne dépend pas de la taille du contrat. Les contrats sont des lignes d'un index (assureur, produit, version, date d'effet) et les clauses partagent le même schéma&nbsp;: «&nbsp;quels contrats excluent les vélos laissés dans les parties communes&nbsp;?&nbsp;» devient une requête, pas une lecture de cent PDF.</p>
+        <h3>Limites connues</h3>
+        <ul>
+          <li>Les conditions générales ne suffisent pas&nbsp;: les options souscrites, plafonds et franchises sont dans les Conditions Particulières. Le système le dit plutôt que de le supposer.</li>
+          <li>Le modèle utilisé est un petit modèle (niveau gratuit de l'API Mistral). Le découpage est parfois trop large et certaines étiquettes sont fausses&nbsp;; les contrôles de citation limitent l'effet de ces erreurs sur le verdict, sans l'annuler.</li>
+          <li>Les tableaux complexes et les PDF scannés ne sont pas traités.</li>
+        </ul>
+        <p class="muted">Code source et rapport d'évaluation&nbsp;: <a id="repo-link" href="https://github.com/jose99segura/sinistres-cg" target="_blank" rel="noopener">github.com/jose99segura/sinistres-cg</a></p>
+      </article>
+    </section>
+
+    <section id="tab-evaluation" class="panel" hidden>
+      <div id="eval" class="card prose"><p class="muted">Chargement…</p></div>
+    </section>
+  </main>
+
+  <dialog id="page-dialog">
+    <div class="dialog-head">
+      <span id="page-title"></span>
+      <button type="button" class="ghost" id="page-close" aria-label="Fermer">✕</button>
+    </div>
+    <div class="dialog-body"><img id="page-img" alt="Page du contrat avec le passage cité surligné"></div>
+  </dialog>
+
+  <template id="tpl-loading">
+    <div class="card loading">
+      <div class="spinner" aria-hidden="true"></div>
+      <div>
+        <p class="ph-title">Analyse en cours…</p>
+        <ol class="progress muted small">
+          <li>Lecture du sinistre (périls, biens, termes)</li>
+          <li>Recherche des clauses dans la base</li>
+          <li>Décision et vérification des citations</li>
+        </ol>
+        <p class="muted small">Environ 10 à 30 secondes (petit modèle, niveau gratuit).</p>
+      </div>
+    </div>
+  </template>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

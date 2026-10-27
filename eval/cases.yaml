@@ -1,0 +1,161 @@
+# Hand-labelled claims. Labels come from reading the general conditions (pages in `note`), assuming the
+# relevant optional guarantee is subscribed, as the system does.
+#
+# expected:         the answer a careful handler would give from the general conditions alone
+# accept:           verdicts that are also defensible when the contract is genuinely open to reading
+#                   (default: [expected]); a verdict outside `accept` is an error
+# expected_clauses: regexes; at least one verified citation must come from a clause matching one of them
+cases:
+  # ------------------------------------------------------------------ Baloise HOME 09-24
+  - id: bal-velo-local-commun
+    contract: baloise-home-2024
+    claim: Mon vélo a été volé dans le local commun de l'immeuble, qui n'était pas fermé à clé.
+    expected: indetermine
+    accept: [indetermine, non_couvert]
+    expected_clauses: ["locaux non clos", "introduction clandestine", "négligence manifeste"]
+    note: >-
+      p.15-16 theft needs effraction, escalade, false keys, violence or "introduction clandestine"; theft in
+      "locaux non clos" is excluded (p.16). A room that is shut but not locked: closed or not? Bikes are
+      "objets de mobilité durable" (p.7, pack f p.19).
+
+  - id: bal-bougie-jardin
+    contract: baloise-home-2024
+    claim: Pendant mes vacances, une bougie laissée sur la table de mon jardin a fondu avec la chaleur et a abîmé la table.
+    expected: indetermine
+    accept: [indetermine, non_couvert]
+    expected_clauses: ["action subite de la chaleur", "mobilier de jardin", "plein air"]
+    note: >-
+      p.12 fire cover includes "l'action subite de la chaleur ... (dommages ménagers)"; sun heat melting wax
+      is hardly sudden. Garden furniture only with the garden pack (p.20), which needs a covered event.
+
+  - id: bal-machine-a-laver
+    contract: baloise-home-2024
+    claim: Le tuyau de ma machine à laver a lâché et l'eau a abîmé le parquet du salon.
+    expected: couvert
+    expected_clauses: ["appareils à effet d.eau"]
+    note: p.13 water damage covers leaks of "appareils à effet d'eau situés à l'intérieur du bâtiment".
+
+  - id: bal-portable-tombe
+    contract: baloise-home-2024
+    claim: J'ai fait tomber mon ordinateur portable par terre chez moi, l'écran est cassé.
+    expected: couvert
+    expected_clauses: ["multimédia nomades", "informatiques"]
+    note: p.18 Pack Multimédia covers damage "à la suite d'un accident" to nomad multimedia devices.
+
+  - id: bal-bijoux-effraction
+    contract: baloise-home-2024
+    claim: Des cambrioleurs ont forcé la porte d'entrée de ma maison et ont volé mes bijoux pendant que j'étais au travail.
+    expected: couvert
+    expected_clauses: ["effraction"]
+    note: p.15 theft by effraction of movable property inside the insured building, jewellery included.
+
+  - id: bal-cle-paillasson
+    contract: baloise-home-2024
+    claim: Des voleurs sont entrés chez moi avec la clé que j'avais laissée sous le paillasson et ont volé ma télévision.
+    expected: non_couvert
+    expected_clauses: ["paillasson"]
+    note: p.16 loss of all rights when the theft uses keys left under the doormat.
+
+  - id: bal-store-vent
+    contract: baloise-home-2024
+    claim: Un vent violent a arraché mon store banne, que j'avais laissé déployé pendant mes deux semaines de vacances.
+    expected: indetermine
+    accept: [indetermine, non_couvert]
+    expected_clauses: ["80 km", "replier les stores"]
+    note: >-
+      p.12 storm needs damage to nearby buildings or wind >= 80 km/h (unknown); the insured must retract
+      awnings during an absence over 24 hours, with no stated sanction.
+
+  # ------------------------------------------------------------------ AXA OptiHome 03-2022
+  - id: axa-velo-local-commun
+    contract: axa-optihome-2022
+    claim: Mon vélo a été volé dans le local commun de l'immeuble, qui n'était pas fermé à clé.
+    expected: indetermine
+    accept: [indetermine, non_couvert]
+    expected_clauses: ["fermés à clé", "antivol", "parties communes", "vols simples"]
+    note: >-
+      p.61 option Confort covers bike theft in cellars/garages "fermés à clé" or anywhere if attached with an
+      anti-theft device to an anchored element (unknown). Base theft excludes "vols simples" and common
+      parts not locked (p.43).
+
+  - id: axa-velo-cave-forcee
+    contract: axa-optihome-2022
+    claim: Mon vélo a été volé dans la cave de mon immeuble. La porte de la cave était fermée à clé et a été forcée.
+    expected: couvert
+    expected_clauses: ["fermés à clé"]
+    note: p.61 bike theft covered "dans les greniers, caves et garages fermés à clé et situés dans un immeuble collectif".
+
+  - id: axa-vitre-porte-commune
+    contract: axa-optihome-2022
+    claim: Je suis locataire d'un appartement. La vitre de la porte d'entrée commune de l'immeuble a été brisée.
+    expected: non_couvert
+    expected_clauses: ["parties communes"]
+    note: p.42 glass breakage excludes glazing of the common parts when the insured is a tenant.
+
+  - id: axa-portable-tombe
+    contract: axa-optihome-2022
+    claim: J'ai fait tomber mon ordinateur portable par terre chez moi, l'écran est cassé.
+    expected: couvert
+    expected_clauses: ["chute"]
+    note: p.44 multimedia option covers accidental breakage "résultant d'une chute".
+
+  - id: axa-bougie-jardin
+    contract: axa-optihome-2022
+    claim: Pendant mes vacances, une bougie laissée sur la table de mon jardin a fondu avec la chaleur et a abîmé la table.
+    expected: indetermine
+    accept: [indetermine, non_couvert]
+    expected_clauses: ["action subite de la chaleur", "mobilier de jardin"]
+    note: >-
+      p.36 fire includes damage to furniture "par un événement soudain, résultant de l'action subite de la
+      chaleur"; gradual sun heat is not obviously sudden; garden furniture is defined p.13.
+
+  - id: axa-vol-porte-ouverte
+    contract: axa-optihome-2022
+    claim: Un inconnu est entré par la porte que j'avais laissée ouverte pendant que j'étais au jardin, et a volé ma tablette dans le salon.
+    expected: non_couvert
+    expected_clauses: ["vols? simples?"]
+    note: p.17 "vol simple" = theft without forcing a lock; p.43 "les vols simples" are not insured.
+
+  # ------------------------------------------------------------------ Lalux easyPROTECT 2022 (home)
+  - id: lalux-velo-local-commun
+    contract: lalux-easyprotect-2022
+    claim: Mon vélo a été volé dans le local commun de l'immeuble, qui n'était pas fermé à clé.
+    expected: indetermine
+    accept: [indetermine, couvert]
+    expected_clauses: ["intrusion clandestine", "cycle", "lieux publics"]
+    note: >-
+      p.36 theft cover includes "intrusion clandestine ... sans effraction" in the premises holding the
+      property; is a shared bike room part of them? p.64 all-risk cycles excludes only unattended theft in
+      places open to the public.
+
+  - id: lalux-machine-a-laver
+    contract: lalux-easyprotect-2022
+    claim: Le tuyau de ma machine à laver a lâché et l'eau a abîmé le parquet du salon.
+    expected: couvert
+    expected_clauses: ["machines à laver"]
+    note: p.35 water damage covers leaks from "machines à laver ou lave-vaisselle".
+
+  - id: lalux-bougie-jardin
+    contract: lalux-easyprotect-2022
+    claim: Pendant mes vacances, une bougie laissée sur la table de mon jardin a fondu avec la chaleur et a abîmé la table.
+    expected: indetermine
+    accept: [indetermine, couvert]
+    expected_clauses: ["excès de chaleur", "contact d.une lumière"]
+    note: >-
+      p.34 fire covers "dégâts ménagers suite à un excès de chaleur sans embrasement ou suite à un
+      rapprochement ou contact d'une lumière", wider than the other two; whether a garden table outside is
+      covered furniture at the insured place is not settled by the text read.
+
+  - id: lalux-cambriolage-fenetre
+    contract: lalux-easyprotect-2022
+    claim: Des cambrioleurs ont forcé une fenêtre et ont volé ma télévision.
+    expected: couvert
+    expected_clauses: ["effraction"]
+    note: p.36 theft by effraction of the premises holding the insured furniture.
+
+  - id: lalux-vol-par-le-fils
+    contract: lalux-easyprotect-2022
+    claim: Mon fils, qui vit avec moi, a pris mon ordinateur et l'a revendu sans me le dire.
+    expected: non_couvert
+    expected_clauses: ["membres de la famille", "communauté domestique"]
+    note: p.36 thefts by family members or people living in the household are excluded.
