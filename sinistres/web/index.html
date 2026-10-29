@@ -5,63 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Couvert ou pas ?</title>
   <meta name="description" content="Un sinistre, des conditions générales d'assurance habitation, et les clauses qui décident — avec leurs sources.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231f4e79'/><path d='M9 16.5l4.5 4.5L23 11.5' stroke='white' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232957c8'/><path d='M9 16.5l4.5 4.5L23 11.5' stroke='white' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/style.css?v=6">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css?v=9">
 </head>
 <body>
   <header class="top">
     <div class="wrap top-inner">
-      <div class="top-row">
-        <div>
-          <h1 data-i18n="h1">Couvert ou pas&nbsp;?</h1>
-          <p class="tagline" data-i18n-html="tagline"></p>
-        </div>
-        <div class="lang-switch" role="group" aria-label="Langue / Language">
-          <button type="button" data-lang="fr" aria-pressed="true">FR</button>
-          <button type="button" data-lang="en" aria-pressed="false">EN</button>
-        </div>
+      <div class="brand">
+        <p class="eyebrow" data-i18n="eyebrow"></p>
+        <h1 data-i18n="h1">Couvert ou pas&nbsp;?</h1>
+        <p class="tagline" data-i18n="tagline"></p>
       </div>
-      <nav class="tabs" aria-label="Sections">
-        <a href="#analyse" class="tab active" data-tab="analyse" data-i18n="tab.analyse">Analyse</a>
-        <a href="#methode" class="tab" data-tab="methode" data-i18n="tab.methode">Comment c'est fait</a>
-        <a href="#evaluation" class="tab" data-tab="evaluation" data-i18n="tab.evaluation">Évaluation</a>
-      </nav>
+      <div class="lang-switch" role="group" aria-label="Langue / Language">
+        <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </div>
+    <nav class="wrap tabs" aria-label="Sections">
+      <a href="#analyse" class="tab active" data-tab="analyse" data-i18n="tab.analyse">Analyse</a>
+      <a href="#methode" class="tab" data-tab="methode" data-i18n="tab.methode">Comment c'est fait</a>
+      <a href="#evaluation" class="tab" data-tab="evaluation" data-i18n="tab.evaluation">Évaluation</a>
+    </nav>
   </header>
 
   <main class="wrap">
-    <p class="notice" data-i18n="notice"></p>
-
-    <section id="tab-analyse" class="panel">
-      <div class="grid">
-        <form id="form" class="card form" autocomplete="off">
-          <h2 class="step"><span>1</span> <b data-i18n="form.contract"></b></h2>
-          <div id="contracts" class="contracts" role="radiogroup" data-i18n-attr="aria-label:form.contract"></div>
-
-          <h2 class="step"><span>2</span> <b data-i18n="form.claim"></b></h2>
-          <label for="claim" class="sr" data-i18n="form.claim_label"></label>
-          <textarea id="claim" rows="5" maxlength="1500" data-i18n-attr="placeholder:form.placeholder"></textarea>
-          <div class="examples">
-            <span class="muted small" data-i18n="form.examples"></span>
-            <div id="examples" class="chips"></div>
-          </div>
+    <section id="tab-analyse" class="panel narrow">
+      <form id="form" autocomplete="off">
+        <div class="field">
+          <div class="label" id="contract-label" data-i18n="form.contract"></div>
+          <div id="contracts" class="seg" role="radiogroup" aria-labelledby="contract-label"></div>
+          <p id="contract-meta" class="hint"></p>
+        </div>
+        <div class="field">
+          <label for="claim" class="label" data-i18n="form.claim"></label>
+          <textarea id="claim" rows="3" maxlength="1500" data-i18n-attr="placeholder:form.placeholder"></textarea>
+          <div class="examples"><span class="hint" data-i18n="form.examples"></span> <span id="examples"></span></div>
+        </div>
+        <div class="actions">
           <button id="submit" type="submit" class="primary" data-i18n="form.submit"></button>
           <p id="form-error" class="error" hidden></p>
-        </form>
-
-        <div id="result" class="result" aria-live="polite">
-          <div class="placeholder card">
-            <p class="ph-title" data-i18n="ph.title"></p>
-            <ul class="ph-list">
-              <li data-i18n-html="ph.li1"></li>
-              <li data-i18n-html="ph.li2"></li>
-              <li data-i18n-html="ph.li3"></li>
-            </ul>
-          </div>
         </div>
-      </div>
+      </form>
+      <div id="result" aria-live="polite"></div>
     </section>
 
     <section id="tab-methode" class="panel" hidden>
@@ -180,6 +167,8 @@ where p.peril = 'vol_vandalisme' and cl.kind = 'exclusion'
     </section>
   </main>
 
+  <footer class="wrap foot"><p data-i18n="notice"></p></footer>
+
   <dialog id="page-dialog">
     <div class="dialog-head">
       <span id="page-title"></span>
@@ -189,22 +178,18 @@ where p.peril = 'vol_vandalisme' and cl.kind = 'exclusion'
   </dialog>
 
   <template id="tpl-loading">
-    <div class="card loading">
+    <div class="loading">
       <div class="spinner" aria-hidden="true"></div>
       <div>
-        <p class="ph-title" data-i18n="loading.title"></p>
-        <ol class="progress muted small">
-          <li data-i18n="loading.s1"></li>
-          <li data-i18n="loading.s2"></li>
-          <li data-i18n="loading.s3"></li>
-        </ol>
-        <p class="muted small" data-i18n="loading.time"></p>
+        <p class="loading-title" data-i18n="loading.title"></p>
+        <p class="hint"><span data-i18n="loading.s1"></span> · <span data-i18n="loading.s2"></span> · <span data-i18n="loading.s3"></span></p>
+        <p class="hint" data-i18n="loading.time"></p>
       </div>
     </div>
   </template>
 
-  <script src="/static/i18n.js?v=6"></script>
-  <script src="/static/diagrams.js?v=6"></script>
-  <script src="/static/app.js?v=6"></script>
+  <script src="/static/i18n.js?v=9"></script>
+  <script src="/static/diagrams.js?v=9"></script>
+  <script src="/static/app.js?v=9"></script>
 </body>
 </html>

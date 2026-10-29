@@ -63,23 +63,28 @@ async function loadContracts(attempt = 0) {
   renderContracts();
 }
 
+const SHORT = { baloise: "Baloise", axa: "AXA", lalux: "Lalux" };
+
 function renderContracts() {
   $("#contracts").innerHTML = state.contracts.map((c) => `
-    <label class="contract${c.id === state.contractId ? " selected" : ""}">
+    <label class="seg-item${c.id === state.contractId ? " selected" : ""}">
       <input type="radio" name="contract" value="${esc(c.id)}" ${c.id === state.contractId ? "checked" : ""}>
-      <span class="name">${esc(c.insurer)} — ${esc(c.product)}</span>
-      <span class="meta">${t("contract.version")} ${esc(c.version)} · ${c.n_pages} ${t("contract.pages")} · ${c.n_clauses} ${t("contract.clauses")} ·
-        <a href="${esc(c.url)}" target="_blank" rel="noopener">${t("contract.source")}</a></span>
+      <span>${esc(SHORT[c.id.split("-")[0]] || c.insurer)}</span>
     </label>`).join("");
+  const c = state.contracts.find((x) => x.id === state.contractId);
+  $("#contract-meta").innerHTML = c ? `${esc(c.insurer)} — ${esc(c.product)} · ${t("contract.version")} ${esc(c.version)} ·
+    ${c.n_pages} ${t("contract.pages")} · ${c.n_clauses} ${t("contract.clauses")} ·
+    <a href="${esc(c.url)}" target="_blank" rel="noopener">${t("contract.source")}</a>` : "";
 }
 
 $("#contracts").addEventListener("change", (e) => {
   state.contractId = e.target.value;
-  for (const l of $("#contracts").querySelectorAll(".contract")) l.classList.toggle("selected", l.querySelector("input").checked);
+  renderContracts();
 });
 
 function renderExamples() {
-  $("#examples").innerHTML = EXAMPLES[LANG].map(([label], i) => `<button type="button" class="chip" data-i="${i}">${esc(label)}</button>`).join("");
+  $("#examples").innerHTML = EXAMPLES[LANG].slice(0, 4)
+    .map(([label], i) => `<button type="button" class="chip" data-i="${i}">${esc(label)}</button>`).join("");
 }
 
 $("#examples").addEventListener("click", (e) => {
@@ -110,7 +115,7 @@ function markCitation(text, citation) {
     out += esc(text.slice(pos, a)) + "<mark>" + esc(text.slice(a, b)) + "</mark>";
     pos = b;
   }
-  return out + esc(text.slice(pos));
+  return { html: out + esc(text.slice(pos)), excerpt: ranges.map(([a, b]) => text.slice(a, b)).join(" … ") };
 }
 
 /* ---------------------------------------------------------------- result */
@@ -126,60 +131,56 @@ function renderResult(r) {
     const c = s.clause;
     const p = t("res.page");
     const pages = c.page_start === c.page_end ? `${p} ${c.page_start}` : `${p} ${c.page_start}–${c.page_end}`;
+    const marked = s.verifiee ? markCitation(c.text, s.citation) : null;
+    const quote = marked && marked.excerpt ? marked.excerpt : s.citation;
     return `
-      <div class="card cite">
-        <div class="cite-head">
+      <li class="cite${s.verifiee ? "" : " unverified"}">
+        <div class="cite-meta">
           <span class="role ${esc(s.role)}">${esc(t(`role.${s.role}`))}</span>
-          <span class="where">${pages} · ${esc(c.section_path || "—")}</span>
-          ${s.verifiee
-            ? `<span class="check ok" title="${esc(t("res.verified_title"))}">${t("res.verified")}</span>`
-            : `<span class="check ko" title="${esc(t("res.unverified_title"))}">${t("res.unverified")}</span>`}
+          <span>${pages}</span>
+          <span class="where">${esc(c.section_path || "")}</span>
+          <span class="check ${s.verifiee ? "ok" : "ko"}" title="${esc(t(s.verifiee ? "res.verified_title" : "res.unverified_title"))}">${t(s.verifiee ? "res.verified" : "res.unverified")}</span>
         </div>
+        <blockquote class="quote" lang="fr">${esc(quote)}</blockquote>
         <p class="explication">${md(s.explication)}</p>
-        <div class="clause-text${s.verifiee ? "" : " unverified"}" lang="fr">${s.verifiee ? markCitation(c.text, s.citation) : esc(c.text)}</div>
-        ${s.verifiee ? "" : `<p class="small muted">${t("res.proposed")} « ${esc(s.citation)} »</p>`}
         <div class="cite-actions">
-          <button type="button" class="link-btn" data-page="${c.page_start}" data-lines="${(s.lignes || []).join(",")}"
+          <button type="button" class="text-btn" data-toggle>${t("res.full_clause")}</button>
+          <button type="button" class="text-btn" data-page="${c.page_start}" data-lines="${(s.lignes || []).join(",")}"
             data-title="${esc(`${r.contract.insurer} — ${pages} — ${c.section_path}`)}">${t("res.see_pdf")}</button>
         </div>
-      </div>`;
+        <div class="clause-text" lang="fr" hidden>${marked ? marked.html : esc(c.text)}</div>
+      </li>`;
   }).join("");
 
   const perils = (r.analyse_sinistre.perils || []).map((x) => `<span class="tag">${esc(perilLabels[x] || x)}</span>`).join("");
   const termes = (r.analyse_sinistre.termes || []).map((x) => `<span class="tag">${esc(x)}</span>`).join("");
-  const findings = ["garantie", "exclusion", "condition_non_remplie"];
+  const findings = r.constats ? ["garantie", "exclusion", "condition_non_remplie"]
+    .map((k) => `<span class="f-${r.constats[k]}">${t(`finding.short.${k}`)}&nbsp;: <b>${t(`finding.${r.constats[k]}`)}</b></span>`).join("") : "";
+
+  const decide = missing.length || options.length ? `
+    <div class="decide">
+      ${missing.length ? `<h3>${t("res.missing")}</h3><ul>${missing.map((m) => `<li>${md(m)}</li>`).join("")}</ul>` : ""}
+      ${options.length ? `<h3>${t("res.options")}</h3><ul>${options.map((m) => `<li>${md(m)}</li>`).join("")}</ul>` : ""}
+    </div>` : "";
 
   $("#result").innerHTML = `
-    <div class="card verdict ${v}">
-      <div class="verdict-head">
-        <span class="badge ${v}">${VERDICT_ICONS[v]} ${t(`verdict.${v}`)}</span>
-        <span class="contract-name">${esc(r.contract.insurer)} — ${esc(r.contract.product)} (${esc(r.contract.version)})</span>
+    <div class="verdict ${v}">
+      <div class="verdict-line">
+        <span class="verdict-word">${VERDICT_ICONS[v]}&nbsp; ${t(`verdict.${v}`)}</span>
+        <span class="hint">${esc(r.contract.insurer)} — ${esc(r.contract.product)}</span>
       </div>
       <p class="resume">${md(r.resume)}</p>
-      ${r.constats ? `<div class="constats">
-        ${findings.map((k) => `<span class="constat ${r.constats[k]}">${t(`finding.${k}`)}&nbsp;: <b>${t(`finding.${r.constats[k]}`)}</b></span>`).join("")}
-      </div>` : ""}
-      ${r.qualification ? `<p class="qualif"><b>${t("res.qualification")}</b> ${md(r.qualification)}</p>` : ""}
+      ${findings ? `<p class="findings">${findings}</p>` : ""}
       ${downgraded ? `<p class="downgraded">${esc(t("res.downgraded", { v: t(`verdict.${r.verdict_modele}`) }))}</p>` : ""}
     </div>
+    ${decide}
+    <h3 class="section-title">${t("res.cited", { n: r.etapes.length })}</h3>
+    ${steps ? `<ol class="cites">${steps}</ol>` : `<p class="hint">${t("res.clauses_none")}</p>`}
 
-    <div class="boxes">
-      <div class="card box ${missing.length ? "" : "empty"}">
-        <h3>${t("res.missing")}</h3>
-        ${missing.length ? `<ul>${missing.map((m) => `<li>${md(m)}</li>`).join("")}</ul>` : t("res.missing_none")}
-      </div>
-      <div class="card box ${options.length ? "" : "empty"}">
-        <h3>${t("res.options")}</h3>
-        ${options.length ? `<ul>${options.map((m) => `<li>${md(m)}</li>`).join("")}</ul>` : t("res.options_none")}
-      </div>
-    </div>
-
-    <h3 class="section-title">${t("res.clauses", { n: r.etapes.length })}</h3>
-    ${steps || `<div class="card box empty">${t("res.clauses_none")}</div>`}
-
-    <details class="card trace">
+    <details class="trace">
       <summary>${t("res.trace")}</summary>
       <dl class="kv">
+        ${r.qualification ? `<dt>${t("res.qualification").replace(/[\s ]*:$/, "")}</dt><dd>${md(r.qualification)}</dd>` : ""}
         <dt>${t("res.perils")}</dt><dd>${perils}</dd>
         <dt>${t("res.terms")}</dt><dd>${termes}</dd>
         <dt>${t("res.read")}</dt><dd>${t("res.read_n", { a: r.clauses_lues.lues, b: r.clauses_lues.total })}</dd>
@@ -202,6 +203,13 @@ function openPage(btn) {
 $("#page-close").addEventListener("click", () => $("#page-dialog").close());
 $("#page-dialog").addEventListener("click", (e) => { if (e.target.id === "page-dialog") e.target.close(); });
 $("#result").addEventListener("click", (e) => {
+  const toggle = e.target.closest("[data-toggle]");
+  if (toggle) {
+    const box = toggle.closest(".cite").querySelector(".clause-text");
+    box.hidden = !box.hidden;
+    toggle.textContent = t(box.hidden ? "res.full_clause" : "res.hide_clause");
+    return;
+  }
   const b = e.target.closest("[data-page]");
   if (b) openPage(b);
 });
@@ -236,7 +244,7 @@ $("#form").addEventListener("submit", async (e) => {
     renderResult(data);
     if (window.innerWidth < 900) $("#result").scrollIntoView({ behavior: "smooth" });
   } catch (ex) {
-    $("#result").innerHTML = `<div class="card placeholder"><p class="ph-title">${t("res.no_answer")}</p><p class="error">${esc(ex.message)}</p></div>`;
+    $("#result").innerHTML = `<div class="verdict"><p class="loading-title">${t("res.no_answer")}</p><p class="error">${esc(ex.message)}</p></div>`;
   } finally {
     btn.disabled = false;
     btn.textContent = t("form.submit");
