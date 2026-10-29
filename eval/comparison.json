@@ -1,0 +1,212 @@
+{
+ "modes": [
+  {
+   "mode": "cheap",
+   "model": "ministral-14b-latest",
+   "run_at": "2026-10-29 11:28",
+   "verdict_accuracy": 0.6666666666666666,
+   "verdict_accuracy_ci": [
+    0.5155222701166692,
+    0.7898771923802769
+   ],
+   "wrong_confident_rate": 0.11904761904761904,
+   "wrong_confident_ci": [
+    0.05193726765019084,
+    0.2500068180710754
+   ],
+   "expected_clause_recall": 0.7380952380952381,
+   "citation_verified_rate": 0.7024390243902439,
+   "abstention_recall": 0.42857142857142855,
+   "abstention_precision": 0.21428571428571427,
+   "escalation_rate": 0.0,
+   "mean_duration_s": 21.5,
+   "by_slice": {
+    "ambiguous": {
+     "n": 7,
+     "ok": 7
+    },
+    "condition": {
+     "n": 3,
+     "ok": 3
+    },
+    "exception": {
+     "n": 4,
+     "ok": 1
+    },
+    "exclusion": {
+     "n": 12,
+     "ok": 7
+    },
+    "guarantee": {
+     "n": 14,
+     "ok": 8
+    },
+    "guarantee_scope": {
+     "n": 1,
+     "ok": 1
+    },
+    "language": {
+     "n": 1,
+     "ok": 1
+    }
+   }
+  },
+  {
+   "mode": "cascade",
+   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "run_at": "2026-10-29 11:23",
+   "verdict_accuracy": 0.9047619047619048,
+   "verdict_accuracy_ci": [
+    0.7793460477494668,
+    0.9623383611716879
+   ],
+   "wrong_confident_rate": 0.09523809523809523,
+   "wrong_confident_ci": [
+    0.0376616388283121,
+    0.2206539522505333
+   ],
+   "expected_clause_recall": 0.9285714285714286,
+   "citation_verified_rate": 0.930379746835443,
+   "abstention_recall": 0.7142857142857143,
+   "abstention_precision": 1.0,
+   "escalation_rate": 0.7380952380952381,
+   "mean_duration_s": 39.5,
+   "by_slice": {
+    "ambiguous": {
+     "n": 7,
+     "ok": 6
+    },
+    "condition": {
+     "n": 3,
+     "ok": 2
+    },
+    "exception": {
+     "n": 4,
+     "ok": 3
+    },
+    "exclusion": {
+     "n": 12,
+     "ok": 11
+    },
+    "guarantee": {
+     "n": 14,
+     "ok": 14
+    },
+    "guarantee_scope": {
+     "n": 1,
+     "ok": 1
+    },
+    "language": {
+     "n": 1,
+     "ok": 1
+    }
+   }
+  },
+  {
+   "mode": "long",
+   "model": "gemini-3.8-flash",
+   "run_at": "2026-10-29 11:35",
+   "verdict_accuracy": 0.9523809523809523,
+   "verdict_accuracy_ci": [
+    0.8420986468452026,
+    0.9868427513607937
+   ],
+   "wrong_confident_rate": 0.047619047619047616,
+   "wrong_confident_ci": [
+    0.013157248639206365,
+    0.1579013531547973
+   ],
+   "expected_clause_recall": 0.9761904761904762,
+   "citation_verified_rate": 0.9420289855072463,
+   "abstention_recall": 0.42857142857142855,
+   "abstention_precision": 1.0,
+   "escalation_rate": 0.0,
+   "mean_duration_s": 29.8,
+   "by_slice": {
+    "ambiguous": {
+     "n": 7,
+     "ok": 6
+    },
+    "condition": {
+     "n": 3,
+     "ok": 2
+    },
+    "exception": {
+     "n": 4,
+     "ok": 4
+    },
+    "exclusion": {
+     "n": 12,
+     "ok": 12
+    },
+    "guarantee": {
+     "n": 14,
+     "ok": 14
+    },
+    "guarantee_scope": {
+     "n": 1,
+     "ok": 1
+    },
+    "language": {
+     "n": 1,
+     "ok": 1
+    }
+   }
+  },
+  {
+   "mode": "strong",
+   "model": "gemini-3.8-flash",
+   "run_at": "2026-10-29 11:51",
+   "verdict_accuracy": 0.9285714285714286,
+   "verdict_accuracy_ci": [
+    0.8099028671147483,
+    0.9754100364488272
+   ],
+   "wrong_confident_rate": 0.047619047619047616,
+   "wrong_confident_ci": [
+    0.013157248639206365,
+    0.1579013531547973
+   ],
+   "expected_clause_recall": 0.9047619047619048,
+   "citation_verified_rate": 0.9541984732824428,
+   "abstention_recall": 0.7142857142857143,
+   "abstention_precision": 0.8333333333333334,
+   "escalation_rate": 0.0,
+   "mean_duration_s": 32.6,
+   "by_slice": {
+    "ambiguous": {
+     "n": 7,
+     "ok": 7
+    },
+    "condition": {
+     "n": 3,
+     "ok": 1
+    },
+    "exception": {
+     "n": 4,
+     "ok": 4
+    },
+    "exclusion": {
+     "n": 12,
+     "ok": 11
+    },
+    "guarantee": {
+     "n": 14,
+     "ok": 14
+    },
+    "guarantee_scope": {
+     "n": 1,
+     "ok": 1
+    },
+    "language": {
+     "n": 1,
+     "ok": 1
+    }
+   }
+  }
+ ],
+ "tokens_per_question": {
+  "retrieval": "~10k",
+  "long": "44k–93k"
+ }
+}

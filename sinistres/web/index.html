@@ -8,7 +8,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232957c8'/><path d='M9 16.5l4.5 4.5L23 11.5' stroke='white' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/style.css?v=16">
+  <link rel="stylesheet" href="/static/style.css?v=17">
 </head>
 <body>
   <header class="top">
@@ -67,8 +67,8 @@
       <article class="card prose wide method">
         <h2><span class="lang-fr">Comment c'est fait</span><span class="lang-en">How it's built</span></h2>
         <p class="lead">
-          <span class="lang-fr">Au lieu de donner le PDF entier à un chatbot, chaque contrat est rangé <b>une fois</b> dans une base, clause par clause. Chaque question va ensuite chercher les bonnes clauses, et le code vérifie tout ce que le modèle affirme.</span>
-          <span class="lang-en">Instead of giving the whole PDF to a chatbot, each contract is stored <b>once</b> in a database, clause by clause. Each question then fetches the right clauses, and the code checks everything the model claims.</span>
+          <span class="lang-fr">Au lieu de donner le PDF entier à un chatbot, chaque contrat est rangé <b>une fois</b> dans une base, clause par clause. Chaque question va ensuite chercher les bonnes clauses, et le code vérifie tout ce que le modèle affirme. Sur un seul contrat, donner le PDF entier à un bon modèle marche presque aussi bien (c'est mesuré) ; l'intérêt de la base est ailleurs : 5 à 9 fois moins de texte par question, les versions, les comparaisons, et des réponses traçables.</span>
+          <span class="lang-en">Instead of giving the whole PDF to a chatbot, each contract is stored <b>once</b> in a database, clause by clause. Each question then fetches the right clauses, and the code checks everything the model claims. On a single contract, giving the whole PDF to a good model works almost as well (it is measured); the database pays off elsewhere: 5 to 9 times less text per question, editions, comparisons, and traceable answers.</span>
         </p>
 
         <h3><span class="lang-fr">Le parcours d'une question</span><span class="lang-en">The path of a question</span></h3>
@@ -137,17 +137,17 @@
             <dd><span class="lang-fr">BM25 sur le texte normalisé (accents, pluriels) + synonymes du métier, puis SQL par péril et type de clause, exclusions générales et définitions. <b>Pas d'embeddings ni de base vectorielle</b> (voir ci-dessous).</span>
               <span class="lang-en">BM25 on normalised text (accents, plurals) + insurance synonyms, then SQL by peril and clause kind, general exclusions and definitions. <b>No embeddings, no vector store</b> (see below).</span></dd>
             <dt><span class="lang-fr">Décision</span><span class="lang-en">Decision</span></dt>
-            <dd><span class="lang-fr">Cascade : <code>ministral-14b</code> d'abord, <code>gemini-3.8-flash</code> en cas de doute, de citations introuvables ou de refus ; relecture séparée de chaque refus. Le verdict est calculé par une règle en Python.</span>
-              <span class="lang-en">Cascade: <code>ministral-14b</code> first, <code>gemini-3.8-flash</code> on doubt, unfound quotes or denial; separate review of every denial. The verdict is computed by a rule in Python.</span></dd>
+            <dd><span class="lang-fr"><code>gemini-3.8-flash</code> (Vertex AI) sur les clauses retrouvées ; relecture séparée de chaque refus. Le verdict est calculé par une règle en Python. Une cascade avec un petit modèle d'abord a été mesurée et écartée (voir Évaluation).</span>
+              <span class="lang-en"><code>gemini-3.8-flash</code> (Vertex AI) on the retrieved clauses; separate review of every denial. The verdict is computed by a rule in Python. A cascade with a small model first was measured and dropped (see Evaluation).</span></dd>
             <dt><span class="lang-fr">Contrôles</span><span class="lang-en">Checks</span></dt>
             <dd><span class="lang-fr">Citations comparées mot pour mot (guillemets, espaces, césures et mise en forme normalisés) ; faits exigés dans le récit ; rétrogradation en « indéterminé ».</span>
               <span class="lang-en">Quotes compared word for word (quotes, spaces, hyphenation and formatting normalised); facts required in the claim; downgrade to “undetermined”.</span></dd>
             <dt><span class="lang-fr">Application</span><span class="lang-en">Application</span></dt>
-            <dd><span class="lang-fr">Python 3.12, FastAPI, interface HTML/JS sans framework, Docker sur Google Cloud Run (mise à zéro hors usage), clés dans Secret Manager, limite de 20 analyses par heure et par IP.</span>
-              <span class="lang-en">Python 3.12, FastAPI, framework-free HTML/JS interface, Docker on Google Cloud Run (scales to zero), keys in Secret Manager, 20 analyses per hour per IP.</span></dd>
+            <dd><span class="lang-fr">Python 3.12, FastAPI, interface HTML/JS sans framework, Docker sur Google Cloud Run (mise à zéro hors usage), Gemini via l'identité du service (sans clé), limite de 20 analyses par heure et par IP.</span>
+              <span class="lang-en">Python 3.12, FastAPI, framework-free HTML/JS interface, Docker on Google Cloud Run (scales to zero), Gemini through the service's identity (no key), 20 analyses per hour per IP.</span></dd>
             <dt><span class="lang-fr">Temps et coût</span><span class="lang-en">Time and cost</span></dt>
-            <dd><span class="lang-fr">20 à 40 s par question (premier appel plus long si le service dormait). Moins d'un centime par question ; l'ingestion d'un contrat se paie une fois.</span>
-              <span class="lang-en">20 to 40 s per question (first call longer if the service was asleep). Under a cent per question; ingesting a contract is paid once.</span></dd>
+            <dd><span class="lang-fr">Environ 30 s par question (plus si le service dormait). Environ 10 000 tokens envoyés par question, contre 44 000 à 93 000 pour le contrat entier : moins d'un centime. L'ingestion d'un contrat se paie une fois.</span>
+              <span class="lang-en">About 30 s per question (more if the service was asleep). About 10,000 tokens sent per question, against 44,000 to 93,000 for the whole contract: under a cent. Ingesting a contract is paid once.</span></dd>
           </dl>
         </div>
 
@@ -219,8 +219,8 @@ where p.peril = 'vol_vandalisme' and cl.kind = 'exclusion'
     </div>
   </template>
 
-  <script src="/static/i18n.js?v=16"></script>
-  <script src="/static/diagrams.js?v=16"></script>
-  <script src="/static/app.js?v=16"></script>
+  <script src="/static/i18n.js?v=17"></script>
+  <script src="/static/diagrams.js?v=17"></script>
+  <script src="/static/app.js?v=17"></script>
 </body>
 </html>

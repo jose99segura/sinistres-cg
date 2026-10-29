@@ -302,11 +302,43 @@ function renderEval() {
       <div class="metric"><div class="v">${pct(m.abstention_recall)}</div><div class="l">${t("eval.m.abst")}</div></div>
       <div class="metric"><div class="v">${pct(m.wrong_confident_rate)}</div><div class="l">${t("eval.m.wrong")}</div></div>
     </div>
+    ${comparisonTable(r.comparison, pct)}
+    ${sliceTable(m.by_slice)}
+    <h3>${t("eval.cases")}</h3>
     <div class="table-scroll"><table>
       <thead><tr>${th}</tr></thead>
       <tbody>${rows}</tbody>
     </table></div>
     <p class="muted small">${t("eval.note")}</p>`;
+}
+
+// Four designs measured on the same cases: why the deployed one was chosen.
+function comparisonTable(cmp, pct) {
+  if (!cmp) return "";
+  const ci = (c) => (c ? ` <span class="muted small">(${Math.round(c[0] * 100)}–${Math.round(c[1] * 100)})</span>` : "");
+  const rows = [
+    ["eval.m.acc", (x) => pct(x.verdict_accuracy) + ci(x.verdict_accuracy_ci)],
+    ["eval.m.wrong", (x) => pct(x.wrong_confident_rate) + ci(x.wrong_confident_ci)],
+    ["eval.m.abst", (x) => pct(x.abstention_recall)],
+    ["eval.m.clause", (x) => pct(x.expected_clause_recall)],
+    ["eval.cmp.tokens", (x) => (x.mode === "long" ? "44k–93k" : "~10k")],
+    ["eval.cmp.time", (x) => `${x.mean_duration_s} s`],
+  ];
+  return `
+    <h3>${t("eval.cmp.title")}</h3>
+    <p class="hint">${t("eval.cmp.intro")}</p>
+    <div class="table-scroll"><table class="cmp">
+      <thead><tr><th></th>${cmp.map((x) => `<th class="${x.mode === "strong" ? "chosen" : ""}">${t(`eval.mode.${x.mode}`)}</th>`).join("")}</tr></thead>
+      <tbody>${rows.map(([k, f]) => `<tr><td>${t(k)}</td>${cmp.map((x) => `<td class="${x.mode === "strong" ? "chosen" : ""}">${f(x)}</td>`).join("")}</tr>`).join("")}</tbody>
+    </table></div>
+    <p class="hint">${t("eval.cmp.why")}</p>`;
+}
+
+function sliceTable(bySlice) {
+  if (!bySlice) return "";
+  const cells = Object.entries(bySlice).map(([s, v]) =>
+    `<div class="metric"><div class="v">${v.ok}/${v.n}</div><div class="l">${t(`eval.slice.${s}`)}</div></div>`).join("");
+  return `<h3>${t("eval.slices")}</h3><div class="metrics">${cells}</div>`;
 }
 
 /* ---------------------------------------------------------------- language */

@@ -10,6 +10,7 @@ dependencies = [
     "pydantic>=2.9",
     "pymupdf>=1.25",
     "pyyaml>=6.0",
+    "google-auth[requests]>=2.62.0",
 ]
 
 [project.scripts]

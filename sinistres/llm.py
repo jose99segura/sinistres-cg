@@ -62,12 +62,39 @@ def _mistral(system: str, user: str, schema: type[BaseModel], model: str, temper
     return r.json()["choices"][0]["message"]["content"]
 
 
+_credentials = None
+_auth_lock = threading.Lock()
+
+
+def _vertex_token() -> str:
+    """Google credentials of the environment: gcloud locally, the service's identity on Cloud Run."""
+    global _credentials
+    import google.auth
+    import google.auth.transport.requests
+
+    with _auth_lock:
+        if _credentials is None:
+            _credentials, _ = google.auth.default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
+        if not _credentials.valid:
+            _credentials.refresh(google.auth.transport.requests.Request())
+        return _credentials.token
+
+
 def _gemini(system: str, user: str, schema: type[BaseModel], model: str, temperature: float) -> str:
-    if not config.GEMINI_API_KEY:
-        raise LLMError("GEMINI_API_KEY is not set")
+    # Vertex AI when a Google Cloud project is configured (billed to that project, no API key);
+    # otherwise the Gemini API with an AI Studio key.
+    if config.VERTEX_PROJECT:
+        url = (f"https://aiplatform.googleapis.com/v1/projects/{config.VERTEX_PROJECT}/locations/global/"
+               f"publishers/google/models/{model}:generateContent")
+        headers = {"Authorization": f"Bearer {_vertex_token()}"}
+    elif config.GEMINI_API_KEY:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+        headers = {"x-goog-api-key": config.GEMINI_API_KEY}
+    else:
+        raise LLMError("neither VERTEX_PROJECT nor GEMINI_API_KEY is set")
     r = _client.post(
-        f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
-        headers={"x-goog-api-key": config.GEMINI_API_KEY},
+        url,
+        headers=headers,
         json={
             "systemInstruction": {"parts": [{"text": system}]},
             "contents": [{"role": "user", "parts": [{"text": user}]}],

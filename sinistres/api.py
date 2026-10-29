@@ -157,4 +157,8 @@ def page_png(contract_id: str, page: int, lines: str = ""):
 def eval_report():
     if not EVAL_REPORT.exists():
         return JSONResponse({"available": False})
-    return json.loads(EVAL_REPORT.read_text(encoding="utf-8"))
+    report = json.loads(EVAL_REPORT.read_text(encoding="utf-8"))
+    comparison = config.ROOT / "eval" / "comparison.json"
+    if comparison.exists():
+        report["comparison"] = json.loads(comparison.read_text(encoding="utf-8"))["modes"]
+    return report

@@ -14,7 +14,7 @@ COPY data/segments/*.json data/segments/
 # Local copies when present (deploys from a workstation); otherwise the build downloads them.
 COPY data/pdfs/ data/pdfs/
 COPY sinistres sinistres
-COPY eval/cases.yaml eval/report.json* eval/
+COPY eval/cases.yaml eval/report.json* eval/comparison.json* eval/
 RUN uv sync --frozen --no-dev \
  && uv run --no-sync sinistres build \
  && useradd --create-home --uid 10001 app \

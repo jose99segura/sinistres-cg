@@ -21,8 +21,8 @@ def main() -> None:
     e = sub.add_parser("eval", help="run the evaluation set and print the report")
     e.add_argument("--only", nargs="*", help="case ids")
     e.add_argument("--out", default="eval/results/latest.json")
-    e.add_argument("--mode", choices=["cascade", "cheap", "long"], default="cascade",
-                   help="cascade (deployed), cheap (first model only), long (whole contract to the stronger model)")
+    e.add_argument("--mode", choices=["cascade", "cheap", "strong", "long"], default="cascade",
+                   help="cascade, cheap (small model only), strong (stronger model on retrieved clauses), long (whole contract)")
 
     s = sub.add_parser("serve", help="run the web app")
     s.add_argument("--port", type=int, default=8080)

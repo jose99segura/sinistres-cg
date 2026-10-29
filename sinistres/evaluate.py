@@ -111,7 +111,8 @@ def run(only: list[str] | None, out: str, mode: str = "cascade") -> dict:
     with ThreadPoolExecutor(3) as pool:
         results = list(pool.map(lambda c: _run_case(c, mode), cases))
     model = {"cascade": f"{config.MISTRAL_MODEL} → {config.ESCALATION_MODEL}",
-             "cheap": config.MISTRAL_MODEL, "long": config.ESCALATION_MODEL}[mode]
+             "cheap": config.MISTRAL_MODEL, "strong": config.ESCALATION_MODEL,
+             "long": config.ESCALATION_MODEL}[mode]
     report = {
         "run_at": time.strftime("%Y-%m-%d %H:%M"),
         "mode": mode,
@@ -121,7 +122,7 @@ def run(only: list[str] | None, out: str, mode: str = "cascade") -> dict:
     }
     (config.ROOT / out).parent.mkdir(parents=True, exist_ok=True)
     (config.ROOT / out).write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
-    if not only and mode == "cascade":
+    if not only and mode == config.DECISION_MODE:
         REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
     print(markdown(report))
     return report

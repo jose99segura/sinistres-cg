@@ -353,9 +353,11 @@ def _all_clauses(conn, contract_id: str) -> list[dict]:
     return clauses
 
 
-def analyse(contract_id: str, claim: str, lang: str = "fr", mode: str = "cascade") -> dict:
-    """mode: "cascade" (deployed), "cheap" (first model only) or "long" (whole contract, stronger model,
-    no retrieval: the baseline the evaluation compares against)."""
+def analyse(contract_id: str, claim: str, lang: str = "fr", mode: str | None = None) -> dict:
+    """mode: "cascade" (small model, stronger one on doubt or denial), "cheap" (small model only), "strong"
+    (stronger model on the retrieved clauses) or "long" (stronger model on the whole contract, no retrieval:
+    the baseline the evaluation compares against)."""
+    mode = mode or config.DECISION_MODE
     t0 = time.monotonic()
     conn = db.connect(readonly=True)
     contract = conn.execute("select * from contracts where id = ?", (contract_id,)).fetchone()
@@ -370,10 +372,10 @@ def analyse(contract_id: str, claim: str, lang: str = "fr", mode: str = "cascade
         clauses, coverage = retrieve(conn, contract_id, facts)
 
     # Cascade: the cheap model answers; the stronger one takes over when that answer is not good enough.
-    first_model = config.ESCALATION_MODEL if mode == "long" else config.MISTRAL_MODEL
+    first_model = config.ESCALATION_MODEL if mode in ("long", "strong") else config.MISTRAL_MODEL
     d = _decide(conn, contract, claim, clauses, lang, first_model)
     escalation = None
-    reason = (_escalation_reason(d) if mode == "cascade" and config.CASCADE and config.GEMINI_API_KEY else None)
+    reason = (_escalation_reason(d) if mode == "cascade" and config.CASCADE and config.HAS_GEMINI else None)
     if reason:
         first = d
         try:
@@ -384,7 +386,7 @@ def analyse(contract_id: str, claim: str, lang: str = "fr", mode: str = "cascade
         except llm.LLMError:
             d = first
             d["checks"].append(_msg(lang, "escalation_failed"))
-    if mode == "cascade" and d["verdict"] == "non_couvert" and config.GEMINI_API_KEY:
+    if mode in ("cascade", "strong") and d["verdict"] == "non_couvert" and config.HAS_GEMINI:
         try:
             _review_denial(d, claim, lang)
         except llm.LLMError:

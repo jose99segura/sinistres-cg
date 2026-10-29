@@ -79,16 +79,16 @@ function journeySvg() {
   let b = marker(id);
   b += node("0", 20, 65, 150, 86, "io", "1", L("Le sinistre", "The claim"), L("français ou anglais", "French or English"));
   b += node("1", 215, 65, 150, 86, "code", "2", L("Recherche", "Retrieval"), L("60–80 clauses sur 900", "60–80 of 900 clauses"));
-  b += node("2", 410, 65, 150, 86, "llm", "3", L("Petit modèle", "Small model"), L("constats + citations", "findings + citations"));
+  b += node("2", 410, 65, 150, 86, "llm", "3", "Gemini", L("constats + citations", "findings + citations"));
   b += node("3 5", 605, 65, 150, 86, "code", "4", L("Contrôles", "Checks"), L("citations, règle", "citations, rule"));
-  b += node("4", 605, 200, 150, 76, "strong", "5", "Gemini", L("si doute ou refus", "on doubt or denial"));
+  b += node("4", 605, 200, 150, 76, "strong", "5", L("Relecture", "Review"), L("chaque refus, à part", "every denial, apart"));
   b += node("6", 800, 65, 150, 86, "out", "6", "Verdict", L("+ clauses surlignées", "+ highlighted clauses"));
 
   for (const x of [172, 367, 562, 757]) b += `<path d="M${x} 108 H${x + 39}" class="edge" marker-end="url(#ah-${id})"/>`;
   b += `<path d="M655 153 V196" class="edge dashed" marker-end="url(#ah-${id})"/>`;
   b += `<path d="M705 198 V155" class="edge dashed" marker-end="url(#ah-${id})"/>`;
-  b += txt(645, 180, L("doute / refus", "doubt / denial"), "e-lbl", "end");
-  b += txt(715, 180, L("re-vérifié", "checked again"), "e-lbl", "start");
+  b += txt(645, 180, L("si refus", "if denial"), "e-lbl", "end");
+  b += txt(715, 180, L("confirmé ou non", "upheld or not"), "e-lbl", "start");
 
   // The database the retrieval reads, prepared once (second diagram).
   b += `<g class="db"><path d="M244 20 V40 A46 9 0 0 0 336 40 V20"/><ellipse cx="290" cy="20" rx="46" ry="9"/></g>`;
@@ -97,8 +97,8 @@ function journeySvg() {
 
   b += `<circle r="8" class="token" style="transform: translate(${J[0][0]}px, ${J[0][1] + 52}px)"/>`;
   return `<svg viewBox="0 0 970 290" class="dg dg-anim" role="img" aria-label="${xesc(L(
-    "Le parcours d'une question : sinistre, recherche en base, petit modèle, contrôles, Gemini en cas de doute ou de refus, verdict.",
-    "The path of a question: claim, database retrieval, small model, checks, Gemini on doubt or denial, verdict."))}">${b}</svg>`;
+    "Le parcours d'une question : sinistre, recherche en base, Gemini, contrôles, relecture des refus, verdict.",
+    "The path of a question: claim, database retrieval, Gemini, checks, review of denials, verdict."))}">${b}</svg>`;
 }
 
 function journeySteps() {
@@ -106,14 +106,14 @@ function journeySteps() {
     L("Vous décrivez le sinistre, en français ou en anglais.", "You describe the claim, in French or in English."),
     L("La base trouve les 60 à 80 clauses utiles parmi 500 à 900 : les mots du sinistre et leurs synonymes, le chapitre du péril, les exclusions générales, les définitions.",
       "The database finds the 60 to 80 useful clauses out of 500 to 900: the claim's words and their synonyms, the peril's chapter, the general exclusions, the definitions."),
-    L("Un petit modèle gratuit lit ces clauses et répond à trois questions (une garantie ? une exclusion ? une condition non remplie ?) en citant le texte.",
-      "A small free model reads these clauses and answers three questions (a guarantee? an exclusion? an unmet condition?) quoting the text."),
+    L("Gemini lit seulement ces clauses et répond à trois questions (une garantie ? une exclusion ? une condition non remplie ?) en citant le texte.",
+      "Gemini reads only these clauses and answers three questions (a guarantee? an exclusion? an unmet condition?) quoting the text."),
     L("Le code vérifie chaque citation mot pour mot dans le contrat, puis applique une règle de décision écrite à l'avance.",
       "The code checks every quote word for word in the contract, then applies a decision rule written in advance."),
-    L("En cas de doute, de citation introuvable ou de refus, un modèle plus fort (Gemini) reprend la décision.",
-      "On doubt, on a quote that cannot be found, or on a denial, a stronger model (Gemini) takes the decision over."),
-    L("Sa réponse repasse les mêmes contrôles ; un refus est relu à part, en cherchant les exceptions (« sauf… »).",
-      "Its answer goes through the same checks; a denial is reviewed separately, looking for exceptions (“sauf…”)."),
+    L("Un refus est relu à part : la clause citée s'applique-t-elle vraiment aux faits, et contient-elle une exception (« sauf… ») ?",
+      "A denial is reviewed separately: does the cited clause really apply to the facts, and does it contain an exception (“sauf…”)?"),
+    L("Si la relecture ne confirme pas le refus, la réponse devient « indéterminé » plutôt qu'un refus non fondé.",
+      "If the review does not uphold the denial, the answer becomes “undetermined” rather than an unfounded refusal."),
     L("Le verdict s'affiche avec les clauses citées, surlignées dans le PDF, ou « indéterminé » avec ce qui manque pour trancher.",
       "The verdict is shown with the cited clauses, highlighted in the PDF, or “undetermined” with what is missing to decide."),
   ];

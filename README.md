@@ -61,10 +61,11 @@ claim ──► facts ──► SQL retrieval ──► structured decision ─�
    `incertain`: does a guarantee apply, does an exclusion apply, is a condition not met. The schema puts the
    citations *before* the findings, so the model reasons before it concludes. If the useful guarantee is
    optional, it assumes it subscribed and says so ("à vérifier dans vos Conditions Particulières").
-   **A cascade:** the free small model (`ministral-14b`) answers first; a stronger one (`gemini-3.8-flash`)
-   takes the decision over when the checks fail, when the answer is "indéterminé", and for every denial
-   (models deny too readily). A denial is then reviewed separately: does the deciding clause really apply to
-   the facts told, and does it contain an exception ("sauf", "toutefois")?
+   **The model:** `gemini-3.8-flash` through Vertex AI reads the retrieved clauses (a small free model,
+   `ministral-14b`, only does the one-off segmentation). A denial is then reviewed separately: does the
+   deciding clause really apply to the facts told, and does it contain an exception ("sauf", "toutefois")?
+   A cascade (small model first, stronger one on doubt or denial) is still in the code
+   (`DECISION_MODE=cascade`); it was measured and not kept, see Evaluation.
 7. **Checks and the verdict, in code.**
    - Every citation must be found word for word in the clause it names (after normalising quotes, spaces,
      hyphens and markdown). If the words sit in exactly one other retrieved clause, the citation is moved
@@ -81,7 +82,7 @@ claim ──► facts ──► SQL retrieval ──► structured decision ─�
 ## Hundreds of contracts
 
 - **Cost is paid per contract, once.** Ingesting a 100-page contract takes a few minutes and about 150 small
-  model calls; answering a question costs two to four calls whatever the contract's size.
+  model calls; answering a question costs three calls and about 10,000 tokens whatever the contract's size.
 - **The contract is a row, the clause is a row.** Choosing which contract applies (insurer, product, version
   in force at the date of loss) is a filter on the `contracts` table, not a search. With the shared labels,
   questions across the portfolio are queries: *which contracts exclude bikes left in a shared room*, *which
@@ -106,40 +107,43 @@ changed, which must flip the verdict (a bike locked to a rack vs. left without a
 the wall vs. an exposed hose). One case is written in English.
 
 ```bash
-uv run sinistres eval                 # the deployed cascade
-uv run sinistres eval --mode cheap    # the small model alone
-uv run sinistres eval --mode long     # no retrieval: the whole contract to the strong model
+uv run sinistres eval                  # the deployed design (strong model on retrieved clauses)
+uv run sinistres eval --mode cheap     # the small model alone
+uv run sinistres eval --mode cascade   # small model first, strong model on doubt or denial
+uv run sinistres eval --mode long      # no retrieval: the whole contract to the strong model
 ```
 
-Same 42 cases, three designs (95% Wilson intervals in brackets):
+Same 42 cases, four designs (95% Wilson intervals in brackets):
 
-| | Small model only | Cascade (deployed) |
-|---|---|---|
-| Verdict acceptable | 67 % (52–79) | **90 % (78–96)** |
-| Expected clause cited | 74 % | **93 %** |
-| Citations found word for word | 70 % | **93 %** |
-| Says "indéterminé" when it should | 43 % | 71 % |
-| When it says "indéterminé", it is right | 21 % | **100 %** |
-| Confident and wrong | 12 % (5–25) | 10 % (4–22) |
-| Escalated to the stronger model | — | 74 % |
-| Mean time per claim | 22 s | 40 s |
+| | Small model only | Cascade | Whole contract, no retrieval | **Strong model + retrieval (deployed)** |
+|---|---|---|---|---|
+| Verdict acceptable | 67 % (52–79) | 90 % (78–96) | 95 % (84–99) | **93 % (81–98)** |
+| Confident and wrong | 12 % (5–25) | 10 % (4–22) | 5 % (1–16) | **5 % (1–16)** |
+| Says "indéterminé" when it should | 43 % | 71 % | 43 % | **71 %** |
+| Expected clause cited | 74 % | 93 % | 98 % | **90 %** |
+| Citations found word for word | 70 % | 93 % | 94 % | **95 %** |
+| Text sent per question | ~10k tokens | ~10k (+ strong model 74 % of the time) | 44k–93k tokens | **~10k tokens** |
+| Mean time per claim | 22 s | 40 s | 30 s | **33 s** |
 
-The third design (no retrieval, the whole contract to `gemini-3.8-flash`) is being measured on the same cases; its result goes in `eval/results/long.md`.
-
-By slice, for the cascade: guarantees 14/14, exclusions 11/12, ambiguous 6/7, exceptions 3/4, unmet
-conditions 2/3, language 1/1. The full per-case table is in `eval/results/cascade.md` and in the app's
+By slice, for the deployed design: guarantees 14/14, exclusions 11/12, exceptions 4/4, ambiguous 7/7,
+unmet conditions 1/3, out of scope 1/1, English 1/1. Per-case tables: `eval/results/*.md` and the app's
 Evaluation tab.
 
 What the numbers say, honestly:
 
-- **The grounding is the strong part.** Nine answers in ten rest on the clause a human marked as decisive,
-  and the quotes that cannot be found are shown as such, never silently used.
-- **The cascade is what makes the verdicts usable**, and it is not free: three questions in four reach the
-  stronger model, mostly because the small model answers "indéterminé" or denies. Tuning that threshold is
-  the obvious next cost lever.
-- **Confident errors did not disappear** (about one in ten). They sit where the literature says they do —
-  conditions and exceptions — which is why denials and undetermined answers should go to a person
-  (see Next steps).
+- **On one contract, the whole PDF in a good model works.** That is exactly what the brief says: it works
+  on one contract. With the same checks around it, it is as accurate as the structured design here (the
+  intervals overlap). The structured design earns its place elsewhere: 5 to 9 times less text per question
+  (a cost that grows with every question and every contract), the right edition by date, cross-contract
+  queries, and every answer traceable to a row. It also says "indéterminé" when it should more often (71 %
+  against 43 %).
+- **The model matters more than the plumbing.** The small model alone is not usable (two answers in three).
+  The cascade fixed that but sent three questions in four to the strong model anyway, adding latency for
+  little saving, so it was dropped for the simpler design.
+- **The grounding holds.** Nine answers in ten rest on the clause marked as decisive, and quotes that cannot
+  be found are shown as such, never used.
+- **Confident errors did not disappear** (about one in twenty). They sit where the literature says they do,
+  on unmet conditions (1/3), which is why denials and undetermined answers should go to a person.
 - **The labels are mine.** 42 cases written by one person from the contracts are a smoke test, not a
   benchmark; the intervals are wide and results move a little between runs.
 
@@ -153,8 +157,8 @@ rest on the claim's words).
    real cases, find the failure patterns, and turn reviewed cases into new evaluation cases.
 2. **Hand doubts to a person.** "Indéterminé" and every denial go to a claims handler's queue with the
    cited clauses and the open questions already prepared; the system drafts, a human decides.
-3. **Tune the cascade** on the traces: escalate less when the small model's answer is verified and
-   consistent, keep every denial on the stronger model.
+3. **Grow the labelled set with the people who decide claims**, sliced as here, and re-run the four designs
+   on it before changing anything: with 42 cases, most differences are inside the noise.
 4. **Measure retrieval on its own** (is the gold clause among the 60–80 sent?) before adding anything; only
    if it misses, add embeddings as a fallback, not as the main path.
 5. **Link the Conditions Particulières** when available: the options actually subscribed turn many
@@ -168,9 +172,8 @@ rest on the claim's words).
 - **Segmentation by a small model.** Contracts were split by `ministral-14b` (free Mistral tier):
   sometimes too coarse, with some wrong labels and section paths. Retrieval through several paths and the
   checks limit the effect.
-- **Reasoning errors remain.** Even with the cascade, about one answer in ten is confidently wrong, mostly on
-  conditions and exceptions: a verified quote can still be applied to the wrong situation. Hence the
-  human queue in Next steps.
+- **Reasoning errors remain.** About one answer in twenty is confidently wrong, mostly on unmet conditions:
+  a verified quote can still be applied to the wrong situation. Hence the human queue in Next steps.
 - **Tables and scanned PDFs** are not handled specially; Lalux's motor, travel and accident chapters are
   left out on purpose (`pages` in `contracts.yaml`).
 - **Rate limits.** The public demo allows 20 analyses per IP per hour.

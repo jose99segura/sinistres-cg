@@ -344,3 +344,7 @@ figure.diagram:focus-within { outline: none; }
 details.more p { color: var(--muted); margin: 8px 0 0; }
 html[lang="fr"] p.lang-en, html[lang="en"] p.lang-fr { display: none; }
 @media (max-width: 640px) { .spec dl { grid-template-columns: 1fr; } .spec dt { border-bottom: 0; padding-bottom: 0; } }
+
+table.cmp td, table.cmp th { white-space: nowrap; }
+table.cmp .chosen { background: var(--brand-soft); color: var(--navy); font-weight: 600; }
+.prose h3 + .hint { margin-top: -4px; }
