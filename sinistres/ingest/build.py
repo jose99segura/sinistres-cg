@@ -10,7 +10,7 @@ import json
 import httpx
 import yaml
 
-from .. import config, db
+from .. import config, db, search
 from .pdf import extract_lines
 from .segment import section_paths, segment_contract
 
@@ -64,13 +64,14 @@ def build(only: list[str] | None = None, log=print) -> None:
                    paths[c["start"]], c["title"], c["kind"], c["defined_term"], text)
             conn.execute("insert into clauses values (?,?,?,?,?,?,?,?,?,?,?,?)", row)
             conn.executemany("insert into clause_perils values (?,?)", [(clause_id, p) for p in c["perils"]])
-            conn.execute("insert into clauses_fts values (?,?,?,?,?)",
-                         (clause_id, text, c["title"], paths[c["start"]], c["defined_term"] or ""))
+            stems = search.normalise(" ".join([text, c["title"], paths[c["start"]], c["defined_term"] or ""]))
+            conn.execute("insert into clauses_fts values (?,?,?,?,?,?)",
+                         (clause_id, text, c["title"], paths[c["start"]], c["defined_term"] or "", stems))
 
         n_clauses = conn.execute("select count(*) from clauses where contract_id = ?", (cid,)).fetchone()[0]
         conn.execute(
-            "insert into contracts values (?,?,?,?,?,?,?,?,?,?)",
-            (cid, entry["insurer"], entry["product"], entry["version"], entry["effective"], entry["url"], digest,
+            "insert into contracts values (?,?,?,?,?,?,?,?,?,?,?)",
+            (cid, entry.get("product_key", cid), entry["insurer"], entry["product"], entry["version"], entry["effective"], entry["url"], digest,
              len({l.page for l in lines}), n_clauses, seg["model"]),
         )
         conn.commit()

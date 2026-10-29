@@ -21,6 +21,8 @@ def main() -> None:
     e = sub.add_parser("eval", help="run the evaluation set and print the report")
     e.add_argument("--only", nargs="*", help="case ids")
     e.add_argument("--out", default="eval/results/latest.json")
+    e.add_argument("--mode", choices=["cascade", "cheap", "long"], default="cascade",
+                   help="cascade (deployed), cheap (first model only), long (whole contract to the stronger model)")
 
     s = sub.add_parser("serve", help="run the web app")
     s.add_argument("--port", type=int, default=8080)
@@ -37,7 +39,7 @@ def main() -> None:
         print(json.dumps(analyse(args.contract, args.claim), ensure_ascii=False, indent=1))
     elif args.cmd == "eval":
         from .evaluate import run
-        run(args.only, args.out)
+        run(args.only, args.out, args.mode)
     elif args.cmd == "serve":
         import uvicorn
         uvicorn.run("sinistres.api:app", host="0.0.0.0", port=args.port)

@@ -67,7 +67,8 @@ def _client_ip(request: Request) -> str:
 
 @app.get("/")
 def index():
-    return FileResponse(WEB / "index.html")
+    # Always revalidate the page: it names the versioned static files, so a stale copy would load old code.
+    return FileResponse(WEB / "index.html", headers={"Cache-Control": "no-cache"})
 
 
 @app.get("/health")

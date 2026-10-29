@@ -22,6 +22,11 @@ _load_dotenv()
 
 MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY", "")
 MISTRAL_MODEL = os.environ.get("MISTRAL_MODEL", "ministral-14b-latest")
+# The cascade: the cheap model answers first; this one re-runs the decision when the checks fail,
+# when the answer is "indéterminé", and for every "non couvert" (models over-deny).
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+ESCALATION_MODEL = os.environ.get("ESCALATION_MODEL", "gemini-3.8-flash")
+CASCADE = os.environ.get("CASCADE", "on") == "on"
 # Seconds between two model calls from this process (free tier: 30 requests/minute).
 LLM_MIN_INTERVAL = float(os.environ.get("LLM_MIN_INTERVAL", "2.1"))
 DB_PATH = ROOT / os.environ.get("DB_PATH", "data/sinistres.db")

@@ -43,3 +43,19 @@ def test_doubt_without_words_from_the_claim_is_dropped():
     d = _decision(exclusion="oui", exclusion_fait="ma machine à laver a lâché")
     ground_findings(d, claim, checks)
     assert d.exclusion == "oui"
+
+
+def test_contract_in_force_picks_the_edition_of_the_date_of_loss():
+    import sqlite3
+
+    from sinistres.db import SCHEMA, contract_in_force
+
+    conn = sqlite3.connect(":memory:")
+    conn.row_factory = sqlite3.Row
+    conn.executescript(SCHEMA)
+    for cid, eff in (("p-2017", "2017-06"), ("p-2022", "2022-03")):
+        conn.execute("insert into contracts values (?,?,?,?,?,?,?,?,?,?,?)",
+                     (cid, "p", "Insurer", "Product", eff, eff, "u", "h", 1, 1, "m"))
+    assert contract_in_force(conn, "p", "2020-05-01")["id"] == "p-2017"
+    assert contract_in_force(conn, "p", "2023-01-15")["id"] == "p-2022"
+    assert contract_in_force(conn, "p", "2016-01-01") is None

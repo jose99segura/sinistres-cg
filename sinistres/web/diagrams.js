@@ -1,242 +1,218 @@
 "use strict";
 
-// The "How it's built" diagrams, drawn as inline SVG. Each label is {fr, en} so one drawing serves both
-// languages; renderDiagrams() runs again when the language changes.
+// The two animated diagrams of "How it's built". Each is an SVG plus a stepper: one step lights up at a
+// time, with a caption under the drawing. Labels are {fr, en}; renderDiagrams() runs again on language
+// change. With prefers-reduced-motion the steppers do not auto-play.
 
 const L = (fr, en) => (LANG === "en" ? en : fr);
 const xesc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const txt = (x, y, s, cls, anchor = "middle") =>
+  `<text x="${x}" y="${y}" class="${cls}" text-anchor="${anchor}">${xesc(s)}</text>`;
 
-function txt(x, y, s, cls = "s", anchor = "middle") {
-  return `<text x="${x}" y="${y}" class="${cls}" text-anchor="${anchor}">${xesc(s)}</text>`;
+const timers = [];
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function marker(id) {
+  return `<defs><marker id="ah-${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>`;
 }
 
-// A box with a bold first line and smaller lines under it, centred.
-function box(x, y, w, h, kind, lines, opts = {}) {
-  const cx = x + w / 2;
-  const gap = opts.gap || 16;
-  const top = y + h / 2 - ((lines.length - 1) * gap) / 2 + 4;
-  const body = lines.map((l, i) => txt(cx, top + i * gap, l, i === 0 ? "t" : opts.mono ? "m" : "s")).join("");
-  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="9" class="b-${kind}"/>${body}`;
+// A card node: number badge, title, one short line. `steps` lists the stepper states that light it up.
+function node(steps, x, y, w, h, kind, n, title, sub) {
+  return `<g class="node ${kind}" data-step="${steps}">
+    <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="14"/>
+    <circle cx="${x + 22}" cy="${y + 22}" r="11" class="badge-c"/>
+    ${txt(x + 22, y + 26, n, "badge-t")}
+    ${txt(x + 42, y + 27, title, "n-title", "start")}
+    ${txt(x + 16, y + h - 16, sub, "n-sub", "start")}
+  </g>`;
 }
 
-// Left-aligned box (records, tables): title bar then rows.
-function table(x, y, w, title, rows, kind = "store") {
-  const h = 30 + rows.length * 17 + 8;
-  const r = rows.map((row, i) => txt(x + 12, y + 46 + i * 17, row, "m", "start")).join("");
-  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="9" class="b-${kind}"/>
-    <line x1="${x}" y1="${y + 28}" x2="${x + w}" y2="${y + 28}" class="sep"/>
-    ${txt(x + 12, y + 19, title, "t", "start")}${r}`;
+/* ---------------------------------------------------------------- stepper */
+
+function stepper(root, steps, apply) {
+  const caption = root.querySelector(".dg-caption");
+  const dots = root.querySelector(".dg-dots");
+  const play = root.querySelector(".dg-play");
+  const prev = root.querySelector(".dg-prev");
+  const next = root.querySelector(".dg-next");
+  dots.innerHTML = steps.map((_, i) => `<button type="button" aria-label="${i + 1}" data-i="${i}"></button>`).join("");
+  let i = 0;
+  let playing = !reducedMotion;
+
+  function show(k) {
+    i = (k + steps.length) % steps.length;
+    apply(i);
+    caption.innerHTML = `<b>${i + 1}.</b> ${xesc(steps[i])}`;
+    for (const d of dots.children) d.classList.toggle("on", Number(d.dataset.i) === i);
+  }
+  function setPlaying(p) {
+    playing = p;
+    play.textContent = playing ? "❚❚" : "▶";
+    play.setAttribute("aria-label", playing ? L("Pause", "Pause") : L("Lecture", "Play"));
+  }
+  dots.onclick = (e) => {
+    const b = e.target.closest("button");
+    if (b) { setPlaying(false); show(Number(b.dataset.i)); }
+  };
+  play.onclick = () => setPlaying(!playing);
+  // Manual stepping: any manual move pauses the animation.
+  prev.onclick = () => { setPlaying(false); show(i - 1); };
+  next.onclick = () => { setPlaying(false); show(i + 1); };
+  root.onkeydown = (e) => {
+    if (e.key === "ArrowRight") { e.preventDefault(); next.onclick(); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); prev.onclick(); }
+  };
+  prev.setAttribute("aria-label", L("Étape précédente", "Previous step"));
+  next.setAttribute("aria-label", L("Étape suivante", "Next step"));
+  timers.push(setInterval(() => { if (playing && !document.hidden) show(i + 1); }, 3000));
+  setPlaying(playing);
+  show(0);
 }
 
-function edge(id, d, label, lx, ly, cls = "edge", anchor = "middle") {
-  return `<path d="${d}" class="${cls}" marker-end="url(#ah-${id})"/>${label ? txt(lx, ly, label, "lbl", anchor) : ""}`;
+/* ---------------------------------------------------------------- 1. the journey of a question */
+
+const J = [[95, 108], [290, 108], [485, 108], [680, 108], [680, 238], [680, 108], [875, 108]];
+
+function journeySvg() {
+  const id = "jr";
+  let b = marker(id);
+  b += node("0", 20, 65, 150, 86, "io", "1", L("Le sinistre", "The claim"), L("français ou anglais", "French or English"));
+  b += node("1", 215, 65, 150, 86, "code", "2", L("Recherche", "Retrieval"), L("60–80 clauses sur 900", "60–80 of 900 clauses"));
+  b += node("2", 410, 65, 150, 86, "llm", "3", L("Petit modèle", "Small model"), L("constats + citations", "findings + citations"));
+  b += node("3 5", 605, 65, 150, 86, "code", "4", L("Contrôles", "Checks"), L("citations, règle", "citations, rule"));
+  b += node("4", 605, 200, 150, 76, "strong", "5", "Gemini", L("si doute ou refus", "on doubt or denial"));
+  b += node("6", 800, 65, 150, 86, "out", "6", "Verdict", L("+ clauses surlignées", "+ highlighted clauses"));
+
+  for (const x of [172, 367, 562, 757]) b += `<path d="M${x} 108 H${x + 39}" class="edge" marker-end="url(#ah-${id})"/>`;
+  b += `<path d="M655 153 V196" class="edge dashed" marker-end="url(#ah-${id})"/>`;
+  b += `<path d="M705 198 V155" class="edge dashed" marker-end="url(#ah-${id})"/>`;
+  b += txt(645, 180, L("doute / refus", "doubt / denial"), "e-lbl", "end");
+  b += txt(715, 180, L("re-vérifié", "checked again"), "e-lbl", "start");
+
+  // The database the retrieval reads, prepared once (second diagram).
+  b += `<g class="db"><path d="M244 20 V40 A46 9 0 0 0 336 40 V20"/><ellipse cx="290" cy="20" rx="46" ry="9"/></g>`;
+  b += txt(346, 34, L("2 229 clauses, préparées une fois", "2,229 clauses, prepared once"), "e-lbl", "start");
+  b += `<path d="M290 51 V61" class="edge" marker-end="url(#ah-${id})"/>`;
+
+  b += `<circle r="8" class="token" style="transform: translate(${J[0][0]}px, ${J[0][1] + 52}px)"/>`;
+  return `<svg viewBox="0 0 970 290" class="dg dg-anim" role="img" aria-label="${xesc(L(
+    "Le parcours d'une question : sinistre, recherche en base, petit modèle, contrôles, Gemini en cas de doute ou de refus, verdict.",
+    "The path of a question: claim, database retrieval, small model, checks, Gemini on doubt or denial, verdict."))}">${b}</svg>`;
 }
 
-function svg(id, w, h, aria, body) {
-  return `<svg viewBox="0 0 ${w} ${h}" class="dg" role="img" aria-label="${xesc(aria)}">
-    <defs><marker id="ah-${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>${body}</svg>`;
-}
-
-function legend(x, y) {
-  const item = (dx, kind, label) =>
-    `<rect x="${x + dx}" y="${y - 11}" width="22" height="14" rx="4" class="b-${kind}"/>${txt(x + dx + 30, y, label, "s", "start")}`;
-  return item(0, "llm", L("appel au modèle (Mistral)", "model call (Mistral)"))
-    + item(230, "code", L("code Python, déterministe", "Python code, deterministic"))
-    + item(460, "store", L("données stockées", "stored data"));
-}
-
-/* ---------------------------------------------------------------- 1. two phases */
-
-function dgOverview() {
-  const id = "ov";
-  const b1 = [10, 200, 390, 580, 770];
-  const top = [
-    ["code", L("PDF public", "Public PDF"), L("téléchargé, sha256", "downloaded, sha256"), L("vérifié", "checked")],
-    ["code", L("Lignes", "Lines"), L("texte + page + position", "text + page + position"), L("2 colonnes, en-têtes", "2 columns, headers")],
-    ["llm", L("Plan + clauses", "Outline + clauses"), L("le modèle renvoie", "the model returns"), L("des numéros de ligne", "line numbers only")],
-    ["llm", L("Étiquettes", "Labels"), L("type + périls", "kind + perils"), L("vocabulaire commun", "shared vocabulary")],
-    ["store", "SQLite", L("2 229 clauses", "2,229 clauses"), L("+ index plein texte", "+ full-text index")],
+function journeySteps() {
+  return [
+    L("Vous décrivez le sinistre, en français ou en anglais.", "You describe the claim, in French or in English."),
+    L("La base trouve les 60 à 80 clauses utiles parmi 500 à 900 : les mots du sinistre et leurs synonymes, le chapitre du péril, les exclusions générales, les définitions.",
+      "The database finds the 60 to 80 useful clauses out of 500 to 900: the claim's words and their synonyms, the peril's chapter, the general exclusions, the definitions."),
+    L("Un petit modèle gratuit lit ces clauses et répond à trois questions (une garantie ? une exclusion ? une condition non remplie ?) en citant le texte.",
+      "A small free model reads these clauses and answers three questions (a guarantee? an exclusion? an unmet condition?) quoting the text."),
+    L("Le code vérifie chaque citation mot pour mot dans le contrat, puis applique une règle de décision écrite à l'avance.",
+      "The code checks every quote word for word in the contract, then applies a decision rule written in advance."),
+    L("En cas de doute, de citation introuvable ou de refus, un modèle plus fort (Gemini) reprend la décision.",
+      "On doubt, on a quote that cannot be found, or on a denial, a stronger model (Gemini) takes the decision over."),
+    L("Sa réponse repasse les mêmes contrôles ; un refus est relu à part, en cherchant les exceptions (« sauf… »).",
+      "Its answer goes through the same checks; a denial is reviewed separately, looking for exceptions (“sauf…”)."),
+    L("Le verdict s'affiche avec les clauses citées, surlignées dans le PDF, ou « indéterminé » avec ce qui manque pour trancher.",
+      "The verdict is shown with the cited clauses, highlighted in the PDF, or “undetermined” with what is missing to decide."),
   ];
-  let body = txt(10, 22, L("1 · UNE FOIS PAR CONTRAT — quelques minutes, ~150 appels au modèle",
-    "1 · ONCE PER CONTRACT — a few minutes, ~150 model calls"), "lane", "start");
-  top.forEach(([k, ...ls], i) => { body += box(b1[i], 36, 170, 78, k, ls); });
-  for (let i = 0; i < 4; i++) body += edge(id, `M${b1[i] + 172} 75 H${b1[i + 1] - 4}`, "", 0, 0);
-
-  const b2 = [10, 167, 324, 481, 638, 795];
-  const bottom = [
-    ["io", L("Récit du sinistre", "Claim story"), L("en français", "in French"), L("ou en anglais", "or in English")],
-    ["llm", L("Faits", "Facts"), L("périls, biens,", "perils, property,"), L("termes à chercher", "terms to look up")],
-    ["code", L("Recherche SQL", "SQL retrieval"), L("60–80 clauses", "60–80 clauses"), L("sur 500–900", "out of 500–900")],
-    ["llm", L("Constats", "Findings"), L("3 × oui / non /", "3 × yes / no /"), L("incertain + citations", "uncertain + citations")],
-    ["code", L("Contrôles + règle", "Checks + rule"), L("citations mot à mot,", "verbatim citations,"), L("verdict déduit", "verdict derived")],
-    ["io", L("Réponse", "Answer"), L("verdict + clauses", "verdict + clauses"), L("surlignées dans le PDF", "highlighted in the PDF")],
-  ];
-  body += txt(10, 182, L("2 · À CHAQUE SINISTRE — environ 20 s, 2 appels au modèle", "2 · FOR EACH CLAIM — about 20 s, 2 model calls"), "lane", "start");
-  bottom.forEach(([k, ...ls], i) => { body += box(b2[i], 196, 150, 78, k, ls); });
-  for (let i = 0; i < 5; i++) body += edge(id, `M${b2[i] + 152} 235 H${b2[i + 1] - 4}`, "", 0, 0);
-
-  // The store feeds retrieval and the highlight.
-  body += edge(id, `M855 116 V150 H399 V192`, L("lit les clauses", "reads clauses"), 560, 144);
-  body += edge(id, `M905 116 V192`, "", 0, 0, "edge dashed");
-  body += txt(898, 172, L("positions des lignes", "line positions"), "lbl", "end");
-  body += legend(10, 312);
-  return svg(id, 960, 325, L("Deux phases : chaque contrat est préparé une fois en base, puis chaque sinistre est une requête et deux appels au modèle.",
-    "Two phases: each contract is prepared once into a database, then each claim is a query and two model calls."), body);
 }
 
-/* ---------------------------------------------------------------- 2. the model points, it does not rewrite */
+function applyJourney(root, i) {
+  for (const g of root.querySelectorAll(".node")) g.classList.toggle("on", g.dataset.step.split(" ").includes(String(i)));
+  const [x, y] = J[i];
+  root.querySelector(".token").style.transform = `translate(${x}px, ${y + 52}px)`;
+}
 
-function dgSegment() {
-  const id = "sg";
-  let body = "";
-  // PDF page
-  body += `<rect x="10" y="30" width="330" height="200" rx="6" class="b-io"/>`;
-  body += txt(10, 20, L("Page 16 du PDF, lignes numérotées", "PDF page 16, numbered lines"), "lane", "start");
-  const page = [
-    ["1260", "Sont exclus :", true],
-    ["1261", "La simple perte ou la disparition d'objets,", false],
-    ["1262", "l'usage abusif de chèques non libellés…", false],
-    ["1263", "bancaires,", false],
-    ["1264", "les vols d'animaux,", false],
-    ["1265", "les vols des biens situés à l'extérieur…", false],
-    ["1266", "assurés ou dans des locaux non clos,", false],
-    ["1267", "…", false],
-  ];
-  page.forEach(([n, s, bold], i) => {
-    const y = 56 + i * 22;
-    body += txt(24, y, n, "m num", "start") + txt(70, y, s, bold ? "t small" : "s", "start");
+/* ---------------------------------------------------------------- 2. preparing a contract, once */
+
+function prepareSvg() {
+  const id = "pp";
+  let b = marker(id);
+  // An abstract PDF page: grey bars of text.
+  b += `<rect x="20" y="16" width="300" height="226" rx="12" class="page"/>`;
+  b += txt(34, 40, L("PDF, page 16", "PDF, page 16"), "e-lbl", "start");
+  [120, 240, 210, 180, 230, 200, 150].forEach((w, k) => {
+    const y = 58 + k * 24;
+    b += `<rect x="62" y="${y}" width="${w}" height="9" rx="4.5" class="${k === 0 ? "bar head" : "bar"}"/>`;
+    b += `<g class="layer l1">${txt(48, y + 9, String(k + 1), "num", "end")}</g>`;
   });
-  body += `<rect x="64" y="${56 + 1 * 22 - 15}" width="270" height="${7 * 22}" rx="4" class="hl"/>`;
-
-  // Model
-  body += box(400, 60, 190, 140, "llm", [
-    L("Le modèle répond", "The model answers"),
-    "headings: [1260]",
-    "clauses: [1261–1272]",
-    "kind: exclusion",
-    "perils: vol_vandalisme,",
-    "  objets_valeur…",
-  ], { mono: true, gap: 19 });
-  body += edge(id, "M342 130 H396", L("lignes", "lines"), 369, 122);
-
-  // Stored row
-  body += table(650, 40, 300, L("Ligne de la table clauses", "Row of the clauses table"), [
-    "id       baloise-home-2024:0164",
-    "page     16",
-    "section  … › Déchéance de la garantie",
-    "         › Sont exclus :",
-    "kind     exclusion",
-    "perils   vol_vandalisme, objets_valeur…",
-    L("text     ← lignes 1261–1272 du PDF", "text     ← PDF lines 1261–1272"),
-  ]);
-  body += edge(id, "M592 130 H646", L("numéros", "numbers"), 619, 122);
-  // Text copied by code, bypassing the model
-  body += edge(id, "M175 232 V262 H800 V202", L("le texte est recopié du PDF par le code, jamais par le modèle",
-    "the text is copied from the PDF by the code, never by the model"), 488, 254, "edge strong");
-  return svg(id, 960, 272, L("Le modèle ne renvoie que des numéros de ligne et des étiquettes ; le texte de chaque clause est recopié du PDF par le code.",
-    "The model only returns line numbers and labels; each clause's text is copied from the PDF by the code."), body);
+  // The model marks heading and clauses, by line number.
+  b += `<g class="layer l2">
+    <rect x="56" y="52" width="252" height="21" rx="6" class="mark-h"/>
+    <rect x="56" y="76" width="252" height="69" rx="6" class="mark-c"/>
+    <rect x="56" y="148" width="252" height="69" rx="6" class="mark-c"/>
+    <path d="M322 129 H386" class="edge" marker-end="url(#ah-${id})"/>
+    ${txt(354, 121, L("lignes", "lines"), "e-lbl")}
+    <rect x="390" y="88" width="180" height="82" rx="14" class="chip"/>
+    ${txt(480, 114, L("Le modèle", "The model"), "n-title")}
+    ${txt(480, 137, L("titre : 1", "heading: 1"), "mono")}
+    ${txt(480, 156, L("clauses : 2–4, 5–7", "clauses: 2–4, 5–7"), "mono")}
+  </g>`;
+  // The clauses table.
+  b += `<g class="layer l3">
+    <path d="M572 129 H616" class="edge" marker-end="url(#ah-${id})"/>
+    ${txt(594, 121, L("numéros", "numbers"), "e-lbl")}
+    <rect x="620" y="30" width="330" height="190" rx="14" class="table"/>
+    ${txt(640, 56, L("Table des clauses", "Clauses table"), "n-title", "start")}
+    <g class="row r1"><rect x="636" y="70" width="298" height="62" rx="10" class="rowbg"/>
+      <rect x="648" y="82" width="74" height="19" rx="5" class="tag-ex"/>${txt(685, 96, "Exclusion", "tag-t")}
+      ${txt(732, 96, L("vol · p.16 · lignes 2–4", "theft · p.16 · lines 2–4"), "n-sub", "start")}
+      <rect x="648" y="112" width="230" height="7" rx="3.5" class="bar"/></g>
+    <g class="row r2"><rect x="636" y="142" width="298" height="62" rx="10" class="rowbg"/>
+      <rect x="648" y="154" width="74" height="19" rx="5" class="tag-ex"/>${txt(685, 168, "Exclusion", "tag-t")}
+      ${txt(732, 168, L("objets de valeur · lignes 5–7", "valuables · lines 5–7"), "n-sub", "start")}
+      <rect x="648" y="184" width="200" height="7" rx="3.5" class="bar"/></g>
+    <path d="M170 244 C 170 270, 785 270, 785 224" class="edge strong" marker-end="url(#ah-${id})"/>
+    ${txt(478, 254, L("le texte est recopié du PDF par le code, jamais réécrit par le modèle",
+      "the text is copied from the PDF by the code, never rewritten by the model"), "e-lbl")}
+  </g>`;
+  return `<svg viewBox="0 0 970 280" class="dg dg-anim" data-stage="0" role="img" aria-label="${xesc(L(
+    "Préparer un contrat : les lignes du PDF sont numérotées, le modèle indique où sont les clauses, le code les range en base avec le texte du PDF.",
+    "Preparing a contract: PDF lines are numbered, the model says where the clauses are, the code stores them with the PDF's text."))}">${b}</svg>`;
 }
 
-/* ---------------------------------------------------------------- 3. data model */
-
-function dgSchema() {
-  const id = "sc";
-  let body = "";
-  body += table(10, 20, 250, "contracts", [
-    "id", "insurer, product", "version, effective", "url, sha256", "n_pages, n_clauses",
-  ]);
-  body += table(330, 20, 260, "clauses", [
-    "id, contract_id", "start_n … end_n", "page_start, page_end", "section_path, title", "kind, defined_term", "text",
-  ]);
-  body += table(710, 20, 240, "lines", [
-    "contract_id, n", "page, text", "x0, y0, x1, y1",
-  ]);
-  body += table(710, 150, 240, "clause_perils", ["clause_id", "peril"]);
-  body += table(330, 200, 260, "clauses_fts (FTS5, BM25)", ["text, title, section_path"], "code");
-
-  body += edge(id, "M262 70 H326", "1 — n", 294, 62);
-  body += edge(id, "M592 60 H706", "start_n … end_n", 649, 52);
-  body += txt(649, 78, L("→ surlignage", "→ highlight"), "lbl");
-  body += edge(id, "M592 150 H640 V190 H706", "1 — n", 673, 183);
-  body += edge(id, "M460 152 V196", L("indexé", "indexed"), 470, 180, "edge", "start");
-  return svg(id, 960, 262, L("Schéma : un contrat a des lignes et des clauses ; chaque clause a ses périls et une entrée plein texte.",
-    "Schema: a contract has lines and clauses; each clause has its perils and a full-text entry."), body);
-}
-
-/* ---------------------------------------------------------------- 4. retrieval */
-
-function dgRetrieval() {
-  const id = "rt";
-  let body = "";
-  body += box(10, 70, 170, 110, "store", [L("Clauses du contrat", "Contract clauses"), L("500 à 900", "500 to 900"), L("étiquetées", "labelled")]);
-  const src = [
-    [20, L("Texte", "Text"), L("BM25 sur les termes du sinistre", "BM25 on the claim's terms"), "MATCH … ORDER BY bm25 LIMIT 25"],
-    [100, L("Structure", "Structure"), L("garanties, exclusions, conditions, limites", "guarantees, exclusions, conditions, limits"), L("JOIN clause_perils ON périls du sinistre", "JOIN clause_perils ON the claim's perils")],
-    [180, L("Général", "General"), L("exclusions et conditions communes", "exclusions and conditions for all covers"), "peril = 'general'"],
+function prepareSteps() {
+  return [
+    L("Le PDF est lu ligne par ligne : chaque ligne garde sa page et sa position, pour pouvoir la surligner plus tard.",
+      "The PDF is read line by line: each line keeps its page and position, so it can be highlighted later."),
+    L("Un modèle indique seulement où commencent et finissent les titres et les clauses : des numéros de ligne, rien d'autre.",
+      "A model only says where headings and clauses start and end: line numbers, nothing else."),
+    L("Le code recopie le texte depuis le PDF et range chaque clause avec son type, ses périls et sa page. C'est fait une seule fois par contrat.",
+      "The code copies the text from the PDF and stores each clause with its kind, perils and page. This is done once per contract."),
   ];
-  src.forEach(([y, a, b, c]) => {
-    body += box(250, y, 300, 68, "code", [a, b, c], { gap: 17 });
-    body += edge(id, `M182 125 C215 125 215 ${y + 34} 246 ${y + 34}`, "", 0, 0);
-    body += edge(id, `M552 ${y + 34} C585 ${y + 34} 585 145 616 145`, "", 0, 0);
-  });
-  body += box(620, 105, 150, 80, "code", [L("Union ordonnée", "Ordered union"), L("sans doublon,", "no duplicates,"), L("60 au plus", "60 at most")]);
-  body += box(810, 30, 140, 70, "code", [L("Définitions", "Definitions"), L("des termes présents", "of the terms used"), L("20 au plus", "20 at most")]);
-  body += edge(id, "M880 102 V140 H774", "", 0, 0);
-  body += box(810, 170, 140, 80, "llm", [L("Envoyé au modèle", "Sent to the model"), L("≈ 60–80 clauses", "≈ 60–80 clauses"), L("avec page, section", "with page, section")]);
-  body += edge(id, "M772 160 H790 V210 H806", "", 0, 0);
-  return svg(id, 960, 262, L("Recherche : trois requêtes SQL (texte, structure, général) puis les définitions ; 60 à 80 clauses sur 500 à 900 vont au modèle.",
-    "Retrieval: three SQL queries (text, structure, general) then definitions; 60 to 80 of 500 to 900 clauses reach the model."), body);
 }
 
-/* ---------------------------------------------------------------- 5. decision */
+function applyPrepare(root, i) {
+  root.querySelector("svg").dataset.stage = String(i);
+}
 
-function dgDecision() {
-  const id = "dc";
-  let body = "";
-  body += box(10, 30, 180, 110, "llm", [
-    L("Le modèle (appel 2)", "The model (call 2)"),
-    L("citations", "citations"),
-    L("garantie : oui/non/?", "guarantee: yes/no/?"),
-    L("exclusion : … + mots du récit", "exclusion: … + claim words"),
-    L("condition : … + mots du récit", "condition: … + claim words"),
-  ], { gap: 18 });
+/* ---------------------------------------------------------------- render */
 
-  body += box(230, 40, 200, 90, "code", [L("Citation trouvée", "Citation found"), L("mot pour mot dans", "word for word in"), L("la clause citée ?", "the cited clause?")]);
-  body += box(470, 40, 200, 90, "code", [L("Doute appuyé sur", "Doubt backed by"), L("des mots du récit ?", "words of the claim?"), L("(exclusion, condition)", "(exclusion, condition)")]);
-  body += box(710, 22, 240, 126, "code", [
-    L("Règle de décision", "Decision rule"),
-    L("garantie = non, ou", "guarantee = no, or"),
-    L("exclusion / condition = oui", "exclusion / condition = yes"),
-    L("  → non couvert", "  → not covered"),
-    L("garantie = oui et rien contre", "guarantee = yes, nothing against"),
-    L("  → couvert ; sinon indéterminé", "  → covered; else undetermined"),
-  ], { gap: 17 });
-  body += edge(id, "M192 85 H226", "", 0, 0);
-  body += edge(id, "M432 85 H466", L("oui", "yes"), 449, 77);
-  body += edge(id, "M672 85 H706", L("oui", "yes"), 689, 77);
-
-  // Rejections
-  body += box(240, 150, 180, 46, "note", [L("ignorée, affichée ⚠", "ignored, shown ⚠"), L("ne compte pas", "does not count")]);
-  body += edge(id, "M330 132 V146", L("non", "no"), 340, 143, "edge", "start");
-  body += box(480, 150, 180, 46, "note", [L("constat → non", "finding → no"), L("présomption de bonne foi", "presumed compliance")]);
-  body += edge(id, "M570 132 V146", L("non", "no"), 580, 143, "edge", "start");
-
-  // Final gate
-  body += box(710, 206, 240, 80, "code", [L("La clause décisive", "Is the deciding clause"), L("est-elle citée", "cited and"), L("et vérifiée ?", "verified?")]);
-  body += edge(id, "M830 150 V202", "", 0, 0);
-  body += box(450, 212, 200, 68, "io", [L("Verdict", "Verdict"), L("couvert / non couvert", "covered / not covered"), L("/ indéterminé", "/ undetermined")]);
-  body += edge(id, "M708 246 H654", L("oui", "yes"), 681, 238);
-  body += box(160, 302, 240, 50, "io", [L("Indéterminé", "Undetermined"), L("avec la raison affichée", "with the reason shown")]);
-  body += edge(id, "M830 288 V327 H404", L("non : rétrogradé", "no: downgraded"), 610, 319);
-  return svg(id, 960, 362, L("Décision : le modèle donne des constats ; le code vérifie citations et faits, applique la règle, et rétrograde en indéterminé ce qui n'est pas sourcé.",
-    "Decision: the model gives findings; the code checks citations and facts, applies the rule, and downgrades unsourced verdicts to undetermined."), body);
+function figure(svg) {
+  return `${svg}
+    <div class="dg-controls">
+      <button type="button" class="dg-play"></button>
+      <div class="dg-dots"></div>
+      <div class="dg-nav">
+        <button type="button" class="dg-prev">‹ ${L("Précédent", "Previous")}</button>
+        <button type="button" class="dg-next">${L("Suivant", "Next")} ›</button>
+      </div>
+    </div>
+    <p class="dg-caption" aria-live="polite"></p>`;
 }
 
 function renderDiagrams() {
-  const map = { "dg-overview": dgOverview, "dg-segment": dgSegment, "dg-schema": dgSchema, "dg-retrieval": dgRetrieval, "dg-decision": dgDecision };
-  for (const [elId, fn] of Object.entries(map)) {
-    const el = document.getElementById(elId);
-    if (el) el.innerHTML = fn();
+  while (timers.length) clearInterval(timers.pop());
+  const journey = document.getElementById("dg-journey");
+  if (journey) {
+    journey.innerHTML = figure(journeySvg());
+    stepper(journey, journeySteps(), (i) => applyJourney(journey, i));
+  }
+  const prepare = document.getElementById("dg-prepare");
+  if (prepare) {
+    prepare.innerHTML = figure(prepareSvg());
+    stepper(prepare, prepareSteps(), (i) => applyPrepare(prepare, i));
   }
 }

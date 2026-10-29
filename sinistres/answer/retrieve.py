@@ -4,17 +4,17 @@ No vector store: the clauses already carry the contract's own structure (section
 so retrieval is SQL. Three sources are merged:
 
 1. structure: every guarantee, exclusion, condition and limit labelled with the claim's perils;
-2. words: full-text search (SQLite FTS5, BM25) on the terms a handler would look up;
+2. words: full-text search (SQLite FTS5, BM25) on the terms a handler would look up, stemmed and
+   expanded with an insurance synonym table (`search.py`);
 3. definitions: the contract's definitions of the words used in 1 and 2 ("dépendances", "effraction"),
    plus the exclusions that apply to every guarantee.
 """
 
-import re
 from collections import OrderedDict
 
 from pydantic import BaseModel, Field
 
-from .. import db, llm
+from .. import db, llm, search
 from ..taxonomy import Peril
 
 
@@ -45,16 +45,6 @@ def claim_facts(claim: str) -> ClaimFacts:
     return llm.structured(FACTS_SYSTEM, claim, ClaimFacts)
 
 
-def _fts_query(terms: list[str]) -> str:
-    # Each term becomes a quoted phrase; FTS5 syntax characters are stripped.
-    phrases = []
-    for t in terms:
-        words = re.findall(r"\w+", t.lower())
-        if words:
-            phrases.append('"' + " ".join(words) + '"')
-    return " OR ".join(phrases)
-
-
 def retrieve(conn, contract_id: str, facts: ClaimFacts) -> tuple[list[dict], dict]:
     picked: OrderedDict[str, str] = OrderedDict()  # clause id -> why it was picked
 
@@ -63,13 +53,13 @@ def retrieve(conn, contract_id: str, facts: ClaimFacts) -> tuple[list[dict], dic
             picked.setdefault(i, why)
 
     # 1. Words first: they are the most specific signal.
-    query = _fts_query(facts.termes + facts.biens)
+    query = search.fts_query(facts.termes + facts.biens + ([facts.lieu] if facts.lieu else []))
     if query:
         rows = conn.execute(
             """select f.clause_id from clauses_fts f join clauses c on c.id = f.clause_id
                where clauses_fts match ? and c.contract_id = ? and c.kind != 'administratif'
                order by bm25(clauses_fts) limit 25""",
-            (query, contract_id),
+            (f"stems : ({query})", contract_id),
         ).fetchall()
         add([r[0] for r in rows], "texte")
 

@@ -14,6 +14,7 @@ from . import config
 SCHEMA = """
 create table if not exists contracts (
     id text primary key,
+    product_key text not null,         -- one product, several editions over time
     insurer text not null,
     product text not null,
     version text not null,
@@ -53,8 +54,10 @@ create table if not exists clause_perils (
     primary key (clause_id, peril)
 );
 create index if not exists clause_perils_peril on clause_perils(peril);
+-- stems: a stemmed French copy of each clause (search.normalise), what retrieval matches on.
 create virtual table if not exists clauses_fts using fts5(
     clause_id unindexed, text, title, section_path, defined_term,
+    stems,
     tokenize = 'unicode61 remove_diacritics 2'
 );
 """
@@ -74,6 +77,20 @@ def connect(path: Path | None = None, readonly: bool = False) -> sqlite3.Connect
 
 def contracts(conn) -> list[dict]:
     return [dict(r) for r in conn.execute("select * from contracts order by insurer")]
+
+
+def contract_in_force(conn, product_key: str, date_of_loss: str) -> dict | None:
+    """The edition of a product that applied on the date of loss (ISO date or "YYYY-MM").
+
+    Policies are renewed onto new editions of the general conditions; a claim is judged against the one in
+    force when it happened, not the latest one.
+    """
+    row = conn.execute(
+        """select * from contracts where product_key = ? and effective <= ?
+           order by effective desc limit 1""",
+        (product_key, date_of_loss[:10]),
+    ).fetchone()
+    return dict(row) if row else None
 
 
 def clause_dicts(rows) -> list[dict]:

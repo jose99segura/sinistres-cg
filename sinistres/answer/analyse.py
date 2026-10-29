@@ -76,6 +76,10 @@ Règles pour les constats :
 - Pour exclusion et condition_non_remplie, "oui" ou "incertain" exige de recopier dans exclusion_fait /
   condition_fait les mots EXACTS du récit qui le justifient. Si aucun mot du récit ne le justifie, le constat est "non".
 - Une exclusion ne s'applique que si le bien ou la circonstance correspond à ce qu'elle vise. Pas d'analogie.
+- Avant de conclure qu'une exclusion s'applique, cherche dans la clause et autour d'elle une exception
+  (« sauf », « toutefois », « à moins que », « excepté ») qui rendrait la garantie à nouveau applicable.
+- Ne t'arrête pas à la première raison de refuser : examine aussi les autres garanties qui pourraient couvrir le bien
+  (une option « tous risques » ou un pack spécifique peut couvrir ce que la garantie de base exclut).
 
 Règles pour les citations :
 - Chaque étape cite un clause_id fourni et recopie MOT POUR MOT un extrait de cette clause (pas de reformulation,
@@ -97,6 +101,15 @@ MESSAGES = {
         "downgraded": "Verdict rétrogradé en « indéterminé » : {why}.",
         "why_covered": "« couvert » sans garantie citée et vérifiée",
         "why_not_covered": "« non couvert » sans la clause décisive citée et vérifiée",
+        "escalated": "Repris par {to} ({reason}) : {first} avait conclu « {verdict} ».",
+        "reason_denial": "refus, toujours relu par le modèle le plus fort",
+        "reason_downgraded": "verdict non sourcé",
+        "reason_undetermined": "réponse indéterminée",
+        "reason_citations": "trop de citations introuvables",
+        "escalation_failed": "Le modèle de relecture n'a pas répondu : réponse du premier modèle conservée.",
+        "exception": "Exception relevée dans la clause : « {text} ».",
+        "review_rejected": "Relecture du refus : la clause ne fonde pas le refus ({why}) → « indéterminé ».",
+        "review_ok": "Relecture du refus : la clause décisive s'applique bien aux faits racontés.",
     },
     "en": {
         "finding_dropped": "Finding “{label}” dropped: it rests on no fact of the claim.",
@@ -109,6 +122,15 @@ MESSAGES = {
         "downgraded": "Verdict downgraded to “undetermined”: {why}.",
         "why_covered": "“covered” without a cited and verified guarantee",
         "why_not_covered": "“not covered” without the deciding clause cited and verified",
+        "escalated": "Taken over by {to} ({reason}): {first} had concluded “{verdict}”.",
+        "reason_denial": "a denial, always reviewed by the stronger model",
+        "reason_downgraded": "unsourced verdict",
+        "reason_undetermined": "undetermined answer",
+        "reason_citations": "too many citations not found",
+        "escalation_failed": "The review model did not answer: the first model's answer is kept.",
+        "exception": "Exception found in the clause: “{text}”.",
+        "review_rejected": "Denial review: the clause does not ground the refusal ({why}) → “undetermined”.",
+        "review_ok": "Denial review: the deciding clause does apply to the facts told.",
     },
 }
 
@@ -195,23 +217,15 @@ def _fmt_clause(c: dict) -> str:
     return f"{head}\n{c['text']}"
 
 
-def analyse(contract_id: str, claim: str, lang: str = "fr") -> dict:
-    t0 = time.monotonic()
-    conn = db.connect(readonly=True)
-    contract = conn.execute("select * from contracts where id = ?", (contract_id,)).fetchone()
-    if not contract:
-        raise ValueError(f"unknown contract {contract_id}")
-
-    facts = claim_facts(claim)
-    clauses, coverage = retrieve(conn, contract_id, facts)
+def _decide(conn, contract, claim: str, clauses: list[dict], lang: str, model: str) -> dict:
+    """One decision by one model, checked. Returns the checked answer, not yet the final one."""
     by_id = {c["id"]: c for c in clauses}
-
     user = (
         f"CONTRAT : {contract['insurer']} — {contract['product']} ({contract['version']})\n\n"
         f"SINISTRE DÉCLARÉ :\n{claim}\n\n"
         f"CLAUSES ({len(clauses)}) :\n\n" + "\n\n".join(_fmt_clause(c) for c in clauses)
     )
-    decision = llm.structured(DECIDE_SYSTEM + LANG_INSTRUCTION[lang], user, Decision)
+    decision = llm.structured(DECIDE_SYSTEM + LANG_INSTRUCTION[lang], user, Decision, model=model)
 
     # Check every step against the database.
     checks: list[str] = []
@@ -263,22 +277,137 @@ def analyse(contract_id: str, claim: str, lang: str = "fr") -> dict:
     if downgrade:
         checks.append(_msg(lang, "downgraded", why=_msg(lang, downgrade)))
         verdict = "indetermine"
+    return {"decision": decision, "steps": steps, "checks": checks, "proposed": proposed,
+            "verdict": verdict, "n_bad": n_bad, "model": model}
 
+
+def _escalation_reason(d: dict) -> str | None:
+    """Why the cheap model's answer is not good enough to ship, if it is not."""
+    if d["verdict"] == "non_couvert":
+        return "denial"  # models over-deny: every refusal gets the stronger model
+    if d["verdict"] != d["proposed"]:
+        return "downgraded"
+    if d["verdict"] == "indetermine":
+        return "undetermined"
+    if d["steps"] and d["n_bad"] * 3 > len(d["steps"]):
+        return "citations"
+    return None
+
+
+class Support(BaseModel):
+    supported: bool = Field(description="true only if the quoted clause, read in full, applies to the facts told")
+    exception: str | None = Field(description="an exception in the clause ('sauf', 'toutefois', 'à moins que') "
+                                              "that could apply to these facts, quoted; null if none")
+    raison: str = Field(description="one sentence")
+
+
+SUPPORT_SYSTEM = """Tu relis un refus de prise en charge. On te donne le sinistre raconté et la clause sur laquelle
+repose le refus. Réponds supported=true seulement si cette clause, lue en entier, s'applique bien aux faits racontés
+(pas par analogie, pas sur des faits supposés). Cherche dans la clause une exception (« sauf », « toutefois »,
+« à moins que », « excepté ») qui pourrait s'appliquer à ces faits : si oui, cite-la dans exception."""
+
+
+def _review_denial(d: dict, claim: str, lang: str) -> None:
+    """Stricter bar for "non couvert": a separate check that the deciding clause supports the refusal."""
+    decision = d["decision"]
+    wanted = ("exclusion" if decision.exclusion == "oui"
+              else "condition" if decision.condition_non_remplie == "oui" else None)
+    roles = {wanted} if wanted else {"garantie", "definition"}
+    deciding = [s for s in d["steps"] if s["verifiee"] and s["role"] in roles]
+    if not deciding:
+        return
+    s = deciding[0]
+    # "No guarantee applies" is a different claim from "an exclusion applies": ask the right question.
+    question = ("Le refus dit qu'AUCUNE garantie ne couvre ces faits. Cette clause délimite-t-elle la garantie "
+                "de sorte que ces faits n'y entrent pas ?" if wanted is None
+                else "Le refus repose sur cette clause d'exclusion ou de condition.")
+    review = llm.structured(
+        SUPPORT_SYSTEM + LANG_INSTRUCTION[lang],
+        f"{question}\n\nSINISTRE :\n{claim}\n\nCLAUSE ({s['clause']['id']}) :\n{s['clause']['text']}",
+        Support, model=config.ESCALATION_MODEL,
+    )
+    if review.exception:
+        d["checks"].append(_msg(lang, "exception", text=review.exception))
+    if review.supported:
+        d["checks"].append(_msg(lang, "review_ok"))
+    else:
+        d["checks"].append(_msg(lang, "review_rejected", why=review.raison))
+        d["verdict"] = "indetermine"
+
+
+def _examined(clauses: list[dict]) -> dict:
+    """What was searched, so that an answer saying 'cannot decide' shows its evidence."""
+    by_source: dict[str, int] = {}
+    for c in clauses:
+        by_source[c["why"]] = by_source.get(c["why"], 0) + 1
+    return {"sources": by_source}
+
+
+def _all_clauses(conn, contract_id: str) -> list[dict]:
+    """Every clause of the contract, for the long-context baseline (no retrieval)."""
+    ids = [r[0] for r in conn.execute(
+        "select id from clauses where contract_id = ? and kind != 'administratif' order by ord", (contract_id,))]
+    clauses = db.clauses_by_ids(conn, ids)
+    for c in clauses:
+        c["why"] = "tout"
+    return clauses
+
+
+def analyse(contract_id: str, claim: str, lang: str = "fr", mode: str = "cascade") -> dict:
+    """mode: "cascade" (deployed), "cheap" (first model only) or "long" (whole contract, stronger model,
+    no retrieval: the baseline the evaluation compares against)."""
+    t0 = time.monotonic()
+    conn = db.connect(readonly=True)
+    contract = conn.execute("select * from contracts where id = ?", (contract_id,)).fetchone()
+    if not contract:
+        raise ValueError(f"unknown contract {contract_id}")
+
+    facts = claim_facts(claim)
+    if mode == "long":
+        clauses = _all_clauses(conn, contract_id)
+        coverage = {"lues": len(clauses), "total": len(clauses)}
+    else:
+        clauses, coverage = retrieve(conn, contract_id, facts)
+
+    # Cascade: the cheap model answers; the stronger one takes over when that answer is not good enough.
+    first_model = config.ESCALATION_MODEL if mode == "long" else config.MISTRAL_MODEL
+    d = _decide(conn, contract, claim, clauses, lang, first_model)
+    escalation = None
+    reason = (_escalation_reason(d) if mode == "cascade" and config.CASCADE and config.GEMINI_API_KEY else None)
+    if reason:
+        first = d
+        try:
+            d = _decide(conn, contract, claim, clauses, lang, config.ESCALATION_MODEL)
+            escalation = {"reason": reason, "first_model": first["model"], "first_verdict": first["verdict"]}
+            d["checks"].insert(0, _msg(lang, "escalated", reason=_msg(lang, f"reason_{reason}"),
+                                       first=first["model"], verdict=first["verdict"], to=d["model"]))
+        except llm.LLMError:
+            d = first
+            d["checks"].append(_msg(lang, "escalation_failed"))
+    if mode == "cascade" and d["verdict"] == "non_couvert" and config.GEMINI_API_KEY:
+        try:
+            _review_denial(d, claim, lang)
+        except llm.LLMError:
+            d["checks"].append(_msg(lang, "escalation_failed"))
+
+    decision = d["decision"]
     return {
         "contract": dict(contract),
         "claim": claim,
-        "verdict": verdict,
-        "verdict_modele": proposed,
+        "verdict": d["verdict"],
+        "verdict_modele": d["proposed"],
         "constats": {"garantie": decision.garantie, "exclusion": decision.exclusion,
                      "condition_non_remplie": decision.condition_non_remplie},
         "resume": decision.resume,
         "qualification": decision.qualification,
-        "etapes": steps,
+        "etapes": d["steps"],
         "informations_manquantes": decision.informations_manquantes,
         "garanties_a_verifier": decision.garanties_a_verifier,
-        "controles": checks,
+        "controles": d["checks"],
         "analyse_sinistre": facts.model_dump(),
         "clauses_lues": coverage | {"ids": [c["id"] for c in clauses]},
-        "modele": config.MISTRAL_MODEL,
+        "examine": _examined(clauses),
+        "escalade": escalation,
+        "modele": d["model"] if not escalation else f"{escalation['first_model']} → {d['model']}",
         "duree_s": round(time.monotonic() - t0, 1),
     }

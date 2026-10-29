@@ -4,10 +4,13 @@
 # expected:         the answer a careful handler would give from the general conditions alone
 # accept:           verdicts that are also defensible when the contract is genuinely open to reading
 #                   (default: [expected]); a verdict outside `accept` is an error
+# slice:            what makes the case hard (guarantee, guarantee_scope, exclusion, exception, condition,
+#                   ambiguous, language); twin_of: the case it copies with one fact changed
 # expected_clauses: regexes; at least one verified citation must come from a clause matching one of them
 cases:
   # ------------------------------------------------------------------ Baloise HOME 09-24
   - id: bal-velo-local-commun
+    slice: ambiguous
     contract: baloise-home-2024
     claim: Mon vélo a été volé dans le local commun de l'immeuble, qui n'était pas fermé à clé.
     expected: indetermine
@@ -19,6 +22,7 @@ cases:
       "objets de mobilité durable" (p.7, pack f p.19).
 
   - id: bal-bougie-jardin
+    slice: ambiguous
     contract: baloise-home-2024
     claim: Pendant mes vacances, une bougie laissée sur la table de mon jardin a fondu avec la chaleur et a abîmé la table.
     expected: indetermine
@@ -29,6 +33,7 @@ cases:
       is hardly sudden. Garden furniture only with the garden pack (p.20), which needs a covered event.
 
   - id: bal-machine-a-laver
+    slice: guarantee
     contract: baloise-home-2024
     claim: Le tuyau de ma machine à laver a lâché et l'eau a abîmé le parquet du salon.
     expected: couvert
@@ -36,6 +41,7 @@ cases:
     note: p.13 water damage covers leaks of "appareils à effet d'eau situés à l'intérieur du bâtiment".
 
   - id: bal-portable-tombe
+    slice: guarantee
     contract: baloise-home-2024
     claim: J'ai fait tomber mon ordinateur portable par terre chez moi, l'écran est cassé.
     expected: couvert
@@ -43,6 +49,7 @@ cases:
     note: p.18 Pack Multimédia covers damage "à la suite d'un accident" to nomad multimedia devices.
 
   - id: bal-bijoux-effraction
+    slice: guarantee
     contract: baloise-home-2024
     claim: Des cambrioleurs ont forcé la porte d'entrée de ma maison et ont volé mes bijoux pendant que j'étais au travail.
     expected: couvert
@@ -50,6 +57,7 @@ cases:
     note: p.15 theft by effraction of movable property inside the insured building, jewellery included.
 
   - id: bal-cle-paillasson
+    slice: condition
     contract: baloise-home-2024
     claim: Des voleurs sont entrés chez moi avec la clé que j'avais laissée sous le paillasson et ont volé ma télévision.
     expected: non_couvert
@@ -57,6 +65,7 @@ cases:
     note: p.16 loss of all rights when the theft uses keys left under the doormat.
 
   - id: bal-store-vent
+    slice: ambiguous
     contract: baloise-home-2024
     claim: Un vent violent a arraché mon store banne, que j'avais laissé déployé pendant mes deux semaines de vacances.
     expected: indetermine
@@ -68,6 +77,7 @@ cases:
 
   # ------------------------------------------------------------------ AXA OptiHome 03-2022
   - id: axa-velo-local-commun
+    slice: ambiguous
     contract: axa-optihome-2022
     claim: Mon vélo a été volé dans le local commun de l'immeuble, qui n'était pas fermé à clé.
     expected: indetermine
@@ -79,6 +89,7 @@ cases:
       parts not locked (p.43).
 
   - id: axa-velo-cave-forcee
+    slice: guarantee
     contract: axa-optihome-2022
     claim: Mon vélo a été volé dans la cave de mon immeuble. La porte de la cave était fermée à clé et a été forcée.
     expected: couvert
@@ -86,6 +97,7 @@ cases:
     note: p.61 bike theft covered "dans les greniers, caves et garages fermés à clé et situés dans un immeuble collectif".
 
   - id: axa-vitre-porte-commune
+    slice: exclusion
     contract: axa-optihome-2022
     claim: Je suis locataire d'un appartement. La vitre de la porte d'entrée commune de l'immeuble a été brisée.
     expected: non_couvert
@@ -93,6 +105,7 @@ cases:
     note: p.42 glass breakage excludes glazing of the common parts when the insured is a tenant.
 
   - id: axa-portable-tombe
+    slice: guarantee
     contract: axa-optihome-2022
     claim: J'ai fait tomber mon ordinateur portable par terre chez moi, l'écran est cassé.
     expected: couvert
@@ -100,6 +113,7 @@ cases:
     note: p.44 multimedia option covers accidental breakage "résultant d'une chute".
 
   - id: axa-bougie-jardin
+    slice: ambiguous
     contract: axa-optihome-2022
     claim: Pendant mes vacances, une bougie laissée sur la table de mon jardin a fondu avec la chaleur et a abîmé la table.
     expected: indetermine
@@ -110,6 +124,7 @@ cases:
       chaleur"; gradual sun heat is not obviously sudden; garden furniture is defined p.13.
 
   - id: axa-vol-porte-ouverte
+    slice: exclusion
     contract: axa-optihome-2022
     claim: Un inconnu est entré par la porte que j'avais laissée ouverte pendant que j'étais au jardin, et a volé ma tablette dans le salon.
     expected: non_couvert
@@ -118,6 +133,7 @@ cases:
 
   # ------------------------------------------------------------------ Lalux easyPROTECT 2022 (home)
   - id: lalux-velo-local-commun
+    slice: ambiguous
     contract: lalux-easyprotect-2022
     claim: Mon vélo a été volé dans le local commun de l'immeuble, qui n'était pas fermé à clé.
     expected: indetermine
@@ -129,6 +145,7 @@ cases:
       places open to the public.
 
   - id: lalux-machine-a-laver
+    slice: guarantee
     contract: lalux-easyprotect-2022
     claim: Le tuyau de ma machine à laver a lâché et l'eau a abîmé le parquet du salon.
     expected: couvert
@@ -136,6 +153,7 @@ cases:
     note: p.35 water damage covers leaks from "machines à laver ou lave-vaisselle".
 
   - id: lalux-bougie-jardin
+    slice: ambiguous
     contract: lalux-easyprotect-2022
     claim: Pendant mes vacances, une bougie laissée sur la table de mon jardin a fondu avec la chaleur et a abîmé la table.
     expected: indetermine
@@ -147,6 +165,7 @@ cases:
       covered furniture at the insured place is not settled by the text read.
 
   - id: lalux-cambriolage-fenetre
+    slice: guarantee
     contract: lalux-easyprotect-2022
     claim: Des cambrioleurs ont forcé une fenêtre et ont volé ma télévision.
     expected: couvert
@@ -154,8 +173,229 @@ cases:
     note: p.36 theft by effraction of the premises holding the insured furniture.
 
   - id: lalux-vol-par-le-fils
+    slice: exclusion
     contract: lalux-easyprotect-2022
     claim: Mon fils, qui vit avec moi, a pris mon ordinateur et l'a revendu sans me le dire.
     expected: non_couvert
     expected_clauses: ["membres de la famille", "communauté domestique"]
     note: p.36 thefts by family members or people living in the household are excluded.
+
+  # ------------------------------------------------------------------ added: slices and twins
+  # Twins change one fact of an earlier case and flip the expected verdict.
+
+  - id: bal-portable-rayure
+    slice: exclusion
+    twin_of: bal-portable-tombe
+    contract: baloise-home-2024
+    claim: Mon ordinateur portable est tombé par terre chez moi. Il fonctionne parfaitement, il a seulement une rayure sur le capot.
+    expected: non_couvert
+    expected_clauses: ["purement esthétique"]
+    note: p.18 Pack Multimédia excludes "les dommages d'ordre purement esthétique".
+
+  - id: bal-bijoux-inoccupation
+    slice: condition
+    twin_of: bal-bijoux-effraction
+    contract: baloise-home-2024
+    claim: Ma maison était inoccupée depuis quatre mois pendant un séjour à l'étranger. Des cambrioleurs ont forcé la porte et ont volé mes bijoux.
+    expected: non_couvert
+    expected_clauses: ["inoccupation"]
+    note: p.16 loss of rights for jewellery and valuables after three consecutive months of non-occupation.
+
+  - id: bal-fuite-corrosion
+    slice: exclusion
+    twin_of: bal-machine-a-laver
+    contract: baloise-home-2024
+    claim: Un tuyau d'eau du garage, couvert de rouille depuis des années et jamais entretenu, s'est mis à fuir et a abîmé des cartons.
+    expected: non_couvert
+    accept: [non_couvert, indetermine]
+    expected_clauses: ["corrosion"]
+    note: p.13 water damage excludes damage from a failure to maintain, in particular visible untreated corrosion.
+
+  - id: bal-tempete-110
+    slice: guarantee
+    twin_of: bal-store-vent
+    contract: baloise-home-2024
+    claim: Pendant une tempête, avec des rafales mesurées à 110 km/h par la station météo la plus proche, le vent a arraché des tuiles de ma toiture.
+    expected: couvert
+    expected_clauses: ["80 km"]
+    note: p.12 storm cover applies when the wind reaches at least 80 km/h at the nearest station.
+
+  - id: axa-portable-panne
+    slice: guarantee_scope
+    twin_of: axa-portable-tombe
+    contract: axa-optihome-2022
+    claim: Mon ordinateur portable ne s'allume plus. Il n'est pas tombé et n'a subi aucun choc, il est simplement tombé en panne.
+    expected: non_couvert
+    expected_clauses: ["chute, d.un choc", "défauts de fonctionnement"]
+    note: p.44 multimedia covers accidental breakage from a fall, a shock or a foreign body; p.45 repairing malfunctions is excluded unless caused by an indemnifiable damage.
+
+  - id: axa-velo-attache-gare
+    slice: guarantee
+    twin_of: axa-velo-local-commun
+    contract: axa-optihome-2022
+    claim: Mon vélo, attaché avec un antivol à un arceau scellé au sol devant la gare de Luxembourg, a été volé.
+    expected: couvert
+    expected_clauses: ["en tout lieu", "antivol"]
+    note: p.61 option Confort covers bike theft anywhere in Luxembourg if attached with a suitable lock to an anchored element.
+
+  - id: axa-velo-sans-antivol
+    slice: exclusion
+    twin_of: axa-velo-attache-gare
+    contract: axa-optihome-2022
+    claim: J'ai laissé mon vélo sans antivol devant la gare de Luxembourg pendant une heure, il a été volé.
+    expected: non_couvert
+    accept: [non_couvert, indetermine]
+    expected_clauses: ["antivol", "vols? simples?"]
+    note: p.61 outside the listed places, bike theft is covered only if locked to an anchored element.
+
+  - id: axa-conduite-encastree
+    slice: exception
+    contract: axa-optihome-2022
+    claim: Une conduite d'eau encastrée dans le mur de la salle de bain a éclaté. Il faut remplacer la conduite et refaire le mur.
+    expected: couvert
+    expected_clauses: ["conduites encastrées"]
+    note: p.40 the pipe at the origin of the damage is excluded, "toutefois, les dommages aux conduites encastrées sont pris en charge".
+
+  - id: axa-flexible-apparent
+    slice: exclusion
+    twin_of: axa-conduite-encastree
+    contract: axa-optihome-2022
+    claim: Le flexible apparent sous l'évier de la cuisine s'est fendu. Je demande uniquement le remplacement du flexible, il n'y a pas d'autre dégât.
+    expected: non_couvert
+    expected_clauses: ["à l.origine du sinistre"]
+    note: p.40 exclusion of the installations and appliances at the origin of the loss; only embedded pipes are an exception.
+
+  - id: axa-mur-voisin
+    slice: exception
+    contract: axa-optihome-2022
+    claim: De l'humidité traverse le mur de mon salon. Elle vient d'une fuite dans l'immeuble voisin.
+    expected: couvert
+    accept: [couvert, indetermine]
+    expected_clauses: ["porosité des murs"]
+    note: p.40 porosity of walls is excluded "sauf si celle-ci trouve son origine dans un ou des bâtiments voisins".
+
+  - id: axa-mur-poreux
+    slice: exclusion
+    twin_of: axa-mur-voisin
+    contract: axa-optihome-2022
+    claim: Le mur de mon salon est humide parce que la maçonnerie est poreuse. Aucune fuite n'a été trouvée.
+    expected: non_couvert
+    expected_clauses: ["porosité des murs"]
+    note: p.40 damage caused by the porosity of walls is excluded.
+
+  - id: axa-miroir
+    slice: guarantee
+    contract: axa-optihome-2022
+    claim: En nettoyant la salle de bain, j'ai heurté le grand miroir fixé au mur et il s'est brisé.
+    expected: couvert
+    expected_clauses: ["miroirs"]
+    note: p.41 glass cover insures accidental breakage of glazing, glass and mirrors.
+
+  - id: axa-vase
+    slice: exclusion
+    twin_of: axa-miroir
+    contract: axa-optihome-2022
+    claim: Un vase en verre posé sur le buffet est tombé et s'est brisé.
+    expected: non_couvert
+    expected_clauses: ["objets en verre", "vases"]
+    note: p.42 glass cover excludes "objets en verre, par exemple lustres, vases, vaisselle".
+
+  - id: axa-pluie-fenetre
+    slice: exclusion
+    contract: axa-optihome-2022
+    claim: Pendant une tempête, la pluie est entrée par une fenêtre restée ouverte et a mouillé mon canapé.
+    expected: non_couvert
+    expected_clauses: ["ouvertures fermées ou non", "non préalablement endommagée"]
+    note: p.40 water damage excludes rain entering through openings, closed or not; p.38 storm excludes contents in a building not first damaged by the storm.
+
+  - id: axa-gel-vacances
+    slice: condition
+    contract: axa-optihome-2022
+    claim: Pendant trois semaines de vacances en janvier, j'ai coupé le chauffage de ma résidence principale. Une conduite a gelé et éclaté, l'eau a abîmé le parquet.
+    expected: couvert
+    accept: [couvert, indetermine]
+    expected_clauses: ["réduite de moitié", "15 jours"]
+    note: >-
+      p.41 in a main residence left unoccupied more than 15 days the insured must drain or protect pipes; if not,
+      the indemnity is halved, not refused. "Non couvert" is wrong: the sanction is a reduction.
+
+  - id: axa-portable-en
+    slice: language
+    twin_of: axa-portable-tombe
+    contract: axa-optihome-2022
+    claim: I dropped my laptop on the floor at home and the screen cracked.
+    expected: couvert
+    expected_clauses: ["chute"]
+    note: Same facts as axa-portable-tombe, written in English; the contract stays French.
+
+  - id: lalux-pluie-fenetre
+    slice: exclusion
+    contract: lalux-easyprotect-2022
+    claim: La pluie est entrée par la fenêtre de la chambre que j'avais laissée ouverte et a abîmé la moquette.
+    expected: non_couvert
+    expected_clauses: ["ouvertures fermées ou non"]
+    note: p.36 water damage excludes rain entering through openings, closed or not.
+
+  - id: lalux-braise-tapis
+    slice: guarantee
+    contract: lalux-easyprotect-2022
+    claim: Une braise a sauté de la cheminée et a fait un trou de brûlure dans le tapis du salon.
+    expected: couvert
+    expected_clauses: ["dégâts ménagers"]
+    note: p.34 fire cover includes household damage from contact with a fire ("contact d'une lumière ou d'un foyer").
+
+  - id: lalux-plat-plaque
+    slice: exception
+    twin_of: lalux-braise-tapis
+    contract: lalux-easyprotect-2022
+    claim: J'ai posé un plat en plastique sur la plaque de cuisson encore chaude et il a fondu.
+    expected: non_couvert
+    accept: [non_couvert, indetermine]
+    expected_clauses: ["posés dans ou sur un foyer"]
+    note: p.34 household damage excludes "les dommages survenus aux objets jetés ou posés dans ou sur un foyer".
+
+  - id: lalux-porte-douche
+    slice: guarantee
+    contract: lalux-easyprotect-2022
+    claim: La porte de douche en verre s'est brisée quand je l'ai refermée.
+    expected: couvert
+    expected_clauses: ["portes de douche"]
+    note: p.37 glass breakage covers interior door glazing "portes de douche comprises".
+
+  - id: lalux-velo-attache
+    slice: guarantee
+    twin_of: lalux-velo-local-commun
+    contract: lalux-easyprotect-2022
+    claim: Mon vélo, attaché avec un antivol à un poteau sur une place publique, a été volé.
+    expected: couvert
+    expected_clauses: ["antivol", "cycle"]
+    note: p.64 all-risk cycles excludes unattended theft in public places, but cover remains if attached with a suitable lock to a solid object.
+
+  - id: lalux-velo-sans-antivol
+    slice: exclusion
+    twin_of: lalux-velo-attache
+    contract: lalux-easyprotect-2022
+    claim: J'ai laissé mon vélo sans antivol sur une place publique pendant une heure, il a été volé.
+    expected: non_couvert
+    expected_clauses: ["lieux publics"]
+    note: p.64 all-risk cycles excludes theft of a cycle left unattended in public places.
+
+  - id: lalux-cambriolage-fils-twin
+    slice: guarantee
+    twin_of: lalux-vol-par-le-fils
+    contract: lalux-easyprotect-2022
+    claim: Un inconnu a forcé la porte d'entrée pendant la nuit et a volé l'ordinateur de mon fils.
+    expected: couvert
+    expected_clauses: ["effraction"]
+    note: p.36 theft by effraction of the premises; same property as the excluded family-theft case.
+
+  - id: bal-inondation-salon-jardin
+    slice: exception
+    contract: baloise-home-2024
+    claim: Des pluies exceptionnelles ont provoqué une inondation qui a emporté le salon de jardin posé sur ma terrasse.
+    expected: couvert
+    accept: [couvert, indetermine]
+    expected_clauses: ["plein air", "mobilier de jardin"]
+    note: >-
+      p.13 flood excludes objects in the open air "sauf si le pack « Jardin / piscine » est souscrit"; with the
+      option assumed subscribed (as the system does), the garden furniture is covered (p.20).

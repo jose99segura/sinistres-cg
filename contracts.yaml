@@ -1,8 +1,11 @@
 # The contracts the app knows about. One entry = one row of the `contracts` table.
 # PDFs are public documents downloaded from each insurer's website; they are not committed.
+# `product_key` groups the editions of one product; `effective` is the date an edition starts to apply,
+# so a claim is judged against the edition in force on the date of loss (db.contract_in_force).
 # `pages` limits ingestion to the home-insurance chapters of multi-line contracts (1-based PDF pages).
 contracts:
   - id: baloise-home-2024
+    product_key: baloise-home
     insurer: Baloise Luxembourg
     product: HOME
     version: CG-HOME(2)-LUFR-09-24
@@ -12,6 +15,7 @@ contracts:
     pages: null
 
   - id: axa-optihome-2022
+    product_key: axa-optihome
     insurer: AXA Assurances Luxembourg
     product: OptiHome
     version: Mars 2022
@@ -21,6 +25,7 @@ contracts:
     pages: null
 
   - id: lalux-easyprotect-2022
+    product_key: lalux-easyprotect-habitation
     insurer: La Luxembourgeoise (Lalux)
     product: easyPROTECT, volet Habitation
     version: 15.04.2022

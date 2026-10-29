@@ -170,6 +170,7 @@ function renderResult(r) {
       ${downgraded ? `<p class="downgraded">${esc(t("res.downgraded", { v: t(`verdict.${r.verdict_modele}`) }))}</p>` : ""}
     </div>
     ${decide}
+    ${v === "indetermine" && r.examine ? examinedBox(r) : ""}
     <h3 class="section-title">${t("res.cited", { n: r.etapes.length })}</h3>
     ${steps ? `<ol class="cites">${steps}</ol>` : `<p class="hint">${t("res.clauses_none")}</p>`}
 
@@ -184,6 +185,21 @@ function renderResult(r) {
         <dt>${t("res.model")}</dt><dd>${esc(r.modele)} · ${r.duree_s} s</dd>
       </dl>
     </details>`;
+}
+
+// An answer that cannot decide shows what it searched: the claim's terms, the clauses read by source,
+// and the clauses it rests on.
+function examinedBox(r) {
+  const src = r.examine.sources || {};
+  const parts = ["texte", "péril", "général", "définition"].filter((k) => src[k])
+    .map((k) => t(`examined.src.${k}`, { n: src[k] }));
+  return `
+    <div class="card decide examined">
+      <h3>${t("examined.title")}</h3>
+      <p class="hint">${t("examined.body", { n: r.clauses_lues.lues, total: r.clauses_lues.total })}</p>
+      <ul>${parts.map((p) => `<li>${p}</li>`).join("")}</ul>
+      <p class="hint">${t("examined.terms")} ${(r.analyse_sinistre.termes || []).map((x) => `<span class="tag">${esc(x)}</span>`).join("")}</p>
+    </div>`;
 }
 
 /* ---------------------------------------------------------------- PDF page dialog */
