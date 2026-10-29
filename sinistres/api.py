@@ -2,6 +2,7 @@
 
 import json
 import threading
+from typing import Literal
 import time
 from collections import defaultdict, deque
 from functools import lru_cache
@@ -14,7 +15,7 @@ from pydantic import BaseModel, Field
 
 from . import config, db, llm
 from .answer.analyse import analyse
-from .taxonomy import KIND_LABELS, PERIL_LABELS
+from .taxonomy import KIND_LABELS, PERIL_LABELS, PERIL_LABELS_EN
 
 WEB = config.ROOT / "sinistres" / "web"
 EVAL_REPORT = config.ROOT / "eval" / "report.json"
@@ -80,13 +81,14 @@ def contracts():
     return {
         "contracts": db.contracts(conn()),
         "kinds": KIND_LABELS,
-        "perils": PERIL_LABELS,
+        "perils": {"fr": PERIL_LABELS, "en": PERIL_LABELS_EN},
     }
 
 
 class AnalyseIn(BaseModel):
     contract_id: str
     claim: str = Field(min_length=15, max_length=1500)
+    lang: Literal["fr", "en"] = "fr"
 
 
 @app.post("/api/analyse")
@@ -95,7 +97,7 @@ def post_analyse(body: AnalyseIn, request: Request):
         raise HTTPException(404, "Contrat inconnu.")
     _check_rate(_client_ip(request))
     try:
-        return analyse(body.contract_id, body.claim.strip())
+        return analyse(body.contract_id, body.claim.strip(), lang=body.lang)
     except llm.LLMError:
         raise HTTPException(503, "Le modèle ne répond pas pour le moment (limite du niveau gratuit). Réessayez dans une minute.")
 

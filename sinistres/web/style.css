@@ -201,3 +201,48 @@ th { color: var(--muted); font-weight: 600; }
 .ok-txt { color: var(--ok); font-weight: 600; }
 .ko-txt { color: var(--ko); font-weight: 600; }
 .table-scroll { overflow-x: auto; }
+
+/* language */
+html[lang="fr"] .lang-en, html[lang="en"] .lang-fr { display: none; }
+.top-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.lang-switch { display: inline-flex; border: 1px solid rgba(255, 255, 255, .35); border-radius: 8px; overflow: hidden; flex: none; }
+.lang-switch button {
+  border: 0; background: transparent; color: #cfe0ef; font: inherit; font-size: 13px; font-weight: 600;
+  padding: 6px 11px; cursor: pointer;
+}
+.lang-switch button[aria-pressed="true"] { background: #fff; color: var(--brand); }
+.step b { font-weight: 600; }
+
+/* "How it's built" */
+.prose.wide { max-width: 1040px; }
+figure.diagram { margin: 18px 0 26px; padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: #fbfcfd; }
+figure.diagram figcaption { margin-top: 10px; font-size: 13.5px; color: var(--muted); }
+figure.diagram figcaption b { color: var(--ink); }
+pre.code {
+  margin: -10px 0 26px; padding: 12px 14px; border-radius: 10px; background: #17202b; color: #e8edf3;
+  font: 12.5px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; overflow-x: auto;
+}
+.dg { display: block; width: 100%; height: auto; }
+.dg .t { font: 600 13px Inter, system-ui, sans-serif; fill: #17202b; }
+.dg .t.small { font-size: 12px; }
+.dg .s { font: 12px Inter, system-ui, sans-serif; fill: #4a5566; }
+.dg .m { font: 11.5px ui-monospace, SFMono-Regular, Consolas, monospace; fill: #2b3542; }
+.dg .m.num { fill: #8a96a6; }
+.dg .lbl { font: italic 11.5px Inter, system-ui, sans-serif; fill: #5b6676; }
+.dg .lane { font: 700 11.5px Inter, system-ui, sans-serif; fill: var(--brand); letter-spacing: .04em; }
+.dg .b-code { fill: #fff; stroke: #9aa7b8; stroke-width: 1.2; }
+.dg .b-llm { fill: #fdf3e0; stroke: #d39b2a; stroke-width: 1.4; }
+.dg .b-store { fill: #e8f0f8; stroke: #1f4e79; stroke-width: 1.3; }
+.dg .b-io { fill: #f2f4f7; stroke: #c5cdd8; stroke-width: 1.1; }
+.dg .b-note { fill: #fff; stroke: #c5cdd8; stroke-dasharray: 4 3; }
+.dg .sep { stroke: currentColor; opacity: .25; }
+.dg .b-store + .sep, .dg .sep { color: #1f4e79; }
+.dg .hl { fill: var(--mark); opacity: .55; }
+.dg .edge { fill: none; stroke: #5b6676; stroke-width: 1.4; }
+.dg .edge.dashed { stroke-dasharray: 5 4; }
+.dg .edge.strong { stroke: #1f4e79; stroke-width: 1.8; }
+.dg .ah { fill: #5b6676; }
+@media (max-width: 640px) {
+  .top-row { flex-direction: column; }
+  figure.diagram { padding: 8px; margin-left: -8px; margin-right: -8px; }
+}

@@ -42,6 +42,23 @@ PERIL_LABELS = {
     "pertes_indirectes": "Frais et pertes indirectes",
 }
 
+PERIL_LABELS_EN = {
+    "general": "General provisions",
+    "incendie": "Fire and related perils",
+    "degats_des_eaux": "Water damage",
+    "tempete_grele_neige": "Storm, hail, snow",
+    "catastrophes_naturelles": "Natural disasters",
+    "vol_vandalisme": "Theft and vandalism",
+    "bris_de_glace": "Glass breakage",
+    "dommages_electriques": "Electrical damage",
+    "objets_valeur_tous_risques": "Valuables, all-risk, bikes",
+    "jardin_exterieurs": "Garden and outdoors",
+    "responsabilite_civile": "Liability",
+    "protection_juridique": "Legal protection",
+    "assistance": "Assistance",
+    "pertes_indirectes": "Costs and indirect losses",
+}
+
 Kind = Literal[
     "definition",  # defines a term used elsewhere ("Dépendances : ...")
     "garantie",  # what is covered

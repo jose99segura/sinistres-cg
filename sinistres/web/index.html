@@ -8,50 +8,56 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231f4e79'/><path d='M9 16.5l4.5 4.5L23 11.5' stroke='white' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/style.css?v=2">
+  <link rel="stylesheet" href="/static/style.css?v=6">
 </head>
 <body>
   <header class="top">
     <div class="wrap top-inner">
-      <div>
-        <h1>Couvert ou pas&nbsp;?</h1>
-        <p class="tagline">Décrivez un sinistre. Le système lit les conditions générales, répond <em>couvert</em>, <em>non couvert</em> ou <em>indéterminé</em>, et montre les clauses sur lesquelles il s'appuie.</p>
+      <div class="top-row">
+        <div>
+          <h1 data-i18n="h1">Couvert ou pas&nbsp;?</h1>
+          <p class="tagline" data-i18n-html="tagline"></p>
+        </div>
+        <div class="lang-switch" role="group" aria-label="Langue / Language">
+          <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
       </div>
       <nav class="tabs" aria-label="Sections">
-        <a href="#analyse" class="tab active" data-tab="analyse">Analyse</a>
-        <a href="#methode" class="tab" data-tab="methode">Méthode</a>
-        <a href="#evaluation" class="tab" data-tab="evaluation">Évaluation</a>
+        <a href="#analyse" class="tab active" data-tab="analyse" data-i18n="tab.analyse">Analyse</a>
+        <a href="#methode" class="tab" data-tab="methode" data-i18n="tab.methode">Comment c'est fait</a>
+        <a href="#evaluation" class="tab" data-tab="evaluation" data-i18n="tab.evaluation">Évaluation</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
-    <p class="notice">Démonstration réalisée pour un exercice de recrutement. Contrats publics téléchargés sur les sites des assureurs&nbsp;; projet personnel, sans lien avec les assureurs cités. Ce n'est pas un avis juridique&nbsp;: seules vos Conditions Particulières et votre assureur font foi.</p>
+    <p class="notice" data-i18n="notice"></p>
 
     <section id="tab-analyse" class="panel">
       <div class="grid">
         <form id="form" class="card form" autocomplete="off">
-          <h2 class="step"><span>1</span> Le contrat</h2>
-          <div id="contracts" class="contracts" role="radiogroup" aria-label="Contrat"></div>
+          <h2 class="step"><span>1</span> <b data-i18n="form.contract"></b></h2>
+          <div id="contracts" class="contracts" role="radiogroup" data-i18n-attr="aria-label:form.contract"></div>
 
-          <h2 class="step"><span>2</span> Le sinistre</h2>
-          <label for="claim" class="sr">Description du sinistre</label>
-          <textarea id="claim" rows="5" maxlength="1500" placeholder="Ex. : Mon vélo a été volé dans le local commun de l'immeuble, qui n'était pas fermé à clé."></textarea>
+          <h2 class="step"><span>2</span> <b data-i18n="form.claim"></b></h2>
+          <label for="claim" class="sr" data-i18n="form.claim_label"></label>
+          <textarea id="claim" rows="5" maxlength="1500" data-i18n-attr="placeholder:form.placeholder"></textarea>
           <div class="examples">
-            <span class="muted small">Exemples&nbsp;:</span>
+            <span class="muted small" data-i18n="form.examples"></span>
             <div id="examples" class="chips"></div>
           </div>
-          <button id="submit" type="submit" class="primary">Analyser le sinistre</button>
+          <button id="submit" type="submit" class="primary" data-i18n="form.submit"></button>
           <p id="form-error" class="error" hidden></p>
         </form>
 
         <div id="result" class="result" aria-live="polite">
           <div class="placeholder card">
-            <p class="ph-title">La réponse apparaîtra ici</p>
+            <p class="ph-title" data-i18n="ph.title"></p>
             <ul class="ph-list">
-              <li><b>Un verdict</b>&nbsp;: couvert, non couvert, ou indéterminé quand le contrat ne permet pas de trancher.</li>
-              <li><b>Les clauses citées</b>, recopiées du contrat, avec la page et la section, surlignées dans le PDF.</li>
-              <li><b>Ce qui déciderait</b>&nbsp;: les faits manquants et les garanties à vérifier dans vos Conditions Particulières.</li>
+              <li data-i18n-html="ph.li1"></li>
+              <li data-i18n-html="ph.li2"></li>
+              <li data-i18n-html="ph.li3"></li>
             </ul>
           </div>
         </div>
@@ -59,57 +65,146 @@
     </section>
 
     <section id="tab-methode" class="panel" hidden>
-      <article class="card prose">
-        <h2>Comment ça marche</h2>
-        <p>Mettre le PDF entier dans un chatbot marche sur un contrat et s'écroule ensuite&nbsp;: pas de citation fiable, pas de comparaison, un coût qui grandit avec chaque question. Ici, chaque contrat est <b>préparé une fois</b>, puis interrogé comme une base de données.</p>
-        <ol class="pipeline">
-          <li><b>Lecture du PDF.</b> Chaque ligne est extraite avec sa page et sa position (gestion des deux colonnes, en-têtes et pieds de page retirés).</li>
-          <li><b>Découpage en clauses.</b> Un modèle indique <em>quelles lignes</em> forment un titre ou une clause&nbsp;; il ne réécrit jamais le texte. Le texte d'une clause est donc toujours celui du contrat, et chaque clause garde sa page et son chemin de section (« 6. Garanties optionnelles › a. Vol › Sont exclus »).</li>
-          <li><b>Étiquetage.</b> Chaque clause reçoit un type (garantie, exclusion, condition, définition, limite…) et des périls dans un vocabulaire commun à tous les assureurs. C'est ce vocabulaire qui permet de tenir des centaines de contrats.</li>
-          <li><b>Recherche.</b> Pour un sinistre, une requête SQL réunit les garanties, exclusions et conditions des périls concernés, une recherche plein texte (BM25) sur les termes du sinistre, les définitions des mots utilisés et les exclusions générales.</li>
-          <li><b>Constats.</b> Le modèle ne donne pas le verdict. Il qualifie les faits, cite les clauses, puis répond à trois questions (oui / non / incertain)&nbsp;: une garantie s'applique-t-elle&nbsp;? une exclusion&nbsp;? une condition non remplie&nbsp;?</li>
-          <li><b>Contrôle et verdict, dans le code.</b> Chaque citation est vérifiée mot pour mot dans le contrat. Une exclusion ou une condition non remplie doit s'appuyer sur des mots du récit, vérifiés eux aussi&nbsp;; sinon l'assuré est présumé avoir respecté ses obligations. Le verdict découle d'une règle explicite, et un verdict sans clause vérifiée devient « indéterminé », avec la raison affichée.</li>
-        </ol>
-        <h3>Des centaines de contrats</h3>
-        <p>Le coût par contrat est payé une fois, à l'ingestion (quelques minutes, quelques centimes)&nbsp;; le coût par question ne dépend pas de la taille du contrat. Les contrats sont des lignes d'un index (assureur, produit, version, date d'effet) et les clauses partagent le même schéma&nbsp;: «&nbsp;quels contrats excluent les vélos laissés dans les parties communes&nbsp;?&nbsp;» devient une requête, pas une lecture de cent PDF.</p>
-        <h3>Limites connues</h3>
-        <ul>
-          <li>Les conditions générales ne suffisent pas&nbsp;: les options souscrites, plafonds et franchises sont dans les Conditions Particulières. Le système le dit plutôt que de le supposer.</li>
-          <li>Le modèle utilisé est un petit modèle (niveau gratuit de l'API Mistral). Le découpage est parfois trop large et certaines étiquettes sont fausses&nbsp;; les contrôles de citation limitent l'effet de ces erreurs sur le verdict, sans l'annuler.</li>
-          <li>Les tableaux complexes et les PDF scannés ne sont pas traités.</li>
-        </ul>
-        <p class="muted">Code source et rapport d'évaluation&nbsp;: <a id="repo-link" href="https://github.com/jose99segura/sinistres-cg" target="_blank" rel="noopener">github.com/jose99segura/sinistres-cg</a></p>
+      <article class="card prose wide">
+
+        <div class="lang-fr">
+          <h2>Comment c'est fait</h2>
+          <p>Mettre le PDF entier dans un chatbot marche sur un contrat et s'écroule ensuite&nbsp;: pas de citation fiable, pas de comparaison, un coût qui grandit avec chaque question. Ici, chaque contrat est <b>préparé une fois</b> et rangé dans une base&nbsp;; chaque sinistre devient ensuite une requête et deux appels à un modèle.</p>
+        </div>
+        <div class="lang-en">
+          <h2>How it's built</h2>
+          <p>Putting the whole PDF in a chatbot works on one contract and falls apart after that: no reliable citations, no comparison, a cost that grows with every question. Here each contract is <b>prepared once</b> into a database; each claim then becomes a query and two model calls.</p>
+        </div>
+
+        <figure class="diagram">
+          <div id="dg-overview"></div>
+          <figcaption>
+            <span class="lang-fr"><b>Deux phases.</b> En haut, le travail payé une fois par contrat. En bas, le chemin d'une question&nbsp;: la base est lue par la recherche, et les positions des lignes servent à surligner le passage dans le PDF. En orange, ce que fait le modèle&nbsp;; en blanc, ce que fait le code.</span>
+            <span class="lang-en"><b>Two phases.</b> Top: the work paid once per contract. Bottom: the path of one question; the database feeds retrieval, and line positions are used to highlight the passage in the PDF. Orange is what the model does; white is what the code does.</span>
+          </figcaption>
+        </figure>
+
+        <div class="lang-fr">
+          <h3>1. Le modèle pointe, il ne réécrit pas</h3>
+          <p>PyMuPDF extrait chaque ligne avec sa page et sa position (lecture en deux colonnes, en-têtes et pieds de page retirés). Le modèle lit une page à la fois et renvoie <b>seulement des numéros de ligne</b>&nbsp;: lesquelles sont des titres, où commence et finit chaque clause. Le texte d'une clause est ensuite recopié du PDF par le code. Une citation affichée est donc toujours le texte du contrat, et une ligne que le modèle aurait oubliée devient une clause à part entière&nbsp;: rien n'est perdu en silence.</p>
+        </div>
+        <div class="lang-en">
+          <h3>1. The model points, it does not rewrite</h3>
+          <p>PyMuPDF extracts every line with its page and position (two-column reading, headers and footers removed). The model reads one page at a time and returns <b>only line numbers</b>: which lines are headings, where each clause starts and ends. The clause text is then copied from the PDF by the code. A citation on screen is therefore always the contract's own text, and a line the model skipped becomes a clause of its own: nothing is silently lost.</p>
+        </div>
+        <figure class="diagram">
+          <div id="dg-segment"></div>
+          <figcaption>
+            <span class="lang-fr"><b>Une vraie clause de la base</b> (Baloise HOME, p.&nbsp;16). Le modèle donne les numéros 1261–1272 et les étiquettes&nbsp;; le texte stocké vient du PDF. Le chemin de section montre aussi une limite actuelle&nbsp;: le plan reconstruit n'est pas toujours exact.</span>
+            <span class="lang-en"><b>A real clause from the database</b> (Baloise HOME, p.&nbsp;16). The model gives lines 1261–1272 and the labels; the stored text comes from the PDF. The section path also shows a current limit: the rebuilt outline is not always right.</span>
+          </figcaption>
+        </figure>
+
+        <div class="lang-fr">
+          <h3>2. Un vocabulaire commun, une base pour des centaines de contrats</h3>
+          <p>Chaque assureur nomme et range ses chapitres à sa façon. Chaque clause reçoit donc un <b>type</b> (garantie, exclusion, condition, définition, limite…) et des <b>périls</b> pris dans une liste fixe (vol, dégâts des eaux, incendie, jardin, objets de valeur et vélos…). Un contrat est une ligne, une clause est une ligne&nbsp;: ajouter cent contrats ajoute des lignes, pas de la complexité. «&nbsp;Quels contrats excluent les vols dans des locaux non clos&nbsp;?&nbsp;» devient une requête.</p>
+        </div>
+        <div class="lang-en">
+          <h3>2. A shared vocabulary, one database for hundreds of contracts</h3>
+          <p>Every insurer names and orders its chapters differently. Each clause therefore gets a <b>kind</b> (guarantee, exclusion, condition, definition, limit…) and <b>perils</b> from a fixed list (theft, water damage, fire, garden, valuables and bikes…). A contract is a row, a clause is a row: a hundred more contracts add rows, not complexity. “Which contracts exclude theft from unlocked rooms?” becomes a query.</p>
+        </div>
+        <figure class="diagram">
+          <div id="dg-schema"></div>
+          <figcaption>
+            <span class="lang-fr"><b>Le schéma SQLite</b> (le même tiendrait dans Postgres). Les positions des lignes servent au surlignage&nbsp;; la table <code>clause_perils</code> rend les questions transversales simples.</span>
+            <span class="lang-en"><b>The SQLite schema</b> (the same would fit in Postgres). Line positions drive the highlighting; the <code>clause_perils</code> table makes cross-contract questions simple.</span>
+          </figcaption>
+        </figure>
+        <pre class="code"><code>select c.insurer, cl.page_start, cl.text
+from clauses cl
+join contracts c on c.id = cl.contract_id
+join clause_perils p on p.clause_id = cl.id
+where p.peril = 'vol_vandalisme' and cl.kind = 'exclusion'
+  and cl.text like '%non clos%';</code></pre>
+
+        <div class="lang-fr">
+          <h3>3. La recherche est du SQL</h3>
+          <p>Un premier appel transforme le récit en faits&nbsp;: périls, biens, lieu, et les mots qu'un contrat utiliserait («&nbsp;cycle&nbsp;», «&nbsp;parties communes&nbsp;», «&nbsp;effraction&nbsp;»). Trois requêtes réunissent ensuite les clauses utiles, puis on ajoute les définitions des termes qui apparaissent. Pas de base vectorielle&nbsp;: la structure du contrat est déjà dans les colonnes.</p>
+        </div>
+        <div class="lang-en">
+          <h3>3. Retrieval is SQL</h3>
+          <p>A first call turns the story into facts: perils, property, place, and the words a contract would use (“cycle”, “parties communes”, “effraction”). Three queries then gather the useful clauses, and the definitions of the terms that appear are added. No vector store: the contract's structure is already in the columns.</p>
+        </div>
+        <figure class="diagram">
+          <div id="dg-retrieval"></div>
+          <figcaption>
+            <span class="lang-fr"><b>De 500–900 clauses à 60–80.</b> Le texte attrape les mots du sinistre, la structure attrape le bon chapitre même sans mot commun, le général attrape les exclusions qui valent pour tout.</span>
+            <span class="lang-en"><b>From 500–900 clauses to 60–80.</b> Text catches the claim's words, structure catches the right chapter even without shared words, general catches the exclusions that apply to everything.</span>
+          </figcaption>
+        </figure>
+
+        <div class="lang-fr">
+          <h3>4. Le modèle constate, le code décide</h3>
+          <p>Le modèle ne donne pas de verdict. Il qualifie les faits, cite les clauses, puis répond à trois questions&nbsp;: une garantie s'applique-t-elle, une exclusion, une condition non remplie&nbsp;? Le code vérifie chaque citation mot pour mot, exige qu'un doute s'appuie sur des mots du récit (sinon l'assuré est présumé avoir respecté ses obligations), applique une règle explicite, et rétrograde en «&nbsp;indéterminé&nbsp;» tout verdict qui ne repose pas sur une clause vérifiée. Un «&nbsp;je ne sais pas&nbsp;» sourcé vaut mieux qu'une réponse assurée sans justification.</p>
+        </div>
+        <div class="lang-en">
+          <h3>4. The model finds, the code decides</h3>
+          <p>The model does not give a verdict. It classifies the facts, cites clauses, then answers three questions: does a guarantee apply, an exclusion, an unmet condition? The code checks every citation word for word, requires a doubt to rest on words of the claim (otherwise the policyholder is presumed to have met their obligations), applies an explicit rule, and downgrades to “undetermined” any verdict that does not rest on a verified clause. A sourced “I don't know” beats a confident unsupported answer.</p>
+        </div>
+        <figure class="diagram">
+          <div id="dg-decision"></div>
+          <figcaption>
+            <span class="lang-fr"><b>Trois portes de contrôle.</b> Chaque refus est affiché dans «&nbsp;Comment la réponse a été construite&nbsp;», sous le verdict.</span>
+            <span class="lang-en"><b>Three checkpoints.</b> Every rejection is shown under “How the answer was built”, below the verdict.</span>
+          </figcaption>
+        </figure>
+
+        <div class="lang-fr">
+          <h3>Limites connues</h3>
+          <ul>
+            <li>Les conditions générales ne suffisent pas&nbsp;: options, plafonds et franchises sont dans les Conditions Particulières. Le système le dit plutôt que de le supposer.</li>
+            <li>Le modèle est petit (<code>ministral-14b</code>, niveau gratuit de l'API Mistral)&nbsp;: découpage parfois trop large, quelques étiquettes et chemins de section faux, et un raisonnement qui se trompe encore. Les contrôles limitent l'effet de ces erreurs sans l'annuler&nbsp;; l'onglet Évaluation le mesure.</li>
+            <li>Tableaux complexes et PDF scannés non traités.</li>
+          </ul>
+        </div>
+        <div class="lang-en">
+          <h3>Known limits</h3>
+          <ul>
+            <li>General conditions are not the whole contract: options, ceilings and deductibles live in the policy schedule. The system says so instead of assuming.</li>
+            <li>The model is small (<code>ministral-14b</code>, Mistral API free tier): segmentation sometimes too coarse, some wrong labels and section paths, and reasoning that still makes mistakes. The checks limit the effect of these errors without cancelling it; the Evaluation tab measures it.</li>
+            <li>Complex tables and scanned PDFs are not handled.</li>
+          </ul>
+        </div>
+        <p class="muted"><span class="lang-fr">Code source et rapport d'évaluation&nbsp;:</span><span class="lang-en">Source code and evaluation report:</span>
+          <a href="https://github.com/jose99segura/sinistres-cg" target="_blank" rel="noopener">github.com/jose99segura/sinistres-cg</a></p>
       </article>
     </section>
 
     <section id="tab-evaluation" class="panel" hidden>
-      <div id="eval" class="card prose"><p class="muted">Chargement…</p></div>
+      <div id="eval" class="card prose"><p class="muted" data-i18n="eval.loading"></p></div>
     </section>
   </main>
 
   <dialog id="page-dialog">
     <div class="dialog-head">
       <span id="page-title"></span>
-      <button type="button" class="ghost" id="page-close" aria-label="Fermer">✕</button>
+      <button type="button" class="ghost" id="page-close" data-i18n-attr="aria-label:dialog.close">✕</button>
     </div>
-    <div class="dialog-body"><img id="page-img" alt="Page du contrat avec le passage cité surligné"></div>
+    <div class="dialog-body"><img id="page-img" data-i18n-attr="alt:dialog.alt"></div>
   </dialog>
 
   <template id="tpl-loading">
     <div class="card loading">
       <div class="spinner" aria-hidden="true"></div>
       <div>
-        <p class="ph-title">Analyse en cours…</p>
+        <p class="ph-title" data-i18n="loading.title"></p>
         <ol class="progress muted small">
-          <li>Lecture du sinistre (périls, biens, termes)</li>
-          <li>Recherche des clauses dans la base</li>
-          <li>Décision et vérification des citations</li>
+          <li data-i18n="loading.s1"></li>
+          <li data-i18n="loading.s2"></li>
+          <li data-i18n="loading.s3"></li>
         </ol>
-        <p class="muted small">Environ 10 à 30 secondes (petit modèle, niveau gratuit).</p>
+        <p class="muted small" data-i18n="loading.time"></p>
       </div>
     </div>
   </template>
 
-  <script src="/static/app.js?v=2"></script>
+  <script src="/static/i18n.js?v=6"></script>
+  <script src="/static/diagrams.js?v=6"></script>
+  <script src="/static/app.js?v=6"></script>
 </body>
 </html>

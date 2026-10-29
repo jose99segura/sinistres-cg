@@ -5,7 +5,9 @@
 Describe a home-insurance claim in French. The app reads the insurer's *conditions générales* and answers
 **couvert**, **non couvert** or **indéterminé**, says why, and shows the clauses it relies on: quoted word
 for word, with page and section, highlighted on the PDF page. When the contract does not settle the case,
-it says so and lists what would.
+it says so and lists what would. The interface switches between French and English: the model then writes its
+explanations in English, while citations stay word for word in the contract's French. The "How it's built"
+tab explains the pipeline with five diagrams.
 
 Built as a small, finished answer to topic 1 of the recruitment exercise "Un sinistre, et les conditions
 générales". Personal project; the contracts are public PDFs downloaded from the insurers' websites, and the

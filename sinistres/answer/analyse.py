@@ -83,7 +83,47 @@ Règles pour les citations :
 - Réponds en français, simplement, pour l'assuré."""
 
 
-def ground_findings(d: Decision, claim: str, checks: list[str]) -> None:
+
+# Check messages shown under "How the answer was built", in the UI's language.
+MESSAGES = {
+    "fr": {
+        "finding_dropped": "Constat « {label} » écarté : il ne s'appuie sur aucun fait du récit.",
+        "label_exclusion": "exclusion",
+        "label_condition": "condition non remplie",
+        "step_dropped": "Étape écartée : la clause {id} n'existe pas dans les extraits fournis.",
+        "moved": "Citation rattachée à la clause {to} (le modèle indiquait {frm}).",
+        "verified": "{ok}/{n} citations retrouvées mot pour mot dans le contrat.",
+        "unverified": "{n} citation(s) introuvable(s) dans le texte : ignorée(s) pour le verdict.",
+        "downgraded": "Verdict rétrogradé en « indéterminé » : {why}.",
+        "why_covered": "« couvert » sans garantie citée et vérifiée",
+        "why_not_covered": "« non couvert » sans la clause décisive citée et vérifiée",
+    },
+    "en": {
+        "finding_dropped": "Finding “{label}” dropped: it rests on no fact of the claim.",
+        "label_exclusion": "exclusion",
+        "label_condition": "condition not met",
+        "step_dropped": "Step dropped: clause {id} is not among the clauses provided.",
+        "moved": "Citation attached to clause {to} (the model said {frm}).",
+        "verified": "{ok}/{n} citations found word for word in the contract.",
+        "unverified": "{n} citation(s) not found in the text: ignored for the verdict.",
+        "downgraded": "Verdict downgraded to “undetermined”: {why}.",
+        "why_covered": "“covered” without a cited and verified guarantee",
+        "why_not_covered": "“not covered” without the deciding clause cited and verified",
+    },
+}
+
+LANG_INSTRUCTION = {
+    "fr": "",
+    "en": ("\n\nLANGUE DE RÉPONSE : anglais. Écris qualification, explication, informations_manquantes, "
+           "garanties_a_verifier et resume en anglais. Les citations restent recopiées du contrat, en français, mot pour mot."),
+}
+
+
+def _msg(lang: str, key: str, **kw) -> str:
+    return MESSAGES[lang][key].format(**kw)
+
+
+def ground_findings(d: Decision, claim: str, checks: list[str], lang: str = "fr") -> None:
     """An exclusion or an unmet condition must rest on words of the claim. Without them, the presumption
     holds (the policyholder met their obligations) and the finding becomes "non"."""
     for finding, fact in (("exclusion", "exclusion_fait"), ("condition_non_remplie", "condition_fait")):
@@ -91,8 +131,8 @@ def ground_findings(d: Decision, claim: str, checks: list[str]) -> None:
             continue
         words = getattr(d, fact)
         if not words or not find_citation(words, claim):
-            label = "exclusion" if finding == "exclusion" else "condition non remplie"
-            checks.append(f"Constat « {label} » écarté : il ne s'appuie sur aucun fait du récit.")
+            label = _msg(lang, "label_exclusion" if finding == "exclusion" else "label_condition")
+            checks.append(_msg(lang, "finding_dropped", label=label))
             setattr(d, finding, "non")
 
 
@@ -155,7 +195,7 @@ def _fmt_clause(c: dict) -> str:
     return f"{head}\n{c['text']}"
 
 
-def analyse(contract_id: str, claim: str) -> dict:
+def analyse(contract_id: str, claim: str, lang: str = "fr") -> dict:
     t0 = time.monotonic()
     conn = db.connect(readonly=True)
     contract = conn.execute("select * from contracts where id = ?", (contract_id,)).fetchone()
@@ -171,7 +211,7 @@ def analyse(contract_id: str, claim: str) -> dict:
         f"SINISTRE DÉCLARÉ :\n{claim}\n\n"
         f"CLAUSES ({len(clauses)}) :\n\n" + "\n\n".join(_fmt_clause(c) for c in clauses)
     )
-    decision = llm.structured(DECIDE_SYSTEM, user, Decision)
+    decision = llm.structured(DECIDE_SYSTEM + LANG_INSTRUCTION[lang], user, Decision)
 
     # Check every step against the database.
     checks: list[str] = []
@@ -179,7 +219,7 @@ def analyse(contract_id: str, claim: str) -> dict:
     for s in decision.etapes:
         clause = by_id.get(s.clause_id)
         if not clause:
-            checks.append(f"Étape écartée : la clause {s.clause_id} n'existe pas dans les extraits fournis.")
+            checks.append(_msg(lang, "step_dropped", id=s.clause_id))
             continue
         span = find_citation(s.citation, clause["text"])
         if span is None:
@@ -187,7 +227,7 @@ def analyse(contract_id: str, claim: str) -> dict:
             # word, in exactly one of the clauses the model was given, and say so.
             found = [c for c in clauses if c["id"] != clause["id"] and find_citation(s.citation, c["text"])]
             if len(found) == 1:
-                checks.append(f"Citation rattachée à la clause {found[0]['id']} (le modèle indiquait {clause['id']}).")
+                checks.append(_msg(lang, "moved", to=found[0]["id"], frm=clause["id"]))
                 clause = found[0]
                 span = find_citation(s.citation, clause["text"])
         steps.append({
@@ -200,17 +240,17 @@ def analyse(contract_id: str, claim: str) -> dict:
     verified = [s for s in steps if s["verifiee"]]
     n_bad = len(steps) - len(verified)
     if steps:
-        checks.append(f"{len(verified)}/{len(steps)} citations retrouvées mot pour mot dans le contrat.")
+        checks.append(_msg(lang, "verified", ok=len(verified), n=len(steps)))
     if n_bad:
-        checks.append(f"{n_bad} citation(s) introuvable(s) dans le texte : ignorée(s) pour le verdict.")
+        checks.append(_msg(lang, "unverified", n=n_bad))
 
-    ground_findings(decision, claim, checks)
+    ground_findings(decision, claim, checks, lang)
     proposed = verdict_from(decision)
     verdict = proposed
     roles = {s["role"] for s in verified}
     downgrade = None
     if verdict == "couvert" and "garantie" not in roles:
-        downgrade = "« couvert » sans garantie citée et vérifiée"
+        downgrade = "why_covered"
     elif verdict == "non_couvert":
         if decision.exclusion == "oui" and "exclusion" in roles:
             pass
@@ -219,9 +259,9 @@ def analyse(contract_id: str, claim: str) -> dict:
         elif decision.garantie == "non" and roles & {"garantie", "definition", "exclusion"}:
             pass
         else:
-            downgrade = "« non couvert » sans la clause décisive citée et vérifiée"
+            downgrade = "why_not_covered"
     if downgrade:
-        checks.append(f"Verdict rétrogradé en « indéterminé » : {downgrade}.")
+        checks.append(_msg(lang, "downgraded", why=_msg(lang, downgrade)))
         verdict = "indetermine"
 
     return {
