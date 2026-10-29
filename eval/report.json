@@ -1,40 +1,40 @@
 {
- "run_at": "2026-10-29 11:23",
- "mode": "cascade",
- "model": "ministral-14b-latest → gemini-3.8-flash",
+ "run_at": "2026-10-29 11:51",
+ "mode": "strong",
+ "model": "gemini-3.8-flash",
  "metrics": {
   "cases": 42,
   "errors": 0,
-  "verdict_accuracy": 0.9047619047619048,
+  "verdict_accuracy": 0.9285714285714286,
   "verdict_accuracy_ci": [
-   0.7793460477494668,
-   0.9623383611716879
+   0.8099028671147483,
+   0.9754100364488272
   ],
   "verdict_exact": 0.8809523809523809,
-  "expected_clause_recall": 0.9285714285714286,
-  "citation_verified_rate": 0.930379746835443,
+  "expected_clause_recall": 0.9047619047619048,
+  "citation_verified_rate": 0.9541984732824428,
   "abstention_recall": 0.7142857142857143,
-  "abstention_precision": 1.0,
-  "wrong_confident_rate": 0.09523809523809523,
+  "abstention_precision": 0.8333333333333334,
+  "wrong_confident_rate": 0.047619047619047616,
   "wrong_confident_ci": [
-   0.0376616388283121,
-   0.2206539522505333
+   0.013157248639206365,
+   0.1579013531547973
   ],
   "downgraded": 2,
-  "escalation_rate": 0.7380952380952381,
-  "mean_duration_s": 39.5,
+  "escalation_rate": 0.0,
+  "mean_duration_s": 32.6,
   "by_slice": {
    "ambiguous": {
     "n": 7,
-    "ok": 6
+    "ok": 7
    },
    "condition": {
     "n": 3,
-    "ok": 2
+    "ok": 1
    },
    "exception": {
     "n": 4,
-    "ok": 3
+    "ok": 4
    },
    "exclusion": {
     "n": 12,
@@ -71,22 +71,21 @@
    "exact": true,
    "expected_clause_hit": true,
    "citations_total": 4,
-   "citations_verified": 4,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "citations_verified": 3,
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "baloise-home-2024:0063 p.7 (definition)",
     "baloise-home-2024:0201 p.19 (garantie)",
-    "baloise-home-2024:0156 p.15 (definition)",
+    "baloise-home-2024:0164 p.16 (exclusion)",
     "baloise-home-2024:0359 p.32 (exclusion)"
    ],
-   "resume": "Votre vélo peut être couvert au titre des garanties optionnelles relatives au vol ou aux équipements de mobilité durable sous réserve de leur souscription. Toutefois, le local commun n'étant pas fermé à clé, le sinistre risque d'être qualifié de vol simple non garanti si aucune effraction (notamment sur un cadenas ou antivol) n'est constatée. La prise en charge dépendra des circonstances exactes de l'intrusion et de la sécurisation du vélo.",
+   "resume": "Votre vélo est en principe assurable au titre des objets de mobilité durable ou de la garantie vol. Toutefois, comme le local commun n'était pas fermé à clé, il existe une incertitude sur l'application des exclusions relatives aux locaux non clos et aux vols commis sans effraction. La prise en charge dépendra de la souscription de l'option adéquate et de la présence éventuelle d'une effraction sur un antivol protégeant le vélo.",
    "missing": [
-    "Le vélo était-il attaché par un antivol à un point fixe ou à lui-même, et cet antivol a-t-il été fracturé (effraction) ?",
-    "L'auteur du vol est-il une personne autorisée à se trouver dans l'immeuble (larcin) ou un tiers entré clandestinement ?",
-    "Un dépôt de plainte a-t-il été déposé auprès de la police ?"
+    "Le vélo était-il lui-même attaché à un point fixe au moyen d'un antivol qui a fait l'objet d'une effraction ?",
+    "La porte du local commun était-elle simplement claquée ou laissée totalement ouverte ?"
    ],
-   "duration_s": 55.6
+   "duration_s": 30.0
   },
   {
    "id": "bal-bougie-jardin",
@@ -95,7 +94,7 @@
    "claim": "Pendant mes vacances, une bougie laissée sur la table de mon jardin a fondu avec la chaleur et a abîmé la table.",
    "expected": "indetermine",
    "got": "indetermine",
-   "model_verdict": "non_couvert",
+   "model_verdict": "indetermine",
    "accept": [
     "indetermine",
     "non_couvert"
@@ -105,18 +104,20 @@
    "expected_clause_hit": true,
    "citations_total": 5,
    "citations_verified": 5,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "baloise-home-2024:0023 p.5 (definition)",
-    "baloise-home-2024:0044 p.6 (definition)",
     "baloise-home-2024:0121 p.12 (garantie)",
     "baloise-home-2024:0036 p.6 (definition)",
+    "baloise-home-2024:0130 p.13 (exclusion)",
     "baloise-home-2024:0211 p.20 (condition)"
    ],
-   "resume": "Votre table de jardin a été détériorée par la fonte d'une bougie sous l'effet de la chaleur estivale. Le contrat ne garantit que les incendies avec flamme ou les dommages causés par une action subite de la chaleur, ce qui n'est pas le cas d'une température ambiante élevée. Le sinistre ne rentre donc dans le cadre d'aucun événement couvert par votre assurance.",
-   "missing": [],
-   "duration_s": 46.4
+   "resume": "La prise en charge de votre table dépend de la souscription du pack optionnel Jardin / piscine, indispensable pour couvrir les objets situés en plein air. De plus, il conviendra d'établir si les dommages résultent bien d'une action subite de la chaleur (dommages ménagers garantis) et non d'une détérioration lente due aux conditions météorologiques estivales.",
+   "missing": [
+    "La fonte de la bougie a-t-elle été provoquée par une source de chaleur subite et accidentelle, ou simplement par l'exposition prolongée à la température ambiante et à l'ensoleillement durant votre absence ?"
+   ],
+   "duration_s": 28.7
   },
   {
    "id": "bal-machine-a-laver",
@@ -132,24 +133,18 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 5,
-   "citations_verified": 5,
+   "citations_total": 3,
+   "citations_verified": 2,
    "escalated": false,
-   "model": "ministral-14b-latest",
+   "model": "gemini-3.8-flash",
    "cited": [
     "baloise-home-2024:0135 p.13 (garantie)",
-    "baloise-home-2024:0039 p.6 (definition)",
-    "baloise-home-2024:0136 p.13 (exclusion)",
     "baloise-home-2024:0137 p.14 (exclusion)",
-    "baloise-home-2024:0129 p.13 (condition)"
+    "baloise-home-2024:0120 p.12 (condition)"
    ],
-   "resume": "Votre sinistre (fuite de machine à laver endommageant le parquet du salon) relève de la garantie **dégâts des eaux** pour les **embellissements**, sous réserve que la machine à laver était en bon état d’entretien. Aucune exclusion ne semble s’appliquer d’après les faits déclarés. Cependant, pour confirmer la prise en charge, il faut vérifier que la garantie est souscrite et que la machine n’avait pas de défauts cachés. Nous vous conseillons de fournir des preuves d’entretien régulier.",
-   "missing": [
-    "La machine à laver présentait-elle des signes de corrosion ou de vétusté avant le sinistre ?",
-    "Les dégâts au parquet sont-ils directement liés à la fuite d'eau (sans aggravation par humidité persistante ou moisissures) ?",
-    "La garantie 'Dégâts des eaux' est-elle souscrite dans les Conditions Particulières ? (Si non, la garantie ne s'applique pas.)"
-   ],
-   "duration_s": 25.6
+   "resume": "Les dommages causés à votre parquet par l'eau échappée de la machine à laver sont couverts au titre de la garantie dégâts des eaux. Seuls les frais de remplacement ou de réparation du tuyau et de la machine elle-même restent à votre charge. La prise en charge suppose que la garantie dégâts des eaux soit bien mentionnée dans vos Conditions Particulières.",
+   "missing": [],
+   "duration_s": 17.7
   },
   {
    "id": "bal-portable-tombe",
@@ -165,18 +160,19 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 3,
-   "citations_verified": 3,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "citations_total": 4,
+   "citations_verified": 4,
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "baloise-home-2024:0054 p.7 (definition)",
+    "baloise-home-2024:0181 p.18 (garantie)",
     "baloise-home-2024:0182 p.18 (garantie)",
-    "baloise-home-2024:0181 p.18 (garantie)"
+    "baloise-home-2024:0155 p.15 (condition)"
    ],
-   "resume": "La casse accidentelle de votre ordinateur portable tombé au sol est couverte par la garantie optionnelle Pack Multimédia. Vous devez vérifier dans vos conditions particulières que cette option a bien été souscrite. Si l'option est présente, l'indemnisation interviendra selon les plafonds et franchises prévus à votre contrat.",
+   "resume": "La chute accidentelle de votre ordinateur portable à votre domicile est couverte au titre du Pack Multimédia, sous réserve que cette option figure bien sur vos Conditions Particulières. Aucune exclusion ni condition non respectée n'apparaît dans les faits déclarés. L'indemnisation interviendra dans la limite du plafond et selon la vétusté prévues à votre contrat.",
    "missing": [],
-   "duration_s": 34.0
+   "duration_s": 12.7
   },
   {
    "id": "bal-bijoux-effraction",
@@ -192,26 +188,24 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 6,
-   "citations_verified": 4,
+   "citations_total": 5,
+   "citations_verified": 5,
    "escalated": false,
-   "model": "ministral-14b-latest",
+   "model": "gemini-3.8-flash",
    "cited": [
-    "baloise-home-2024:0175 p.17 (garantie)",
-    "baloise-home-2024:0156 p.15 (garantie)",
-    "baloise-home-2024:0164 p.16 (exclusion)",
+    "baloise-home-2024:0156 p.15 (definition)",
+    "baloise-home-2024:0157 p.15 (garantie)",
+    "baloise-home-2024:0160 p.15 (condition)",
     "baloise-home-2024:0162 p.16 (condition)",
-    "baloise-home-2024:0432 p.37 (condition)",
-    "baloise-home-2024:0359 p.32 (exclusion)"
+    "baloise-home-2024:0387 p.35 (limite)"
    ],
-   "resume": "Votre sinistre, à savoir le vol de bijoux par effraction dans votre résidence principale, relève en principe de la garantie 'Pack objets précieux / bijoux' si cette option est souscrite. Aucune exclusion ou condition non remplie n'est identifiée dans les faits rapportés. Cependant, pour confirmer la prise en charge, il est nécessaire de vérifier que cette garantie spécifique est bien incluse dans votre contrat et que les bijoux volés respectaient les critères de valeur définis. Assurez-vous également d'avoir déposé une plainte auprès des autorités compétentes, conformément aux obligations contractuelles.",
+   "resume": "Le vol de vos bijoux commis avec effraction de la porte d'entrée de votre habitation est couvert si vous avez souscrit la garantie optionnelle Vol / Vandalisme. Les faits décrits ne relèvent d'aucune exclusion contractuelle et respectent les conditions de base. L'indemnisation dépendra de la remise du dépôt de plainte, des justificatifs de valeur et des plafonds prévus à vos conditions particulières.",
    "missing": [
-    "Le contrat souscrit par l'assuré inclut-il la garantie optionnelle 'Pack objets précieux / bijoux' ?",
-    "Les bijoux volés avaient-ils une valeur unitaire supérieure à 500 € (conforme à la définition de la clause **[baloise-home-2024:0066]** ?",
-    "Les portes et fenêtres étaient-elles bien fermées à clé au moment du sinistre ? (Le récit ne le précise pas, mais cela est présumé normal.)",
-    "Une plainte a-t-elle été déposée auprès des autorités compétentes ? (Le récit ne le précise pas, mais cela est présumé normal.)"
+    "Avez-vous déposé plainte auprès des services de police comme l'exige le contrat ?",
+    "La porte d'entrée comportait-elle une serrure à cylindre et était-elle bien fermée à clé lors de votre départ ?",
+    "Disposez-vous des factures, certificats ou photos permettant de justifier de l'existence et de la valeur de vos bijoux ?"
    ],
-   "duration_s": 21.1
+   "duration_s": 205.3
   },
   {
    "id": "bal-cle-paillasson",
@@ -219,25 +213,25 @@
    "contract": "baloise-home-2024",
    "claim": "Des voleurs sont entrés chez moi avec la clé que j'avais laissée sous le paillasson et ont volé ma télévision.",
    "expected": "non_couvert",
-   "got": "non_couvert",
+   "got": "indetermine",
    "model_verdict": "non_couvert",
    "accept": [
     "non_couvert"
    ],
-   "verdict_ok": true,
-   "exact": true,
-   "expected_clause_hit": true,
+   "verdict_ok": false,
+   "exact": false,
+   "expected_clause_hit": false,
    "citations_total": 2,
-   "citations_verified": 2,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "citations_verified": 1,
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "baloise-home-2024:0157 p.15 (garantie)",
     "baloise-home-2024:0163 p.16 (exclusion)"
    ],
-   "resume": "Bien que le vol de mobilier dans le logement soit prévu au contrat au titre de la garantie vol, une clause prévoit expressément la déchéance de tout droit à indemnité si les clés ont été laissées sous le paillasson. Comme les cambrioleurs ont accédé aux lieux grâce à cette clé, le sinistre n'est pas couvert.",
+   "resume": "Bien que le vol de mobilier dans le logement soit en principe couvert par la garantie optionnelle vol, le contrat prévoit une déchéance totale de garantie en cas d'intrusion avec une clé laissée sous le paillasson. Les faits déclarés tombant directement sous le coup de cette disposition, le vol de la télévision ne pourra pas être indemnisé.",
    "missing": [],
-   "duration_s": 32.5
+   "duration_s": 13.8
   },
   {
    "id": "bal-store-vent",
@@ -245,31 +239,29 @@
    "contract": "baloise-home-2024",
    "claim": "Un vent violent a arraché mon store banne, que j'avais laissé déployé pendant mes deux semaines de vacances.",
    "expected": "indetermine",
-   "got": "couvert",
-   "model_verdict": "couvert",
+   "got": "non_couvert",
+   "model_verdict": "non_couvert",
    "accept": [
     "indetermine",
     "non_couvert"
    ],
-   "verdict_ok": false,
+   "verdict_ok": true,
    "exact": false,
    "expected_clause_hit": true,
-   "citations_total": 4,
+   "citations_total": 3,
    "citations_verified": 3,
    "escalated": false,
-   "model": "ministral-14b-latest",
+   "model": "gemini-3.8-flash",
    "cited": [
     "baloise-home-2024:0017 p.4 (definition)",
     "baloise-home-2024:0125 p.12 (garantie)",
-    "baloise-home-2024:0126 p.12 (condition)",
-    "baloise-home-2024:0127 p.12 (exclusion)"
+    "baloise-home-2024:0126 p.12 (condition)"
    ],
-   "resume": "Votre store banne, considéré comme un bien immeuble par destination, est potentiellement couvert par la garantie « Tempête, grêle, neige » si le vent a atteint une intensité suffisante. Cependant, le fait de l’avoir laissé déployé pendant vos vacances, en l’absence de vent violent, pourrait constituer une négligence au regard des obligations d’entretien et de repli des stores. Nous vous invitons à vérifier si la garantie « Tempête, grêle, neige » est bien souscrite et à confirmer l’intensité du vent lors du sinistre pour évaluer la prise en charge des dommages.",
+   "resume": "Bien que le store banne et l'action du vent relèvent de la garantie tempête, le contrat stipule une obligation formelle de prévention exigeant de replier les stores lors d'une absence excédant 24 heures. Le store étant resté ouvert pendant deux semaines d'absence, cette condition contractuelle n'a pas été respectée, ce qui compromet la prise en charge du sinistre.",
    "missing": [
-    "Le vent violent a-t-il atteint une intensité d'au moins 80 km/h, ou a-t-il causé des dommages à des constructions voisines ?",
-    "Le store banne était-il fixé conformément aux règles d’entretien et de fixation prévues par le fabricant ?"
+    "La vitesse du vent atteignait-elle au moins 80 km/h au moment du sinistre ou a-t-il causé des dommages à des constructions voisines en bon état ?"
    ],
-   "duration_s": 19.4
+   "duration_s": 119.6
   },
   {
    "id": "axa-velo-local-commun",
@@ -286,22 +278,21 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 4,
-   "citations_verified": 4,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "citations_total": 3,
+   "citations_verified": 3,
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "axa-optihome-2022:0080 p.17 (definition)",
-    "axa-optihome-2022:0303 p.42 (garantie)",
     "axa-optihome-2022:0318 p.43 (exclusion)",
     "axa-optihome-2022:0468 p.61 (garantie)"
    ],
-   "resume": "Au titre de la garantie vol de base, les biens situés dans les locaux communs non fermés à clé d'une copropriété sont exclus. Toutefois, si vous avez souscrit l'option Confort, le vol du vélo peut être indemnisé en tout lieu sous réserve qu'il ait été attaché à un point d'ancrage fixe avec un antivol adéquat. Il est donc nécessaire de préciser si le vélo était cadenassé à un point fixe et si une plainte a été déposée.",
+   "resume": "La garantie vol standard exclut les vols dans les parties communes qui ne sont pas fermées à clé. Toutefois, si vous avez souscrit l'option Confort, votre vélo peut être couvert en tout lieu à condition qu'il ait été attaché à un point fixe avec un antivol adapté. Il convient de vérifier la souscription de cette option et de préciser si le vélo était solidement attaché lors du vol.",
    "missing": [
     "Le vélo était-il attaché avec un système antivol adéquat à un élément solidement ancré au sol ou au bâtiment ?",
-    "Un dépôt de plainte a-t-il été effectué auprès des autorités de police compétentes ?"
+    "Une plainte a-t-elle été déposée auprès des autorités judiciaires ou de police ?"
    ],
-   "duration_s": 91.6
+   "duration_s": 46.8
   },
   {
    "id": "axa-velo-cave-forcee",
@@ -319,20 +310,20 @@
    "expected_clause_hit": true,
    "citations_total": 4,
    "citations_verified": 4,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "axa-optihome-2022:0468 p.61 (garantie)",
     "axa-optihome-2022:0303 p.42 (garantie)",
-    "axa-optihome-2022:0084 p.17 (definition)",
-    "axa-optihome-2022:0318 p.43 (exclusion)"
+    "axa-optihome-2022:0318 p.43 (exclusion)",
+    "axa-optihome-2022:0329 p.44 (condition)"
    ],
-   "resume": "Le vol de votre vélo dans une cave fermée à clé avec effraction est couvert par le contrat, notamment au titre de l'option Confort qui vise précisément cette situation, ou de la garantie Vol standard. Aucun élément de votre déclaration ne déclenche d'exclusion ni n'indique de manquement à vos obligations de fermeture. Pensez à déposer plainte immédiatement auprès des autorités de police pour finaliser la prise en charge.",
+   "resume": "Le vol de votre vélo est couvert par votre contrat dès lors que la cave de l'immeuble était fermée à clé et a subi une effraction. Il conviendra de fournir le récépissé du dépôt de plainte et de confirmer que la serrure forcée constituait bien un dispositif de sûreté. L'indemnisation dépendra également de la souscription effective de la garantie Vol ou de l'option Confort à vos conditions particulières.",
    "missing": [
-    "Avez-vous déposé plainte auprès des autorités de police compétentes suite au vol ?",
-    "La serrure de la cave dispose-t-elle d'un mécanisme de sûreté (serrure à cylindre ou à double tour) au cas où l'option Confort ne serait pas souscrite ?"
+    "La porte de la cave était-elle munie d'une serrure ou d'un verrou de sûreté ?",
+    "Un dépôt de plainte a-t-il été effectué auprès de la police dans les délais requis ?"
    ],
-   "duration_s": 53.4
+   "duration_s": 17.1
   },
   {
    "id": "axa-vitre-porte-commune",
@@ -350,15 +341,15 @@
    "expected_clause_hit": true,
    "citations_total": 2,
    "citations_verified": 2,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "axa-optihome-2022:0298 p.41 (garantie)",
     "axa-optihome-2022:0301 p.42 (exclusion)"
    ],
-   "resume": "Bien que les bris de vitres fassent l'objet d'une garantie dans le contrat, les vitrages situés dans les parties communes d'une copropriété sont formellement exclus de la couverture du locataire. La réparation de la porte d'entrée commune incombe à la copropriété ou au propriétaire de l'immeuble via l'assurance de l'immeuble.",
+   "resume": "Bien que le contrat contienne une garantie couvrant le bris accidentel des vitrages, celle-ci exclut expressément les vitres relevant des parties communes de l'immeuble lorsque l'assuré est locataire d'un appartement. Ce dommage ne peut donc pas être pris en charge par votre contrat d'assurance habitation personnel. Il appartient à la copropriété ou au propriétaire de l'immeuble de déclarer ce sinistre auprès de l'assurance de l'immeuble.",
    "missing": [],
-   "duration_s": 36.1
+   "duration_s": 19.7
   },
   {
    "id": "axa-portable-tombe",
@@ -374,23 +365,20 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 5,
-   "citations_verified": 4,
+   "citations_total": 3,
+   "citations_verified": 2,
    "escalated": false,
-   "model": "ministral-14b-latest",
+   "model": "gemini-3.8-flash",
    "cited": [
-    "axa-optihome-2022:0002 p.5 (garantie)",
+    "axa-optihome-2022:0045 p.12 (definition)",
     "axa-optihome-2022:0332 p.44 (garantie)",
-    "axa-optihome-2022:0300 p.41 (exclusion)",
-    "axa-optihome-2022:0006 p.6 (definition)",
-    "axa-optihome-2022:0143 p.24 (exclusion)"
+    "axa-optihome-2022:0300 p.41 (exclusion)"
    ],
-   "resume": "Votre ordinateur portable, classé comme **matériel multimédia**, est couvert pour un bris accidentel causé par une chute, conformément aux garanties de base de votre contrat. Aucune exclusion ou condition non respectée n'apparaît dans votre déclaration. Pour finaliser l'indemnisation, vérifiez que cette garantie est bien souscrite dans vos Conditions Particulières et précisez l'âge de l'appareil pour évaluer d'éventuelles déductions de vétusté.",
+   "resume": "Votre sinistre est couvert au titre de la garantie Matériel multimédia, qui prend en charge le bris accidentel consécutif à une chute au domicile. Aucune exclusion ne s'applique aux faits déclarés et les conditions sont respectées. L'indemnisation des frais de réparation ou de remplacement se fera sous déduction de la franchise et d'une éventuelle vétusté selon l'âge de l'appareil.",
    "missing": [
-    "L'ordinateur portable était-il souscrit dans la garantie **Matériel multimédia** (option obligatoire ou souscrite en Conditions Particulières) ?",
-    "L'âge de l'ordinateur portable dépasse-t-il 2 ans (auquel cas une vétusté serait appliquée selon les clauses [axa-optihome-2022:0108] et [axa-optihome-2022:0106]) ?"
+    "Quelle est la date d'achat ou l'âge de l'ordinateur portable afin de calculer l'éventuelle vétusté applicable lors de l'indemnisation ?"
    ],
-   "duration_s": 18.1
+   "duration_s": 15.2
   },
   {
    "id": "axa-bougie-jardin",
@@ -409,16 +397,18 @@
    "expected_clause_hit": false,
    "citations_total": 3,
    "citations_verified": 2,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "axa-optihome-2022:0050 p.13 (definition)",
-    "axa-optihome-2022:0250 p.36 (garantie)",
+    "axa-optihome-2022:0023 p.10 (definition)",
     "axa-optihome-2022:0251 p.36 (garantie)"
    ],
-   "resume": "Votre table constitue bien du mobilier de jardin couvert au titre de votre contenu. Cependant, la fonte d'une bougie sous l'effet de la chaleur ambiante ne relève ni d'un incendie ni d'une action subite de la chaleur ou d'un foyer incandescent. Aucune garantie du contrat ne couvrant ce type de dommage thermique graduel, le sinistre ne peut pas être pris en charge.",
-   "missing": [],
-   "duration_s": 47.4
+   "resume": "Votre table de jardin est bien reconnue comme un bien assurable au titre du mobilier de jardin. Cependant, la garantie incendie et chaleur requiert un événement soudain, une action subite de la chaleur ou le contact avec une matière incandescente. La fonte progressive d'une bougie exposée à la chaleur ambiante ne répondant pas à cette définition, les dégâts ne sont pas couverts.",
+   "missing": [
+    "La bougie était-elle allumée au moment des faits ou s'agit-il uniquement d'une fonte passive causée par la température ambiante et le soleil ?"
+   ],
+   "duration_s": 96.4
   },
   {
    "id": "axa-vol-porte-ouverte",
@@ -434,18 +424,19 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 3,
-   "citations_verified": 3,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "citations_total": 4,
+   "citations_verified": 4,
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
+    "axa-optihome-2022:0045 p.12 (definition)",
     "axa-optihome-2022:0303 p.42 (garantie)",
     "axa-optihome-2022:0083 p.17 (definition)",
     "axa-optihome-2022:0312 p.43 (exclusion)"
    ],
-   "resume": "Bien que le vol de contenu dans le bâtiment fasse partie des événements prévus par le contrat, les faits rapportés caractérisent un vol simple commis sans effraction et en dehors de votre présence dans les locaux. Le contrat exclut explicitement la prise en charge des vols simples. Par conséquent, ce sinistre ne peut pas être indemnisé.",
+   "resume": "Bien que le vol de contenu dans le bâtiment soit prévu au contrat, l'intrusion s'est faite par une porte restée ouverte en l'absence de l'assuré dans les locaux, ce qui caractérise un vol simple sans effraction. Ce type de circonstance fait l'objet d'une exclusion formelle de la garantie vol. Par conséquent, le sinistre ne peut pas être pris en charge.",
    "missing": [],
-   "duration_s": 37.8
+   "duration_s": 24.9
   },
   {
    "id": "lalux-velo-local-commun",
@@ -464,20 +455,20 @@
    "expected_clause_hit": true,
    "citations_total": 4,
    "citations_verified": 4,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
-    "lalux-easyprotect-2022:0438 p.64 (definition)",
     "lalux-easyprotect-2022:0084 p.36 (garantie)",
+    "lalux-easyprotect-2022:0438 p.64 (definition)",
     "lalux-easyprotect-2022:0416 p.62 (garantie)",
     "lalux-easyprotect-2022:0443 p.64 (exclusion)"
    ],
-   "resume": "La formule vol standard ne peut pas jouer en l'absence d'effraction dans le local. Cependant, si vous avez souscrit l'assurance optionnelle « Tous Risques – Cycles », le vol de votre vélo est couvert, pourvu que celui-ci ait été attaché à un point fixe à l'aide d'un antivol dans ce local accessible.",
+   "resume": "Au titre de la garantie vol de base, le sinistre n'est pas couvert car le local n'était pas fermé à clé et aucune effraction n'a eu lieu. Toutefois, si vous avez souscrit l'option « Assurance Tous Risques – Cycles », le vol peut être pris en charge. Cette couverture dépendra de l'accessibilité du local au public et de la présence éventuelle d'un antivol reliant le vélo à un point fixe.",
    "missing": [
-    "Le vélo était-il attaché à un point fixe ou à un objet solide à l'aide d'un système antivol mécanique adéquat dans le local ?",
-    "Le local commun ou l'immeuble lui-même sont-ils librement accessibles au public ?"
+    "L'accès à l'immeuble et à ce local commun était-il librement accessible au public ou réservé aux seuls copropriétaires ?",
+    "Le vélo était-il attaché à un objet fixe solide à l'aide d'un antivol mécanique adéquat ?"
    ],
-   "duration_s": 56.7
+   "duration_s": 41.6
   },
   {
    "id": "lalux-machine-a-laver",
@@ -493,22 +484,18 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 4,
+   "citations_total": 3,
    "citations_verified": 3,
    "escalated": false,
-   "model": "ministral-14b-latest",
+   "model": "gemini-3.8-flash",
    "cited": [
     "lalux-easyprotect-2022:0078 p.35 (garantie)",
-    "lalux-easyprotect-2022:0065 p.34 (exclusion)",
-    "lalux-easyprotect-2022:0082 p.36 (exclusion)",
-    "lalux-easyprotect-2022:0716 p.123 (definition)"
+    "lalux-easyprotect-2022:0716 p.123 (definition)",
+    "lalux-easyprotect-2022:0082 p.36 (exclusion)"
    ],
-   "resume": "Votre sinistre, consistant en une fuite d’eau accidentelle de votre machine à laver ayant endommagé le parquet du salon, relève de la garantie **Dégâts des Eaux** souscrite dans votre contrat. Aucune exclusion ou condition non remplie n’est identifiée à partir des informations fournies. Cependant, pour confirmer l’indemnisation, il est nécessaire de vérifier que la fuite n’est pas due à un bris mécanique ou à un manque d’entretien de la machine à laver.",
-   "missing": [
-    "La fuite de la machine à laver est-elle survenue à la suite d’un bris mécanique ou d’un manque d’entretien ?",
-    "La machine à laver était-elle correctement entretenue avant le sinistre ?"
-   ],
-   "duration_s": 19.9
+   "resume": "Les dégâts causés au parquet par la rupture du tuyau de la machine à laver sont couverts au titre de la garantie dégâts des eaux. Aucune exclusion ni aucun manquement aux obligations contractuelles n'est mis en évidence par les faits déclarés. L'indemnisation portera sur les dommages matériels subis par le parquet.",
+   "missing": [],
+   "duration_s": 83.0
   },
   {
    "id": "lalux-bougie-jardin",
@@ -527,19 +514,16 @@
    "expected_clause_hit": true,
    "citations_total": 3,
    "citations_verified": 3,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
-    "lalux-easyprotect-2022:0061 p.34 (garantie)",
     "lalux-easyprotect-2022:0134 p.39 (definition)",
-    "lalux-easyprotect-2022:0416 p.62 (garantie)"
+    "lalux-easyprotect-2022:0061 p.34 (garantie)",
+    "lalux-easyprotect-2022:0061 p.34 (exclusion)"
    ],
-   "resume": "Les dommages causés à votre table de jardin par la bougie ayant fondu sous l'effet de la chaleur sont susceptibles d'être pris en charge au titre des dégâts ménagers suite à un excès de chaleur sans embrasement, ou sous la garantie Tous Risques biens. Les faits décrits ne révèlent aucune exclusion applicable ni aucun manquement à une obligation contractuelle. Il vous appartient de vous assurer que le mobilier extérieur est bien compris dans vos garanties et capitaux souscrits aux Conditions Particulières.",
-   "missing": [
-    "Quelle est la nature exacte des détériorations subies par la table (déformation par la chaleur, taches ou brûlures indélébiles dues à la cire) ?",
-    "La table et le mobilier extérieur sont-ils bien inclus dans le capital Mobilier déclaré aux Conditions Particulières ?"
-   ],
-   "duration_s": 58.8
+   "resume": "Les dommages subis par votre table de jardin sont couverts au titre de la garantie des dégâts ménagers par excès de chaleur sans embrasement, incluse dans la garantie Incendie de base. Aucune exclusion spécifique ne s'applique aux faits décrits. Il convient uniquement de vérifier que votre contrat inclut bien la couverture du Mobilier.",
+   "missing": [],
+   "duration_s": 23.7
   },
   {
    "id": "lalux-cambriolage-fenetre",
@@ -557,20 +541,20 @@
    "expected_clause_hit": true,
    "citations_total": 4,
    "citations_verified": 4,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "lalux-easyprotect-2022:0084 p.36 (garantie)",
-    "lalux-easyprotect-2022:0085 p.36 (garantie)",
+    "lalux-easyprotect-2022:0085 p.36 (definition)",
     "lalux-easyprotect-2022:0097 p.37 (garantie)",
-    "lalux-easyprotect-2022:0091 p.36 (exclusion)"
+    "lalux-easyprotect-2022:0090 p.36 (condition)"
    ],
-   "resume": "Le vol de votre télévision ainsi que les dégradations subies par la fenêtre sont couverts au titre de la garantie vol par effraction. Pensez à déposer rapidement plainte auprès de la Police Grand-Ducale et à transmettre le récépissé à votre assureur. L'indemnisation s'effectuera dans la limite des montants souscrits dans vos Conditions Particulières.",
+   "resume": "Le sinistre est couvert au titre de la garantie Vol par effraction pour la télévision et des détériorations immobilières pour la fenêtre forcée. Aucun fait décrit ne relevant d'une exclusion ou d'un manquement, l'indemnisation est acquise sous réserve d'avoir souscrit la garantie Vol et Mobilier. Pensez à transmettre le récépissé de votre dépôt de plainte auprès de la Police Grand-Ducale ainsi que les factures du téléviseur et de réparation de la fenêtre.",
    "missing": [
-    "Une plainte a-t-elle été déposée immédiatement auprès de la Police Grand-Ducale comme l'exige le contrat ?",
-    "Le logement était-il inoccupé depuis plus de 45 jours consécutifs au moment du sinistre ?"
+    "Un dépôt de plainte a-t-il bien été effectué auprès de la Police Grand-Ducale ?",
+    "Le logement était-il inoccupé depuis plus de 45 jours consécutifs au moment des faits ?"
    ],
-   "duration_s": 27.5
+   "duration_s": 14.7
   },
   {
    "id": "lalux-vol-par-le-fils",
@@ -586,18 +570,17 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 3,
-   "citations_verified": 3,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "citations_total": 2,
+   "citations_verified": 2,
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
-    "lalux-easyprotect-2022:0745 p.126 (definition)",
     "lalux-easyprotect-2022:0151 p.41 (garantie)",
     "lalux-easyprotect-2022:0091 p.36 (exclusion)"
    ],
-   "resume": "Bien que le vol de matériel informatique portable soit en principe assurable dans le cadre de la formule Performance, le contrat exclut formellement les vols perpétrés par les membres de la famille ou par des personnes vivant en communauté domestique avec l'assuré. L'acte ayant été commis par votre fils vivant sous votre toit, le sinistre n'est pas couvert.",
+   "resume": "Bien que le vol de matériel informatique soit prévu dans le cadre des garanties du contrat, la couverture ne peut pas s'appliquer. Le contrat exclut expressément les vols commis par les membres de la famille ou par toute personne vivant sous le même toit que le preneur d'assurance. Le préjudice résultant de la soustraction du bien par votre fils cohabitant ne peut donc pas être indemnisé.",
    "missing": [],
-   "duration_s": 42.9
+   "duration_s": 15.5
   },
   {
    "id": "bal-portable-rayure",
@@ -615,17 +598,17 @@
    "expected_clause_hit": false,
    "citations_total": 4,
    "citations_verified": 4,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "baloise-home-2024:0054 p.7 (definition)",
+    "baloise-home-2024:0004 p.3 (definition)",
     "baloise-home-2024:0181 p.18 (garantie)",
-    "baloise-home-2024:0182 p.18 (garantie)",
-    "baloise-home-2024:0155 p.15 (condition)"
+    "baloise-home-2024:0182 p.18 (garantie)"
    ],
-   "resume": "Les dégradations causées par la chute accidentelle de votre ordinateur portable sont couvertes au titre de la garantie optionnelle Pack Multimédia. Contrairement à d'autres garanties du contrat, aucune clause d'exclusion ne vise les rayures ou dommages esthétiques pour ce pack. L'indemnisation dépendra de la souscription effective de cette option et restera soumise à l'éventuelle franchise prévue.",
+   "resume": "Sous réserve de la souscription de l'option Pack Multimédia à vos Conditions Particulières, la détérioration accidentelle de votre ordinateur portable est couverte par votre contrat. Aucune exclusion relative aux dommages esthétiques n'est prévue pour ce pack dans les clauses applicables. L'indemnisation éventuelle restera soumise au plafond de garantie et à la franchise applicables.",
    "missing": [],
-   "duration_s": 51.0
+   "duration_s": 25.3
   },
   {
    "id": "bal-bijoux-inoccupation",
@@ -641,19 +624,17 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 4,
-   "citations_verified": 4,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "citations_total": 2,
+   "citations_verified": 2,
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
-    "baloise-home-2024:0066 p.8 (definition)",
-    "baloise-home-2024:0156 p.15 (definition)",
     "baloise-home-2024:0157 p.15 (garantie)",
     "baloise-home-2024:0163 p.16 (exclusion)"
    ],
-   "resume": "Bien que le vol par effraction de vos bijoux relève en principe de la garantie vol, votre déclaration indique que l'habitation était inoccupée depuis quatre mois. Or, le contrat prévoit une déchéance de garantie pour les objets précieux et bijoux après une période d'inoccupation consécutive excédant trois mois. Le sinistre ne peut donc pas être pris en charge.",
+   "resume": "Bien que le vol par effraction de bijoux soit en principe couvert par la garantie vol, une clause de déchéance s'applique expressément aux bijoux après une inoccupation consécutive de plus de trois mois. Votre logement étant resté inoccupé pendant quatre mois consécutifs, le sinistre n'est pas pris en charge.",
    "missing": [],
-   "duration_s": 33.7
+   "duration_s": 19.3
   },
   {
    "id": "bal-fuite-corrosion",
@@ -672,16 +653,16 @@
    "expected_clause_hit": true,
    "citations_total": 3,
    "citations_verified": 3,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "baloise-home-2024:0135 p.13 (garantie)",
     "baloise-home-2024:0136 p.13 (exclusion)",
     "baloise-home-2024:0129 p.13 (condition)"
    ],
-   "resume": "Bien que les fuites de canalisation soient en principe couvertes par la garantie dégâts des eaux, votre contrat exclut expressément les dommages résultant d'un défaut d'entretien, notamment lorsque les tuyaux présentent de la corrosion visible non traitée. L'absence totale d'entretien et la rouille apparente mentionnées entraînent l'application de cette exclusion. Le sinistre ne peut donc pas être pris en charge.",
+   "resume": "Bien que la fuite d'un tuyau intérieur relève initialement de la garantie Dégâts des eaux, le sinistre fait l'objet d'une exclusion expresse. Le contrat exclut en effet les dommages causés par un manquement à l'obligation d'entretien lorsque les installations présentent des traces de corrosion visibles et non traitées. Les faits mentionnant expressément un tuyau rouillé et non entretenu depuis des années, aucune indemnisation ne pourra être accordée.",
    "missing": [],
-   "duration_s": 42.2
+   "duration_s": 12.8
   },
   {
    "id": "bal-tempete-110",
@@ -699,17 +680,17 @@
    "expected_clause_hit": true,
    "citations_total": 4,
    "citations_verified": 4,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "baloise-home-2024:0013 p.4 (definition)",
     "baloise-home-2024:0083 p.9 (definition)",
     "baloise-home-2024:0125 p.12 (garantie)",
     "baloise-home-2024:0127 p.12 (exclusion)"
    ],
-   "resume": "Les dommages causés à votre toiture par des rafales de 110 km/h sont couverts au titre de la garantie de base Tempête. Aucun défaut d'entretien ni aucune exclusion n'étant rapportés dans votre déclaration, le sinistre est pris en charge sous réserve que la garantie figure à vos Conditions Particulières.",
+   "resume": "Les dommages subis par votre toiture relèvent de la garantie de base Tempête, le vent ayant dépassé le seuil de 80 km/h fixé au contrat. Aucun élément du dossier n'indique d'exclusion ou de manquement à l'obligation d'entretien. L'indemnisation est envisageable sous réserve que la garantie de base figure bien sur vos Conditions Particulières.",
    "missing": [],
-   "duration_s": 31.8
+   "duration_s": 11.0
   },
   {
    "id": "axa-portable-panne",
@@ -725,18 +706,17 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 3,
-   "citations_verified": 3,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "citations_total": 2,
+   "citations_verified": 2,
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
-    "axa-optihome-2022:0045 p.12 (definition)",
     "axa-optihome-2022:0332 p.44 (garantie)",
     "axa-optihome-2022:0342 p.45 (exclusion)"
    ],
-   "resume": "Votre contrat d'assurance ne couvre pas les simples pannes de matériel informatique. La garantie matériel multimédia exige en effet un bris accidentel causé par une chute, un choc ou un corps étranger, et exclut formellement les dommages dus à un fonctionnement défectueux. Votre sinistre ne peut donc pas être pris en charge.",
+   "resume": "Votre contrat d'assurance habitation ne prend pas en charge la simple panne mécanique ou électronique de votre ordinateur portable. La garantie matériel multimédia exige un événement accidentel précis (chute, choc ou corps étranger) et exclut expressément les dommages résultant d'un fonctionnement défectueux.",
    "missing": [],
-   "duration_s": 40.0
+   "duration_s": 19.5
   },
   {
    "id": "axa-velo-attache-gare",
@@ -754,18 +734,18 @@
    "expected_clause_hit": true,
    "citations_total": 3,
    "citations_verified": 3,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "axa-optihome-2022:0080 p.17 (definition)",
-    "axa-optihome-2022:0303 p.42 (garantie)",
+    "axa-optihome-2022:0317 p.43 (exclusion)",
     "axa-optihome-2022:0468 p.61 (garantie)"
    ],
-   "resume": "Le vol de votre vélo est couvert si vous avez souscrit l'option Confort, car il était attaché avec un antivol à un élément scellé au sol sur le territoire luxembourgeois. La prise en charge nécessitera la confirmation du dépôt de plainte auprès de la police.",
+   "resume": "Sous réserve de la souscription de l'option « Confort », le vol de votre vélo est couvert puisqu'il était attaché par un antivol à un arceau scellé sur le territoire luxembourgeois. Il conviendra de fournir le récépissé du dépôt de plainte requis par le contrat pour finaliser la prise en charge.",
    "missing": [
-    "Avez-vous déposé plainte auprès des autorités de police ou judiciaires compétentes ?"
+    "Avez-vous déposé plainte auprès de la police dans les 24 heures suivant le constat du vol ?"
    ],
-   "duration_s": 34.3
+   "duration_s": 14.8
   },
   {
    "id": "axa-velo-sans-antivol",
@@ -783,17 +763,17 @@
    "exact": true,
    "expected_clause_hit": true,
    "citations_total": 3,
-   "citations_verified": 2,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "citations_verified": 3,
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "axa-optihome-2022:0080 p.17 (definition)",
     "axa-optihome-2022:0468 p.61 (garantie)",
     "axa-optihome-2022:0468 p.61 (condition)"
    ],
-   "resume": "Bien que l'option Confort prévoie la couverture du vol de vélo sur la voie publique au Luxembourg, celle-ci est expressément subordonnée à l'utilisation d'un système antivol fixé à un point d'ancrage solide. Vous ayant indiqué avoir laissé le vélo sans antivol, cette condition obligatoire n'est pas remplie. Le sinistre ne peut donc pas être pris en charge.",
+   "resume": "Le vol d'un vélo en extérieur au Luxembourg peut être couvert si vous avez souscrit l'option Confort. Toutefois, la garantie exige impérativement que le vélo soit attaché à un point fixe avec un antivol adéquat. Le vélo ayant été laissé sans antivol, la condition de couverture n'est pas respectée.",
    "missing": [],
-   "duration_s": 38.6
+   "duration_s": 19.8
   },
   {
    "id": "axa-conduite-encastree",
@@ -811,17 +791,17 @@
    "expected_clause_hit": true,
    "citations_total": 4,
    "citations_verified": 4,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "axa-optihome-2022:0278 p.39 (garantie)",
-    "axa-optihome-2022:0280 p.40 (garantie)",
     "axa-optihome-2022:0279 p.39 (garantie)",
+    "axa-optihome-2022:0280 p.40 (garantie)",
     "axa-optihome-2022:0282 p.40 (exclusion)"
    ],
-   "resume": "Les dommages sont intégralement pris en charge sous réserve de la souscription de la garantie Dégâts des eaux. Le contrat couvre à la fois le remplacement de la conduite encastrée endommagée et la remise en état du mur de la salle de bain ayant dû être ouvert pour la réparation.",
+   "resume": "Le sinistre est couvert au titre de la garantie dégâts des eaux sous réserve de sa souscription aux conditions particulières. La réparation ou le remplacement de la canalisation encastrée ainsi que les travaux de remise en état du mur sont intégralement prévus par les extensions de garantie. Pensez à faire constater les dommages par la Compagnie avant d'engager définitivement les travaux.",
    "missing": [],
-   "duration_s": 36.2
+   "duration_s": 15.8
   },
   {
    "id": "axa-flexible-apparent",
@@ -839,16 +819,16 @@
    "expected_clause_hit": true,
    "citations_total": 3,
    "citations_verified": 3,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
+    "axa-optihome-2022:0277 p.39 (condition)",
     "axa-optihome-2022:0278 p.39 (garantie)",
-    "axa-optihome-2022:0280 p.40 (garantie)",
     "axa-optihome-2022:0282 p.40 (exclusion)"
    ],
-   "resume": "Votre contrat d'assurance ne prend pas en charge le remplacement d'un flexible de plomberie apparent. La garantie dégâts des eaux couvre les dommages occasionnés par l'eau aux biens, et exclut formellement la réparation ou le remplacement de la conduite ou de l'appareil à l'origine de la fuite dès lors qu'il n'est pas encastré.",
+   "resume": "Bien que le contrat prévoie une garantie contre les dégâts des eaux, celle-ci exclut expressément la prise en charge des dommages causés à la conduite elle-même lorsqu'elle est apparente. Votre flexible sous évier étant apparent et non encastré, son remplacement n'est pas couvert et demeure à votre charge.",
    "missing": [],
-   "duration_s": 51.4
+   "duration_s": 34.9
   },
   {
    "id": "axa-mur-voisin",
@@ -867,15 +847,15 @@
    "expected_clause_hit": true,
    "citations_total": 2,
    "citations_verified": 2,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "axa-optihome-2022:0278 p.39 (garantie)",
     "axa-optihome-2022:0284 p.40 (exclusion)"
    ],
-   "resume": "Les dommages d'humidité subis par votre mur sont couverts par la garantie dégâts des eaux dès lors qu'ils résultent d'une fuite survenue dans l'immeuble voisin. Le contrat prévoit explicitement une prise en charge pour les écoulements d'eau et la porosité prenant leur origine chez des tiers mitoyens. Il convient uniquement de vérifier que la garantie dégâts des eaux figure bien à vos conditions particulières.",
+   "resume": "Les dommages d'humidité causés au mur de votre salon sont couverts au titre de la garantie dégâts des eaux, celle-ci prenant en charge les fuites provenant d'un bâtiment voisin. De plus, l'exclusion relative à la porosité des murs écarte expressément les cas où l'origine se situe dans un immeuble mitoyen. Il conviendra simplement de vérifier que la garantie dégâts des eaux figure bien à vos conditions particulières.",
    "missing": [],
-   "duration_s": 32.7
+   "duration_s": 10.9
   },
   {
    "id": "axa-mur-poreux",
@@ -891,20 +871,17 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 3,
-   "citations_verified": 3,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "citations_total": 2,
+   "citations_verified": 2,
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "axa-optihome-2022:0278 p.39 (garantie)",
-    "axa-optihome-2022:0284 p.40 (exclusion)",
-    "axa-optihome-2022:0461 p.60 (exclusion)"
+    "axa-optihome-2022:0284 p.40 (exclusion)"
    ],
-   "resume": "Votre sinistre ne peut pas être pris en charge au titre de votre contrat d'assurance. En l'absence de fuite sur une installation hydraulique, l'humidité causée par la porosité de la maçonnerie ne rentre pas dans le champ de la garantie dégâts des eaux et fait l'objet d'une exclusion expresse.",
-   "missing": [
-    "Cette porosité ou humidité provient-elle d'un bâtiment voisin ou du débordement d'une installation hydraulique extérieure au bâtiment désigné ?"
-   ],
-   "duration_s": 49.5
+   "resume": "Votre contrat ne prend pas en charge l'humidité de votre mur. La garantie dégâts des eaux exclut expressément les dommages causés par la porosité des murs en l'absence de fuite hydraulique extérieure ou provenant d'un voisin.",
+   "missing": [],
+   "duration_s": 21.2
   },
   {
    "id": "axa-miroir",
@@ -920,22 +897,17 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 4,
-   "citations_verified": 4,
+   "citations_total": 2,
+   "citations_verified": 2,
    "escalated": false,
-   "model": "ministral-14b-latest",
+   "model": "gemini-3.8-flash",
    "cited": [
     "axa-optihome-2022:0298 p.41 (garantie)",
-    "axa-optihome-2022:0301 p.42 (exclusion)",
-    "axa-optihome-2022:0006 p.6 (definition)",
-    "axa-optihome-2022:0143 p.24 (exclusion)"
+    "axa-optihome-2022:0301 p.42 (exclusion)"
    ],
-   "resume": "Votre miroir fixé au mur est couvert par la garantie 'bris de vitrages' en cas de bris accidentel, comme celui survenu lors de votre nettoyage. Aucune exclusion ni condition non respectée n'apparaît dans votre déclaration. Cependant, pour finaliser l'indemnisation, nous devons vérifier que cette garantie est bien souscrite dans vos **Conditions Particulières** et que le miroir était correctement installé avant le sinistre. Veuillez nous transmettre ces informations.",
-   "missing": [
-    "Le contrat mentionne-t-il explicitement que la garantie 'bris de vitrages' est souscrite dans les **Conditions Particulières** ?",
-    "Le miroir était-il correctement fixé au mur avant le sinistre (pas de support défectueux ou de vétusté non déclarée) ?"
-   ],
-   "duration_s": 16.3
+   "resume": "Le bris accidentel de votre miroir mural survenu pendant le nettoyage est pris en charge au titre de la garantie de base Bris de vitrages. Aucune exclusion du contrat ne s'applique à cet événement. L'indemnisation interviendra selon les conditions prévues au contrat, déduction faite de l'éventuelle franchise applicable.",
+   "missing": [],
+   "duration_s": 13.8
   },
   {
    "id": "axa-vase",
@@ -953,15 +925,15 @@
    "expected_clause_hit": false,
    "citations_total": 2,
    "citations_verified": 2,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "axa-optihome-2022:0298 p.41 (garantie)",
     "axa-optihome-2022:0467 p.61 (garantie)"
    ],
-   "resume": "Le bris accidentel d'un vase consécutif à une chute n'est couvert par aucune garantie du contrat. La garantie bris de vitrages ne s'applique qu'aux éléments immobiliers, glaces et miroirs, et l'option couvrant les chutes accidentelles d'objets ne liste pas les vases.",
+   "resume": "Le bris accidentel d'un vase n'est couvert par aucune garantie du contrat. La garantie bris de vitrages est strictement limitée aux vitres, miroirs ou appareils ménagers, et les garanties contre la casse accidentelle ne couvrent pas la verrerie décorative.",
    "missing": [],
-   "duration_s": 41.0
+   "duration_s": 15.6
   },
   {
    "id": "axa-pluie-fenetre",
@@ -979,17 +951,19 @@
    "expected_clause_hit": true,
    "citations_total": 4,
    "citations_verified": 4,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "axa-optihome-2022:0263 p.37 (garantie)",
     "axa-optihome-2022:0267 p.38 (exclusion)",
     "axa-optihome-2022:0286 p.40 (exclusion)",
     "axa-optihome-2022:0456 p.60 (exclusion)"
    ],
-   "resume": "Votre sinistre ne peut pas être pris en charge par votre contrat d'assurance. Les garanties Tempête, Dégâts des eaux et Pluies & inondations excluent explicitement les dommages causés par l'eau de pluie entrée par une fenêtre restée ouverte ou sans dommage préalable subi par le bâtiment.",
-   "missing": [],
-   "duration_s": 49.2
+   "resume": "Les dommages causés à votre canapé ne peuvent pas être pris en charge par votre contrat. Bien que les dégâts dus aux intempéries soient en principe assurables, les garanties Tempête, Dégâts des eaux et Pluies & inondations excluent explicitement les entrées d'eau de pluie par une fenêtre restée ouverte, en l'absence de dommage préalable causé au bâtiment.",
+   "missing": [
+    "Le vent de tempête a-t-il préalablement causé des dégâts matériels au bâtiment ou forcé l'ouverture de la fenêtre ?"
+   ],
+   "duration_s": 37.4
   },
   {
    "id": "axa-gel-vacances",
@@ -1008,20 +982,20 @@
    "expected_clause_hit": true,
    "citations_total": 4,
    "citations_verified": 4,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "axa-optihome-2022:0278 p.39 (garantie)",
     "axa-optihome-2022:0295 p.41 (condition)",
     "axa-optihome-2022:0295 p.41 (limite)",
     "axa-optihome-2022:0282 p.40 (exclusion)"
    ],
-   "resume": "Les dommages causés à votre parquet par l'écoulement d'eau consécutif au gel de la canalisation sont bien couverts au titre de la garantie dégâts des eaux. Toutefois, le fait d'avoir coupé le chauffage pendant plus de 15 jours en janvier sans avoir vidangé l'installation constitue un manquement à votre obligation de prévention, entraînant une réduction de moitié de l'indemnité. Par ailleurs, la réparation de la conduite rompue elle-même ne sera indemnisée que si celle-ci est encastrée.",
+   "resume": "Les dégradations causées au parquet sont bien prises en charge par la garantie dégâts des eaux. Néanmoins, l'arrêt complet du chauffage pendant trois semaines consécutives en plein mois de janvier sans vidange constitue un manquement à l'obligation contractuelle de prévention contre le gel, ce qui réduit l'indemnité de moitié. Enfin, la réparation de la conduite rompue ne sera indemnisable que si cette dernière s'avère encastrée.",
    "missing": [
-    "La conduite ayant gelé et éclaté est-elle encastrée ou apparente ?",
-    "Y a-t-il eu un motif de force majeure justifiant l'absence de vidange des canalisations ?"
+    "Les conduites avaient-elles été vidangées ou protégées avant le départ malgré l'arrêt du chauffage ?",
+    "La conduite ayant éclaté est-elle apparente ou encastrée ?"
    ],
-   "duration_s": 77.7
+   "duration_s": 31.1
   },
   {
    "id": "axa-portable-en",
@@ -1037,23 +1011,20 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 5,
-   "citations_verified": 4,
+   "citations_total": 3,
+   "citations_verified": 2,
    "escalated": false,
-   "model": "ministral-14b-latest",
+   "model": "gemini-3.8-flash",
    "cited": [
-    "axa-optihome-2022:0002 p.5 (garantie)",
+    "axa-optihome-2022:0045 p.12 (definition)",
     "axa-optihome-2022:0332 p.44 (garantie)",
-    "axa-optihome-2022:0300 p.41 (exclusion)",
-    "axa-optihome-2022:0143 p.24 (exclusion)",
-    "axa-optihome-2022:0152 p.25 (condition)"
+    "axa-optihome-2022:0300 p.41 (exclusion)"
    ],
-   "resume": "Votre laptop, considéré comme matériel multimédia, est couvert par la garantie correspondante en cas de chute accidentelle entraînant un bris d'écran. Aucune exclusion ni condition non respectée n'apparaît dans les faits déclarés. Pour finaliser l'indemnisation, il est nécessaire de confirmer que cette garantie est bien souscrite dans vos Conditions Particulières et de vérifier l'âge de votre appareil pour appliquer les règles de vétusté.",
+   "resume": "Le bris de l'écran de votre ordinateur portable consécutif à une chute est couvert au titre de la garantie Matériel multimédia. Il convient de vérifier dans vos conditions particulières que cette garantie a bien été souscrite. L'indemnisation tiendra compte, le cas échéant, de la franchise et d'un abattement pour vétusté selon l'âge de l'appareil.",
    "missing": [
-    "Le contrat souscrit par l'assuré inclut-il explicitement la garantie 'Matériel multimédia' dans ses Conditions Particulières ?",
-    "L'âge du laptop (moins d'un an ou plus) pour évaluer l'application de la vétusté selon les clauses [axa-optihome-2022:0105] et [axa-optihome-2022:0108]."
+    "Quelle est la date d'achat de l'ordinateur portable (pour déterminer l'application éventuelle d'un coefficient de vétusté) ?"
    ],
-   "duration_s": 20.5
+   "duration_s": 12.1
   },
   {
    "id": "lalux-pluie-fenetre",
@@ -1070,17 +1041,17 @@
    "exact": true,
    "expected_clause_hit": true,
    "citations_total": 3,
-   "citations_verified": 2,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "citations_verified": 3,
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "lalux-easyprotect-2022:0078 p.35 (garantie)",
-    "lalux-easyprotect-2022:0082 p.36 (exclusion)",
-    "lalux-easyprotect-2022:0398 p.61 (garantie)"
+    "lalux-easyprotect-2022:0114 p.38 (garantie)",
+    "lalux-easyprotect-2022:0082 p.36 (exclusion)"
    ],
-   "resume": "Les dommages causés à votre moquette ne sont pas couverts. La garantie dégâts des eaux exclut expressément les entrées d'eaux pluviales par les ouvertures telles que les fenêtres, qu'elles soient ouvertes ou fermées. De plus, la garantie tempête ne couvre la pénétration de pluie qu'en cas de destruction préalable du bâtiment par le vent ou la grêle.",
+   "resume": "Les dommages causés à votre moquette ne sont pas couverts par le contrat. D'une part, l'entrée de pluie par une fenêtre ouverte ne correspond à aucun événement garanti en dégâts des eaux ou en périls climatiques. D'autre part, les infiltrations d'eaux pluviales par des fenêtres, qu'elles soient ouvertes ou fermées, font l'objet d'une exclusion expresse.",
    "missing": [],
-   "duration_s": 40.4
+   "duration_s": 32.0
   },
   {
    "id": "lalux-braise-tapis",
@@ -1096,22 +1067,17 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 4,
-   "citations_verified": 3,
+   "citations_total": 2,
+   "citations_verified": 2,
    "escalated": false,
-   "model": "ministral-14b-latest",
+   "model": "gemini-3.8-flash",
    "cited": [
     "lalux-easyprotect-2022:0061 p.34 (garantie)",
-    "lalux-easyprotect-2022:0061 p.34 (garantie)",
-    "lalux-easyprotect-2022:0065 p.34 (exclusion)",
-    "lalux-easyprotect-2022:0000 p.30 (exclusion)"
+    "lalux-easyprotect-2022:0061 p.34 (exclusion)"
    ],
-   "resume": "Le dommage causé à votre tapis par une braise ayant sauté de la cheminée est couvert par la garantie 'Incendie' pour les dégâts ménagers liés à un excès de chaleur. Aucune exclusion ni condition non remplie ne s'applique dans ce cas précis. Cependant, pour finaliser l'indemnisation, il est important de confirmer que la cheminée était en bon état et que le tapis n'était pas directement posé sur un matériau inflammable. Nous vous invitons à fournir ces informations pour finaliser le traitement de votre sinistre.",
-   "missing": [
-    "Le contrat suppose que l’entretien normal de la cheminée a été effectué. Confirmez-vous que la cheminée était en bon état et que son conduit était propre et fonctionnel au moment du sinistre ?",
-    "Le tapis endommagé était-il posé sur un support isolant (comme un tapis de protection) ou directement sur le sol ? Cela pourrait influencer l'évaluation des dommages."
-   ],
-   "duration_s": 20.2
+   "resume": "Les dommages causés au tapis par la braise sortie de la cheminée sont pris en charge au titre de la garantie des dégâts ménagers. Le sinistre ne relève d'aucune exclusion applicable, la brûlure ne résultant pas d'un objet posé volontairement sur le foyer. L'indemnisation pourra intervenir sous réserve que votre mobilier soit couvert au contrat.",
+   "missing": [],
+   "duration_s": 11.6
   },
   {
    "id": "lalux-plat-plaque",
@@ -1119,32 +1085,26 @@
    "contract": "lalux-easyprotect-2022",
    "claim": "J'ai posé un plat en plastique sur la plaque de cuisson encore chaude et il a fondu.",
    "expected": "non_couvert",
-   "got": "couvert",
-   "model_verdict": "couvert",
+   "got": "non_couvert",
+   "model_verdict": "non_couvert",
    "accept": [
     "non_couvert",
     "indetermine"
    ],
-   "verdict_ok": false,
-   "exact": false,
+   "verdict_ok": true,
+   "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 5,
-   "citations_verified": 5,
+   "citations_total": 2,
+   "citations_verified": 2,
    "escalated": false,
-   "model": "ministral-14b-latest",
+   "model": "gemini-3.8-flash",
    "cited": [
     "lalux-easyprotect-2022:0061 p.34 (garantie)",
-    "lalux-easyprotect-2022:0065 p.34 (exclusion)",
-    "lalux-easyprotect-2022:0102 p.37 (exclusion)",
-    "lalux-easyprotect-2022:0064 p.34 (exclusion)",
-    "lalux-easyprotect-2022:0353 p.57 (exclusion)"
+    "lalux-easyprotect-2022:0061 p.34 (exclusion)"
    ],
-   "resume": "Votre plat en plastique a fondu à cause de la chaleur résiduelle de la plaque de cuisson, ce qui relève des **dégâts ménagers** couverts par la garantie **Incendie** de votre contrat, sous réserve que la formule **Sécurité** soit souscrite. Aucune exclusion ne s'applique directement à ce sinistre. Cependant, il est important de vérifier si votre contrat inclut bien cette garantie et si le plat est couvert en tant qu'objet en plastique. Nous vous recommandons de confirmer ces points dans vos **Conditions Particulières**.",
-   "missing": [
-    "Le contrat souscrit par l’assuré inclut-il la formule **Sécurité - Incendie** ou une garantie similaire couvrant les dégâts ménagers ? Si une autre formule est souscrite (ex. **Confort**), vérifiez si elle couvre les objets en plastique.",
-    "Le plat en plastique était-il posé directement sur la plaque de cuisson (sans support intermédiaire) ? Cela pourrait influencer l'analyse des exclusions spécifiques."
-   ],
-   "duration_s": 21.5
+   "resume": "Bien que les dégâts ménagers causés par la chaleur soient en principe couverts par la garantie Incendie, le contrat exclut expressément les dommages arrivés aux objets posés directement sur un foyer. Votre plat ayant été déposé sur la plaque de cuisson, le dommage tombe sous le coup de cette exclusion. La détérioration de votre plat ne peut donc pas être prise en charge.",
+   "missing": [],
+   "duration_s": 81.6
   },
   {
    "id": "lalux-porte-douche",
@@ -1160,24 +1120,17 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 6,
-   "citations_verified": 6,
+   "citations_total": 2,
+   "citations_verified": 2,
    "escalated": false,
-   "model": "ministral-14b-latest",
+   "model": "gemini-3.8-flash",
    "cited": [
     "lalux-easyprotect-2022:0100 p.37 (garantie)",
-    "lalux-easyprotect-2022:0065 p.34 (exclusion)",
-    "lalux-easyprotect-2022:0395 p.60 (exclusion)",
-    "lalux-easyprotect-2022:0111 p.38 (exclusion)",
-    "lalux-easyprotect-2022:0077 p.35 (exclusion)",
-    "lalux-easyprotect-2022:0103 p.37 (garantie)"
+    "lalux-easyprotect-2022:0110 p.37 (exclusion)"
    ],
-   "resume": "Votre porte de douche en verre, considérée comme une glace réputée immeuble, est couverte par la garantie Bris de Glaces si le bâtiment est assuré. Le sinistre ne tombe sous aucune exclusion mentionnée dans votre contrat, et aucun manquement à une obligation n'est relevé dans le récit fourni. Nous vous recommandons de vérifier dans vos Conditions Particulières que la garantie Bris de Glaces est bien souscrite pour votre bâtiment, et de confirmer l'absence de défaut préexistant sur la porte.",
-   "missing": [
-    "Le contrat suppose que le bâtiment est assuré pour la garantie Bris de Glaces. Vérifiez dans les **Conditions Particulières** que cette garantie est bien souscrite pour le bâtiment concerné.",
-    "Le récit ne précise pas si la porte de douche était déjà endommagée (fêlée, rayée) avant le sinistre. Une vérification visuelle ou un rapport d'expertise pourrait être nécessaire pour écarter toute exclusion liée à un objet déjà défectueux."
-   ],
-   "duration_s": 25.1
+   "resume": "Le bris de votre porte de douche vitrée est formellement couvert par la garantie Bris de glaces du contrat. Aucune exclusion n'est relevée dans les circonstances rapportées, sous réserve que votre contrat couvre bien le bâtiment.",
+   "missing": [],
+   "duration_s": 12.0
   },
   {
    "id": "lalux-velo-attache",
@@ -1193,21 +1146,21 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 3,
-   "citations_verified": 3,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "citations_total": 4,
+   "citations_verified": 4,
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "lalux-easyprotect-2022:0438 p.64 (definition)",
     "lalux-easyprotect-2022:0416 p.62 (garantie)",
-    "lalux-easyprotect-2022:0443 p.64 (exclusion)"
+    "lalux-easyprotect-2022:0443 p.64 (exclusion)",
+    "lalux-easyprotect-2022:0158 p.42 (condition)"
    ],
-   "resume": "Le vol de votre vélo sur la voie publique est couvert si vous avez souscrit l'option « Tous Risques Cycles » ou la formule Performance. Bien que le vol en lieu public soit en principe exclu, l'exception s'applique car votre vélo était sécurisé à un poteau par un antivol au moment des faits.",
+   "resume": "Votre sinistre est couvert en principe si vous avez souscrit la formule Performance ou l'option Tous Risques Cycles. L'exclusion habituelle pour vol dans un lieu public ne s'applique pas car votre vélo était attaché à un poteau par un antivol. Pensez à vérifier vos Conditions Particulières et à fournir votre dépôt de plainte à la police.",
    "missing": [
-    "L'antivol utilisé constituait-il un système mécanique antivol adéquat homologué ou conforme aux exigences de l'assureur ?",
-    "Une plainte a-t-elle été déposée auprès de la police dans les délais impartis ?"
+    "Quel type d'antivol a été utilisé pour attacher le vélo au poteau ?"
    ],
-   "duration_s": 71.0
+   "duration_s": 27.4
   },
   {
    "id": "lalux-velo-sans-antivol",
@@ -1225,16 +1178,16 @@
    "expected_clause_hit": true,
    "citations_total": 3,
    "citations_verified": 3,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
-    "lalux-easyprotect-2022:0438 p.64 (definition)",
     "lalux-easyprotect-2022:0416 p.62 (garantie)",
+    "lalux-easyprotect-2022:0438 p.64 (definition)",
     "lalux-easyprotect-2022:0443 p.64 (exclusion)"
    ],
-   "resume": "Bien que le vol d'un vélo puisse être garanti au titre de l'assurance Tous Risques Cycles ou de la formule Performance, le contrat exclut expressément le vol des cycles laissés sans surveillance dans les lieux publics. La garantie n'est maintenue que si le vélo est attaché à un point fixe à l'aide d'un antivol adéquat, ce qui n'était pas le cas ici. Ce sinistre ne pourra donc pas être indemnisé.",
+   "resume": "Même en supposant souscrite l'option Tous Risques Cycles, le contrat exclut formellement le vol d'un cycle laissé sans surveillance dans un lieu public s'il n'est pas attaché à un point fixe avec un antivol. Le vélo ayant été laissé sans antivol sur une place publique, le sinistre n'est pas couvert.",
    "missing": [],
-   "duration_s": 46.2
+   "duration_s": 27.0
   },
   {
    "id": "lalux-cambriolage-fils-twin",
@@ -1250,26 +1203,19 @@
    "verdict_ok": true,
    "exact": true,
    "expected_clause_hit": true,
-   "citations_total": 8,
-   "citations_verified": 7,
+   "citations_total": 4,
+   "citations_verified": 4,
    "escalated": false,
-   "model": "ministral-14b-latest",
+   "model": "gemini-3.8-flash",
    "cited": [
     "lalux-easyprotect-2022:0084 p.36 (garantie)",
-    "lalux-easyprotect-2022:0151 p.41 (garantie)",
-    "lalux-easyprotect-2022:0091 p.36 (exclusion)",
-    "lalux-easyprotect-2022:0092 p.37 (exclusion)",
-    "lalux-easyprotect-2022:0382 p.59 (exclusion)",
-    "lalux-easyprotect-2022:0142 p.41 (exclusion)",
-    "lalux-easyprotect-2022:0156 p.42 (exclusion)",
-    "lalux-easyprotect-2022:0088 p.36 (condition)"
+    "lalux-easyprotect-2022:0085 p.36 (definition)",
+    "lalux-easyprotect-2022:0097 p.37 (garantie)",
+    "lalux-easyprotect-2022:0091 p.36 (exclusion)"
    ],
-   "resume": "Votre déclaration de vol par effraction pour l'ordinateur de votre fils est couverte par la garantie de base 'Vol par effraction ou agression' et, sous réserve de la souscription de l'option 'Performance', par la garantie spécifique au vol du matériel informatique. Cependant, nous devons vérifier si les obligations de sécurité (fermeture des locaux) ont été respectées. Pour finaliser l'indemnisation, merci de préciser les mesures de protection en place et de confirmer la souscription de l'option 'Performance' dans vos Conditions Particulières.",
-   "missing": [
-    "Quels étaient les moyens de fermeture et de protection utilisés pour sécuriser les locaux au moment du sinistre ?",
-    "L'ordinateur était-il considéré comme un objet de valeur nécessitant une protection spécifique (ex. coffre-fort, pièce sécurisée) ?"
-   ],
-   "duration_s": 24.7
+   "resume": "Le vol de l'ordinateur et les dégâts occasionnés à la porte d'entrée sont couverts au titre de la garantie Vol par effraction et détériorations immobilières. Pensez à déposer plainte rapidement auprès de la Police Grand-Ducale et à conserver les justificatifs d'achat de l'ordinateur pour l'indemnisation.",
+   "missing": [],
+   "duration_s": 12.5
   },
   {
    "id": "bal-inondation-salon-jardin",
@@ -1288,16 +1234,16 @@
    "expected_clause_hit": true,
    "citations_total": 3,
    "citations_verified": 3,
-   "escalated": true,
-   "model": "ministral-14b-latest → gemini-3.8-flash",
+   "escalated": false,
+   "model": "gemini-3.8-flash",
    "cited": [
     "baloise-home-2024:0128 p.13 (garantie)",
     "baloise-home-2024:0130 p.13 (exclusion)",
     "baloise-home-2024:0213 p.20 (garantie)"
    ],
-   "resume": "Les dommages causés par une inondation au mobilier situé en plein air sont couverts si vous avez souscrit le pack optionnel « Jardin / piscine ». Aucun élément du récit ne relève d'une exclusion ou d'un manquement à vos obligations. Il convient de vérifier sur vos Conditions Particulières que ce pack optionnel est bien souscrit.",
+   "resume": "Les dommages causés par une inondation aux objets situés en extérieur sont exclus de base, sauf si vous bénéficiez du pack optionnel « Jardin / piscine ». Si cette option est bien mentionnée à vos conditions particulières, votre salon de jardin est garanti. Le sinistre est donc pris en charge sous réserve de la souscription de cette garantie optionnelle.",
    "missing": [],
-   "duration_s": 38.2
+   "duration_s": 22.3
   }
  ]
 }
