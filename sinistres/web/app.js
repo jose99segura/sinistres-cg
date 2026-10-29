@@ -63,18 +63,14 @@ async function loadContracts(attempt = 0) {
   renderContracts();
 }
 
-const SHORT = { baloise: "Baloise", axa: "AXA", lalux: "Lalux" };
-
 function renderContracts() {
   $("#contracts").innerHTML = state.contracts.map((c) => `
-    <label class="seg-item${c.id === state.contractId ? " selected" : ""}">
+    <label class="contract${c.id === state.contractId ? " selected" : ""}">
       <input type="radio" name="contract" value="${esc(c.id)}" ${c.id === state.contractId ? "checked" : ""}>
-      <span>${esc(SHORT[c.id.split("-")[0]] || c.insurer)}</span>
+      <span class="name">${esc(c.insurer)} — ${esc(c.product)}</span>
+      <span class="meta">${t("contract.version")} ${esc(c.version)} · ${c.n_pages} ${t("contract.pages")} · ${c.n_clauses} ${t("contract.clauses")} ·
+        <a href="${esc(c.url)}" target="_blank" rel="noopener">${t("contract.source")}</a></span>
     </label>`).join("");
-  const c = state.contracts.find((x) => x.id === state.contractId);
-  $("#contract-meta").innerHTML = c ? `${esc(c.insurer)} — ${esc(c.product)} · ${t("contract.version")} ${esc(c.version)} ·
-    ${c.n_pages} ${t("contract.pages")} · ${c.n_clauses} ${t("contract.clauses")} ·
-    <a href="${esc(c.url)}" target="_blank" rel="noopener">${t("contract.source")}</a>` : "";
 }
 
 $("#contracts").addEventListener("change", (e) => {
@@ -83,7 +79,7 @@ $("#contracts").addEventListener("change", (e) => {
 });
 
 function renderExamples() {
-  $("#examples").innerHTML = EXAMPLES[LANG].slice(0, 4)
+  $("#examples").innerHTML = EXAMPLES[LANG]
     .map(([label], i) => `<button type="button" class="chip" data-i="${i}">${esc(label)}</button>`).join("");
 }
 
@@ -134,7 +130,7 @@ function renderResult(r) {
     const marked = s.verifiee ? markCitation(c.text, s.citation) : null;
     const quote = marked && marked.excerpt ? marked.excerpt : s.citation;
     return `
-      <li class="cite${s.verifiee ? "" : " unverified"}">
+      <li class="card cite${s.verifiee ? "" : " unverified"}">
         <div class="cite-meta">
           <span class="role ${esc(s.role)}">${esc(t(`role.${s.role}`))}</span>
           <span>${pages}</span>
@@ -158,15 +154,15 @@ function renderResult(r) {
     .map((k) => `<span class="f-${r.constats[k]}">${t(`finding.short.${k}`)}&nbsp;: <b>${t(`finding.${r.constats[k]}`)}</b></span>`).join("") : "";
 
   const decide = missing.length || options.length ? `
-    <div class="decide">
+    <div class="card decide">
       ${missing.length ? `<h3>${t("res.missing")}</h3><ul>${missing.map((m) => `<li>${md(m)}</li>`).join("")}</ul>` : ""}
       ${options.length ? `<h3>${t("res.options")}</h3><ul>${options.map((m) => `<li>${md(m)}</li>`).join("")}</ul>` : ""}
     </div>` : "";
 
   $("#result").innerHTML = `
-    <div class="verdict ${v}">
+    <div class="card verdict ${v}">
       <div class="verdict-line">
-        <span class="verdict-word">${VERDICT_ICONS[v]}&nbsp; ${t(`verdict.${v}`)}</span>
+        <span class="badge ${v}">${VERDICT_ICONS[v]} ${t(`verdict.${v}`)}</span>
         <span class="hint">${esc(r.contract.insurer)} — ${esc(r.contract.product)}</span>
       </div>
       <p class="resume">${md(r.resume)}</p>
@@ -177,7 +173,7 @@ function renderResult(r) {
     <h3 class="section-title">${t("res.cited", { n: r.etapes.length })}</h3>
     ${steps ? `<ol class="cites">${steps}</ol>` : `<p class="hint">${t("res.clauses_none")}</p>`}
 
-    <details class="trace">
+    <details class="card trace">
       <summary>${t("res.trace")}</summary>
       <dl class="kv">
         ${r.qualification ? `<dt>${t("res.qualification").replace(/[\s ]*:$/, "")}</dt><dd>${md(r.qualification)}</dd>` : ""}
@@ -244,7 +240,7 @@ $("#form").addEventListener("submit", async (e) => {
     renderResult(data);
     if (window.innerWidth < 900) $("#result").scrollIntoView({ behavior: "smooth" });
   } catch (ex) {
-    $("#result").innerHTML = `<div class="verdict"><p class="loading-title">${t("res.no_answer")}</p><p class="error">${esc(ex.message)}</p></div>`;
+    $("#result").innerHTML = `<div class="card placeholder"><p class="loading-title">${t("res.no_answer")}</p><p class="error">${esc(ex.message)}</p></div>`;
   } finally {
     btn.disabled = false;
     btn.textContent = t("form.submit");
