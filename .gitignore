@@ -12,3 +12,4 @@ data/*.log
 data/*.tmp
 data/*.db
 .claude/
+!data/pdfs/.gitkeep

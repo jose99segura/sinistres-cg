@@ -1,0 +1,13 @@
+# What `gcloud run deploy --source` uploads to Cloud Build. Unlike git, it includes data/pdfs:
+# some insurer sites refuse downloads from cloud IPs, so the local copies (sha256-checked) are sent.
+.git
+.venv
+.env
+.claude
+drafts/
+data/*.db
+data/*.tmp
+data/*.log
+data/segments/*.structure.json
+eval/results/
+**/__pycache__

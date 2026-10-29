@@ -25,7 +25,9 @@ def ensure_pdf(entry: dict, log=print):
         log(f"{entry['id']}: downloading {entry['url']}")
         path.parent.mkdir(parents=True, exist_ok=True)
         r = httpx.get(entry["url"], follow_redirects=True, timeout=60,
-                      headers={"User-Agent": "Mozilla/5.0 (sinistres-cg; public document fetch)"})
+                      headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                                             "(KHTML, like Gecko) Chrome/130.0 Safari/537.36",
+                               "Accept": "application/pdf,*/*"})
         r.raise_for_status()
         path.write_bytes(r.content)
     digest = hashlib.sha256(path.read_bytes()).hexdigest()

@@ -1,7 +1,6 @@
 .venv
 .env
 .claude
-data/pdfs
 data/*.db
 data/*.tmp
 data/*.log

@@ -11,6 +11,8 @@ RUN uv sync --frozen --no-dev --no-install-project
 
 COPY contracts.yaml ./
 COPY data/segments/*.json data/segments/
+# Local copies when present (deploys from a workstation); otherwise the build downloads them.
+COPY data/pdfs/ data/pdfs/
 COPY sinistres sinistres
 COPY eval/cases.yaml eval/report.json* eval/
 RUN uv sync --frozen --no-dev \

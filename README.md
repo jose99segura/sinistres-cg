@@ -1,6 +1,8 @@
 # Couvert ou pas ? — a claim against the general conditions, with its sources
 
-**Live demo:** LIVE_URL
+**Live demo:** https://sinistres-cg-820639010070.europe-west1.run.app (cold start: the first request can take ~20 s)
+
+**Code:** https://github.com/jose99segura/sinistres-cg
 
 Describe a home-insurance claim in French. The app reads the insurer's *conditions générales* and answers
 **couvert**, **non couvert** or **indéterminé**, says why, and shows the clauses it relies on: quoted word
